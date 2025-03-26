@@ -13,7 +13,7 @@
         <h1>Foulz Tweaks and Optimizations</h1>
         <nav>
             <ul>
-                <li><a href="/home" class="nav-link active">Home</a></li>
+                <li><a href="/" class="nav-link active">Home</a></li>
                 <li><a href="/optimizations" class="nav-link">Optimizations</a></li>
                 <li><a href="/bypass" class="nav-link">Bypass</a></li>
                 <li><a href="/contact" class="nav-link">Contact</a></li>
@@ -46,23 +46,13 @@
         <p>&copy; 2025 Foulz Tweaks and Optimizations. All Rights Reserved.</p>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button id="back-to-top" class="back-to-top-btn">↑</button>
-
     <script>
-        // Back to top button functionality
-        const backToTopButton = document.getElementById('back-to-top');
-        window.onscroll = function() {
-            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-                backToTopButton.style.display = "block";
-            } else {
-                backToTopButton.style.display = "none";
-            }
-        };
-
-        backToTopButton.onclick = function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        };
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
     </script>
 </body>
 </html>
