@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foulz Tweaks and Optimizations - Optimizations</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Tektur&display=swap" rel="stylesheet">
+    <title>Foulz Tweaks and Optimizations</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
-        <h1>Foulz Tweaks and Optimizations</h1>
+        <div class="logo-container">
+            <img src="/Images/logofr.png" alt="Logo" class="logo">
+            <h1>Foulz Tweaks and Optimizations</h1>
+        </div>
         <nav>
             <ul>
-                <li><a href="home" class="nav-link">Home</a></li>
-                <li><a href="optimizations" class="nav-link active">Optimizations</a></li>
-                <li><a href="bypass" class="nav-link">Bypass</a></li>
-                <li><a href="contact" class="nav-link">Contact</a></li>
+                <li><a href="/home" class="nav-link">Home</a></li>
+                <li><a href="/optimizations" class="nav-link active">Optimizations</a></li>
+                <li><a href="/bypass" class="nav-link">Bypass</a></li>
+                <li><a href="/contact" class="nav-link">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -25,27 +30,19 @@
         <p>Explore tweaks and adjustments to boost your system’s speed and efficiency.</p>
     </section>
 
-    <section id="bypass">
-        <h2>Bypasses</h2>
-        <p>Follow expert guides to clear logs and protect your privacy with ease.</p>
-    </section>
-
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Add <strong>.foulz.</strong> on Discord for assistance and inquiries.</p>
-    </section>
-
     <footer>
         <p>&copy; 2025 Foulz Tweaks and Optimizations. All Rights Reserved.</p>
     </footer>
 
     <script>
         document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function() {
+            link.addEventListener('click', function () {
                 document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
                 this.classList.add('active');
             });
         });
     </script>
+
 </body>
+
 </html>
