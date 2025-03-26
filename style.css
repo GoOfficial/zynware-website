@@ -6,8 +6,8 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f7f7f7; /* Light background color */
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
     color: #333;
     line-height: 1.6;
 }
@@ -18,56 +18,60 @@ body {
     padding: 20px;
 }
 
-/* Navbar */
-.navbar {
-    background-color: #ff66b2; /* Soft pink for header */
-    padding: 20px 0;
-    text-align: center;
-    border-bottom: 3px solid #ff3385;
-}
-
-.navbar h1 {
-    font-size: 2.5rem;
+/* Header */
+header {
+    background-color: #ff66b2; /* Soft pink */
     color: white;
+    text-align: center;
+    padding: 40px 0;
 }
 
-.navbar nav ul {
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+header nav ul {
     list-style-type: none;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
-.navbar nav ul li {
+header nav ul li {
     display: inline;
     margin-right: 20px;
 }
 
-.navbar nav ul li a {
+header nav ul li a {
     color: white;
     text-decoration: none;
     font-size: 1.2rem;
     font-weight: 500;
 }
 
-.navbar nav ul li a:hover {
+header nav ul li a:hover {
     text-decoration: underline;
 }
 
-/* Home Section */
-.home {
-    background-color: #ffebf2; /* Light pink for background */
-    padding: 50px 0;
+/* Home section */
+#home {
+    background-color: #ffe6f1; /* Light pink */
+    padding: 40px 0;
     text-align: center;
 }
 
-.home h2 {
+#home h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
     color: #ff3385;
 }
 
-.home p {
+#home p {
     font-size: 1.2rem;
-    margin-bottom: 20px;
     color: #666;
 }
 
@@ -86,75 +90,44 @@ body {
     background-color: #ff3385;
 }
 
-/* Optimizations Section */
-.optimizations {
-    background-color: #fff0f5; /* Light pink */
-    padding: 50px 0;
+/* Section style */
+.section {
+    background-color: #fff0f5; /* Light pink background */
+    padding: 40px 0;
     text-align: center;
 }
 
-.optimizations h2 {
+.section h2 {
     font-size: 2rem;
     margin-bottom: 30px;
     color: #ff3385;
 }
 
-.service-card {
-    background-color: #ffe6f1; /* Subtle pink */
+/* Cards */
+.card {
+    background-color: #ffe6f1; /* Light pink */
     border: 1px solid #ff66b2;
     padding: 20px;
     margin: 15px;
     display: inline-block;
     width: 45%;
     box-sizing: border-box;
-    transition: all 0.3s ease;
     border-radius: 10px;
+    transition: all 0.3s ease;
 }
 
-.service-card:hover {
+.card:hover {
     background-color: #ff66b2;
     color: white;
 }
 
-.service-card h3 {
+.card h3 {
     font-size: 1.5rem;
     margin-bottom: 10px;
 }
 
-.service-card p {
+.card p {
     font-size: 1rem;
-    color: #333;
-}
-
-/* Bypass Section */
-.bypass {
-    background-color: #ffebf2;
-    padding: 50px 0;
-    text-align: center;
-}
-
-.bypass h2 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    color: #ff3385;
-}
-
-/* Contact Section */
-.contact {
-    background-color: #ffe6f1;
-    padding: 50px 0;
-    text-align: center;
-}
-
-.contact h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #ff3385;
-}
-
-.contact p {
-    font-size: 1.2rem;
-    color: #666;
 }
 
 /* Footer */
