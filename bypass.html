@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bypass | Foulz Tweaks and Optimizations</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/Images/logofr.png" type="image/png"> <!-- Correct favicon path -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Add this for smooth fade effect -->
+</head>
+<body>
+    <header>
+        <img src="/Images/logofr.png" alt="Logo" class="logo">
+        <h1>Foulz Tweaks and Optimizations</h1>
+        <nav>
+            <ul>
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/optimizations" class="nav-link">Optimizations</a></li>
+                <li><a href="/bypass" class="nav-link active">Bypass</a></li>
+                <li><a href="/contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="bypass">
+        <h2>Bypass Techniques</h2>
+        <p>Learn about advanced bypass methods to unlock restricted content or enhance your system performance.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Foulz Tweaks and Optimizations. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Fade In / Fade Out Script -->
+    <script>
+        // Ensure smooth fade-in/fade-out transitions for page content
+        $(document).ready(function () {
+            $("a").click(function (event) {
+                event.preventDefault();
+                var url = $(this).attr("href");
+
+                $("body").fadeOut(500, function () {
+                    window.location = url;
+                });
+            });
+
+            $(window).on("load", function () {
+                $("body").fadeIn(1000);
+            });
+        });
+    </script>
+</body>
+</html>
