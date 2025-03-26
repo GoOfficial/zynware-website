@@ -11,12 +11,10 @@ body {
 header {
     background-color: #5844E5;
     color: white;
-    padding: 10px 0;
+    padding: 10px 20px;
     display: flex;
-    justify-content: flex-start; /* Align items to the left */
+    justify-content: space-between; /* Space between logo/title and navbar */
     align-items: center;
-    padding-left: 20px;
-    padding-right: 20px;
 }
 
 header .logo {
@@ -28,6 +26,10 @@ header h1 {
     font-size: 1.8em;
     margin-left: 20px; /* Space between logo and text */
     font-weight: bold;
+}
+
+nav {
+    margin-left: auto; /* Pushes the navbar to the right */
 }
 
 nav ul {
