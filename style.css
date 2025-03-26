@@ -1,5 +1,5 @@
 body {
-    font-family: 'Lobster', sans-serif;
+    font-family: 'Tektur', sans-serif;
     margin: 0;
     padding: 0;
     background: linear-gradient(to right, #FF66B2, #FF3399);
@@ -88,6 +88,12 @@ footer {
     background-color: #333;
 }
 
+footer p {
+    color: white;
+    margin: 0;
+}
+
+/* Falling heart animation */
 .falling-heart {
     position: absolute;
     top: -20px;
@@ -100,9 +106,4 @@ footer {
     to {
         top: 100%;
     }
-}
-
-footer p {
-    color: white;
-    margin: 0;
 }
