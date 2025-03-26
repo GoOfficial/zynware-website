@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Optimizations | Foulz Tweaks and Optimizations</title>
-    <link rel="stylesheet" href="/style.css">
+    <title>Optimizations - Foulz Tweaks and Optimizations</title>
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Add this for smooth fade effect -->
 </head>
 <body>
     <header>
-        <img src="/Images/logofr.png" alt="Logo" class="logo">
-        <h1>Foulz Tweaks and Optimizations</h1>
+        <div class="header-left">
+            <img src="Images/logofr.png" alt="Logo" class="logo">
+            <h1>Foulz Tweaks and Optimizations</h1>
+        </div>
         <nav>
             <ul>
                 <li><a href="/" class="nav-link">Home</a></li>
@@ -27,25 +28,25 @@
         <p>Explore tweaks and adjustments to boost your system’s speed and efficiency.</p>
     </section>
 
+    <section id="bypass">
+        <h2>Bypasses</h2>
+        <p>Follow expert guides to clear logs and protect your privacy with ease.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Add <strong>.foulz.</strong> on Discord for assistance and inquiries.</p>
+    </section>
+
     <footer>
         <p>&copy; 2025 Foulz Tweaks and Optimizations. All Rights Reserved.</p>
     </footer>
 
-    <!-- Fade In / Fade Out Script -->
     <script>
-        // Ensure smooth fade-in/fade-out transitions for page content
-        $(document).ready(function () {
-            $("a").click(function (event) {
-                event.preventDefault();
-                var url = $(this).attr("href");
-
-                $("body").fadeOut(500, function () {
-                    window.location = url;
-                });
-            });
-
-            $(window).on("load", function () {
-                $("body").fadeIn(1000);
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
             });
         });
     </script>
