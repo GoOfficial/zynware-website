@@ -53,15 +53,14 @@ header nav ul li a {
     position: relative;
 }
 
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
 /* Active navbar link underline */
 header nav ul li a.active {
     border-bottom: 4px solid #fff; /* White underline */
     padding-bottom: 6px;
-}
-
-/* Hover effect for navbar links */
-header nav ul li a:hover {
-    text-decoration: underline;
 }
 
 /* Home section */
