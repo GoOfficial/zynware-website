@@ -12,7 +12,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    background-color: #333;
+    background-color: #5844E5; /* Dark blueish navbar background */
 }
 
 header .logo-container {
@@ -85,25 +85,10 @@ section {
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #333;
+    background-color: #5844E5; /* Dark blueish footer background */
 }
 
 footer p {
     color: white;
     margin: 0;
-}
-
-/* Falling heart animation */
-.falling-heart {
-    position: absolute;
-    top: -20px;
-    font-size: 40px;
-    color: #FF66B2;
-    animation: fall 4s infinite;
-}
-
-@keyframes fall {
-    to {
-        top: 100%;
-    }
 }
