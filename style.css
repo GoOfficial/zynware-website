@@ -1,94 +1,144 @@
-/* General Body Styling */
-body {
+* {
     margin: 0;
     padding: 0;
-    font-family: 'Tektur', sans-serif;
-    background: linear-gradient(to right, #ff69b4, #ff1493);
-    color: white;
     box-sizing: border-box;
 }
 
-/* Header and Navigation */
+body {
+    font-family: 'Tektur', sans-serif;
+    background: linear-gradient(135deg, #f7b1e1, #ff7abf);
+    color: #333;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #5844E5;
+    background: #5844E5;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Logo and Title Alignment */
 .logo-container {
     display: flex;
-    align-items: center; /* Vertically align logo and title */
+    align-items: center;
 }
 
 .logo {
-    height: 50px; /* Logo height */
-    margin-right: 10px; /* Space between logo and title */
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
 }
 
-.site-title {
-    margin: 0;
-    font-size: 24px; /* Adjust title size */
+h1 {
+    font-size: 1.8rem;
+    color: #fff;
+    text-transform: uppercase;
 }
 
-/* Navigation Styling */
 nav ul {
-    list-style-type: none;
+    list-style: none;
     display: flex;
-    gap: 20px;
-    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: white;
-    transition: 0.3s;
+    color: #fff;
+    font-size: 1.2rem;
+    text-transform: uppercase;
     position: relative;
+    padding: 5px 0;
+    transition: color 0.3s, border-bottom 0.3s;
 }
 
-/* Active Underline Animation */
-.nav-link.active::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    width: 100%;
-    height: 2px;
-    background-color: white;
-}
-
-/* Hover Effect */
 nav ul li a:hover {
-    color: #FFD700;
+    color: #ff7abf;
 }
 
-/* Sections */
+nav ul li a.active {
+    border-bottom: 3px solid #ff7abf;
+}
+
 section {
-    padding: 60px 20px;
+    padding: 40px 20px;
     text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    margin: 30px auto;
+    max-width: 90%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Footer */
-footer {
-    background-color: #5844E5;
-    text-align: center;
-    padding: 10px;
+section h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
 }
 
-/* Call-to-Action Button */
+section p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #555;
+}
+
 .cta-button {
     display: inline-block;
+    background: #ff7abf;
+    color: #fff;
     padding: 10px 20px;
-    background-color: white;
-    color: #ff1493;
+    font-size: 1.2rem;
     text-decoration: none;
     border-radius: 5px;
-    margin-top: 20px;
+    transition: background 0.3s;
 }
 
 .cta-button:hover {
-    background-color: #FFD700;
-    color: #ff1493;
+    background: #ff579f;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: #fff;
+}
+
+footer p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+body {
+    animation: fadeIn 1s ease-in;
+}
+
+header {
+    animation: fadeIn 1s ease-in;
+    animation-delay: 0.3s;
+}
+
+section {
+    animation: fadeIn 1s ease-in;
+    animation-delay: 0.6s;
+}
+
+footer {
+    animation: fadeIn 1s ease-in;
+    animation-delay: 1s;
 }
