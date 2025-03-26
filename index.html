@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +7,11 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <!-- Falling Hearts Container -->
-    <div class="hearts-container"></div>
-
     <header>
+        <div class="logo-container">
+            <img src="Images/logofr.png" alt="Foulz Logo" class="logo">
+        </div>
         <h1>Foulz Tweaks and Optimizations</h1>
         <nav>
             <ul>
@@ -26,57 +24,46 @@
     </header>
 
     <section id="home">
-        <h2>Welcome to Foulz Tweaks and Optimizations!</h2>
-        <p>Optimize, Bypass, and improve your computer performance, and exploit with no issue.</p>
-        <button onclick="location.href='#contact'">Information</button>
+        <h2>Welcome to the Ultimate Tech Experience!</h2>
+        <p>Optimize, Bypass, and Enhance Your Computer Performance Effortlessly.</p>
+        <a href="#info" class="cta-button">Information</a>
     </section>
 
     <section id="optimizations">
         <h2>Optimizations</h2>
-        <p>Do a list of optimizations to improve performance.</p>
+        <p>Explore tweaks and adjustments to boost your system’s speed and efficiency.</p>
     </section>
 
     <section id="bypass">
         <h2>Bypasses</h2>
-        <p>Do a series of instructions to delete log exposure effectively and safely.</p>
+        <p>Follow expert guides to clear logs and protect your privacy with ease.</p>
     </section>
 
     <section id="contact">
         <h2>Contact</h2>
-        <p>Add <strong>.foulz.</strong> on Discord and ask for personal assistance or any questions.</p>
+        <p>Add <strong>.foulz.</strong> on Discord for assistance and inquiries.</p>
     </section>
 
     <footer>
-        <p>© 2025 Foulz Tweaks and Optimizations. All Rights Reserved.</p>
+        <p>&copy; 2025 Foulz Tweaks and Optimizations. All Rights Reserved.</p>
     </footer>
 
     <script>
-        // Navbar underline animation
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function () {
-                navLinks.forEach(item => item.classList.remove('active'));
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
                 this.classList.add('active');
             });
         });
 
-        // Falling Hearts Animation
-        function createHeart() {
+        // Falling hearts animation
+        setInterval(() => {
             const heart = document.createElement('div');
-            heart.classList.add('heart');
-            heart.innerHTML = '💖';
-            heart.style.left = `${Math.random() * 100}vw`;
-            heart.style.animationDuration = `${Math.random() * 3 + 2}s`; // 2-5 seconds
-            document.querySelector('.hearts-container').appendChild(heart);
-
-            setTimeout(() => {
-                heart.remove();
-            }, 5000);
-        }
-
-        setInterval(createHeart, 300); // Create heart every 300ms
+            heart.className = 'falling-heart';
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 4000);
+        }, 300);
     </script>
-
 </body>
-
 </html>
