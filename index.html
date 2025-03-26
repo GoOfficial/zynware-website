@@ -10,6 +10,9 @@
 </head>
 
 <body>
+    <!-- Falling Hearts Container -->
+    <div class="hearts-container"></div>
+
     <header>
         <h1>Foulz Tweaks and Optimizations</h1>
         <nav>
@@ -50,13 +53,28 @@
     <script>
         // Navbar underline animation
         const navLinks = document.querySelectorAll('.nav-link');
-
         navLinks.forEach(link => {
             link.addEventListener('click', function () {
                 navLinks.forEach(item => item.classList.remove('active'));
                 this.classList.add('active');
             });
         });
+
+        // Falling Hearts Animation
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '💖';
+            heart.style.left = `${Math.random() * 100}vw`;
+            heart.style.animationDuration = `${Math.random() * 3 + 2}s`; // 2-5 seconds
+            document.querySelector('.hearts-container').appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(createHeart, 300); // Create heart every 300ms
     </script>
 
 </body>
