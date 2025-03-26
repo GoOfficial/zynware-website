@@ -7,7 +7,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    background-color: #fff;
     color: #333;
     line-height: 1.6;
 }
@@ -27,12 +27,12 @@ header {
 }
 
 header h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 10px;
 }
 
 header p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 300;
 }
 
@@ -58,19 +58,19 @@ header nav ul li a:hover {
 }
 
 /* Home section */
-#home {
+.home-section {
     background-color: #ffe6f1; /* Light pink */
     padding: 40px 0;
     text-align: center;
 }
 
-#home h2 {
+.home-section h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
     color: #ff3385;
 }
 
-#home p {
+.home-section p {
     font-size: 1.2rem;
     color: #666;
 }
