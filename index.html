@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +7,11 @@
     <link rel="stylesheet" href="/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
     <header>
         <div class="logo-container">
             <img src="/Images/logofr.png" alt="Logo" class="logo">
-            <h1 class="site-title">Foulz Tweaks and Optimizations</h1>
+            <h1>Foulz Tweaks and Optimizations</h1>
         </div>
         <nav>
             <ul>
@@ -52,13 +50,11 @@
 
     <script>
         document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function () {
+            link.addEventListener('click', function() {
                 document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
                 this.classList.add('active');
             });
         });
     </script>
-
 </body>
-
 </html>
