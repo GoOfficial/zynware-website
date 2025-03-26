@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimizations - Foulz Tweaks and Optimizations</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tektur&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="Images/logofr.png" alt="Foulz Logo" class="logo">
+        </div>
+        <h1>Foulz Tweaks and Optimizations</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="optimizations.html" class="nav-link active">Optimizations</a></li>
+                <li><a href="bypass.html" class="nav-link">Bypass</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="optimizations">
+        <h2>Optimizations</h2>
+        <p>Explore tweaks and adjustments to boost your system’s speed and efficiency.</p>
+        <!-- Add your content here for optimizations -->
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Foulz Tweaks and Optimizations. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
