@@ -6,6 +6,7 @@
     <title>Foulz Tweaks and Optimizations</title>
     <link rel="stylesheet" href="/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Add this for smooth fade effect -->
 </head>
 <body>
     <header>
@@ -27,48 +28,25 @@
         <a href="#info" class="cta-button">Information</a>
     </section>
 
-    <section id="optimizations">
-        <h2>Optimizations</h2>
-        <p>Explore tweaks and adjustments to boost your system’s speed and efficiency.</p>
-    </section>
-
-    <section id="bypass">
-        <h2>Bypasses</h2>
-        <p>Follow expert guides to clear logs and protect your privacy with ease.</p>
-    </section>
-
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Add <strong>.foulz.</strong> on Discord for assistance and inquiries.</p>
-    </section>
-
     <footer>
         <p>&copy; 2025 Foulz Tweaks and Optimizations. All Rights Reserved.</p>
     </footer>
 
-    <!-- JavaScript for fade transition -->
+    <!-- Fade In / Fade Out Script -->
     <script>
-        // Fade out when navigating to a new page
-        function fadeOut() {
-            document.body.style.opacity = 0;
-        }
+        // Ensure smooth fade-in/fade-out transitions for page content
+        $(document).ready(function () {
+            $("a").click(function (event) {
+                event.preventDefault();
+                var url = $(this).attr("href");
 
-        // Fade in when the page loads
-        function fadeIn() {
-            document.body.style.opacity = 1;
-        }
+                $("body").fadeOut(500, function () {
+                    window.location = url;
+                });
+            });
 
-        // Event listener for page load
-        window.addEventListener('load', fadeIn);
-
-        // Event listener for click on navigation links
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function(event) {
-                event.preventDefault();  // Prevent default link behavior
-                fadeOut();
-                setTimeout(() => {
-                    window.location = link.href;  // Navigate after fade out
-                }, 500);  // Wait for 500ms (duration of fade-out)
+            $(window).on("load", function () {
+                $("body").fadeIn(1000);
             });
         });
     </script>
