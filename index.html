@@ -1,50 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Foulz Tweaks and Optimizations</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 </head>
+
 <body>
+    <header>
+        <h1>Foulz Tweaks and Optimizations</h1>
+        <nav>
+            <ul>
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#optimizations" class="nav-link">Optimizations</a></li>
+                <li><a href="#bypass" class="nav-link">Bypass</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<header>
-    <h1>Foulz Tweaks and Optimizations</h1>
-    <nav>
-        <ul>
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#optimizations">Optimizations</a></li>
-            <li><a href="#bypass">Bypass</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-</header>
+    <section id="home">
+        <h2>Welcome to Foulz Tweaks and Optimizations!</h2>
+        <p>Optimize, Bypass, and improve your computer performance, and exploit with no issue.</p>
+        <button onclick="location.href='#contact'">Information</button>
+    </section>
 
-<section id="home">
-    <h2>Welcome to Foulz Tweaks and Optimizations</h2>
-    <p>Optimize, Bypass, and improve your computer performance and exploit with no issue.</p>
-    <button class="info-btn">Information</button>
-</section>
+    <section id="optimizations">
+        <h2>Optimizations</h2>
+        <p>Do a list of optimizations to improve performance.</p>
+    </section>
 
-<section id="optimizations">
-    <h2>Optimizations</h2>
-    <p>Do a list of optimizations to improve performance.</p>
-</section>
+    <section id="bypass">
+        <h2>Bypasses</h2>
+        <p>Do a series of instructions to delete log exposure effectively and safely.</p>
+    </section>
 
-<section id="bypass">
-    <h2>Bypasses</h2>
-    <p>Do a series of instructions to delete log exposure.</p>
-</section>
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Add <strong>.foulz.</strong> on Discord and ask for personal assistance or any questions.</p>
+    </section>
 
-<section id="contact">
-    <h2>Contact</h2>
-    <p>Add .foulz. on Discord and ask for personal assistance and any questions.</p>
-</section>
+    <footer>
+        <p>© 2025 Foulz Tweaks and Optimizations. All Rights Reserved.</p>
+    </footer>
 
-<footer>
-    <p>&copy; 2025 Foulz Tweaks and Optimizations. All Rights Reserved.</p>
-</footer>
+    <script>
+        // Navbar underline animation
+        const navLinks = document.querySelectorAll('.nav-link');
 
-<script src="script.js"></script>
+        navLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                navLinks.forEach(item => item.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+
 </body>
+
 </html>
