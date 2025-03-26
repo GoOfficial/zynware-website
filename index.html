@@ -1,59 +1,124 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foulz Tweaks and Optimizations</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <div class="container">
-            <h1>Foulz Tweaks and Optimizations</h1>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#optimizations">Optimizations</a></li>
-                    <li><a href="#bypass">Bypass</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <section id="home">
-        <div class="container">
-            <h2>Welcome to Foulz Tweaks and Optimizations</h2>
-            <p>Optimize, Bypass, and improve your computer performance with no issues.</p>
-            <button class="info-btn">Information</button>
-        </div>
-    </section>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #333;
+    line-height: 1.6;
+}
 
-    <section id="optimizations">
-        <div class="container">
-            <h2>Optimizations</h2>
-            <p>Do a list of optimizations to improve performance and speed up your computer.</p>
-        </div>
-    </section>
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
 
-    <section id="bypass">
-        <div class="container">
-            <h2>Bypass</h2>
-            <p>Do a series of instructions to delete log exposure and protect your privacy.</p>
-        </div>
-    </section>
+/* Header */
+header {
+    background-color: #ff66b2; /* Pink */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
 
-    <section id="contact">
-        <div class="container">
-            <h2>Contact</h2>
-            <p>Add .foulz. on Discord for personalized assistance and any questions you may have.</p>
-        </div>
-    </section>
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Foulz Tweaks and Optimizations. All Rights Reserved.</p>
-        </div>
-    </footer>
-</body>
-</html>
+header nav ul {
+    list-style-type: none;
+    margin-top: 10px;
+}
+
+header nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 10px 0;
+    position: relative;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Active navbar link underline */
+header nav ul li a.active {
+    border-bottom: 4px solid #fff; /* White underline */
+    padding-bottom: 6px;
+}
+
+/* Home section */
+section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+#home {
+    background-color: #ffebf2; /* Light pink */
+}
+
+#optimizations {
+    background-color: #ffe6f1; /* Lighter pink */
+}
+
+#bypass {
+    background-color: #ffd6e8; /* Even lighter pink */
+}
+
+#contact {
+    background-color: #ffb3cc; /* Soft pink */
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #ff3385;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+button.info-btn {
+    background-color: #ff66b2;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.info-btn:hover {
+    background-color: #ff3385;
+}
+
+/* Footer */
+footer {
+    background-color: #ff66b2;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer p {
+    font-size: 1rem;
+}
