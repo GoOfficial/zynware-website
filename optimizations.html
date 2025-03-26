@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Optimizations - Foulz Tweaks and Optimizations</title>
+    <title>Foulz Tweaks and Optimizations - Optimizations</title>
     <link rel="stylesheet" href="/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -13,7 +13,7 @@
         <h1>Foulz Tweaks and Optimizations</h1>
         <nav>
             <ul>
-                <li><a href="/" class="nav-link">Home</a></li> <!-- Fix here: Home now redirects to root -->
+                <li><a href="/" class="nav-link">Home</a></li>
                 <li><a href="/optimizations" class="nav-link active">Optimizations</a></li>
                 <li><a href="/bypass" class="nav-link">Bypass</a></li>
                 <li><a href="/contact" class="nav-link">Contact</a></li>
@@ -21,20 +21,54 @@
         </nav>
     </header>
 
+    <section id="home">
+        <h2>Welcome to the Ultimate Tech Experience!</h2>
+        <p>Optimize, Bypass, and Enhance Your Computer Performance Effortlessly.</p>
+        <a href="#info" class="cta-button">Information</a>
+    </section>
+
     <section id="optimizations">
         <h2>Optimizations</h2>
         <p>Explore tweaks and adjustments to boost your system’s speed and efficiency.</p>
+    </section>
+
+    <section id="bypass">
+        <h2>Bypasses</h2>
+        <p>Follow expert guides to clear logs and protect your privacy with ease.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Add <strong>.foulz.</strong> on Discord for assistance and inquiries.</p>
     </section>
 
     <footer>
         <p>&copy; 2025 Foulz Tweaks and Optimizations. All Rights Reserved.</p>
     </footer>
 
+    <!-- JavaScript for fade transition -->
     <script>
+        // Fade out when navigating to a new page
+        function fadeOut() {
+            document.body.style.opacity = 0;
+        }
+
+        // Fade in when the page loads
+        function fadeIn() {
+            document.body.style.opacity = 1;
+        }
+
+        // Event listener for page load
+        window.addEventListener('load', fadeIn);
+
+        // Event listener for click on navigation links
         document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function() {
-                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
+            link.addEventListener('click', function(event) {
+                event.preventDefault();  // Prevent default link behavior
+                fadeOut();
+                setTimeout(() => {
+                    window.location = link.href;  // Navigate after fade out
+                }, 500);  // Wait for 500ms (duration of fade-out)
             });
         });
     </script>
