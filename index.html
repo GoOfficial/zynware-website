@@ -9,10 +9,8 @@
 </head>
 <body>
     <header>
-        <div class="logo-container">
-            <img src="/Images/logofr.png" alt="Logo" class="logo">
-            <h1>Foulz Tweaks and Optimizations</h1>
-        </div>
+        <img src="/Images/logofr.png" alt="Logo" class="logo">
+        <h1>Foulz Tweaks and Optimizations</h1>
         <nav>
             <ul>
                 <li><a href="/home" class="nav-link active">Home</a></li>
@@ -48,13 +46,23 @@
         <p>&copy; 2025 Foulz Tweaks and Optimizations. All Rights Reserved.</p>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top-btn">↑</button>
+
     <script>
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function() {
-                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('back-to-top');
+        window.onscroll = function() {
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        };
+
+        backToTopButton.onclick = function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
     </script>
 </body>
 </html>
