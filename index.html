@@ -46,11 +46,29 @@
         <p>&copy; 2025 Foulz Tweaks and Optimizations. All Rights Reserved.</p>
     </footer>
 
+    <!-- JavaScript for fade transition -->
     <script>
+        // Fade out when navigating to a new page
+        function fadeOut() {
+            document.body.style.opacity = 0;
+        }
+
+        // Fade in when the page loads
+        function fadeIn() {
+            document.body.style.opacity = 1;
+        }
+
+        // Event listener for page load
+        window.addEventListener('load', fadeIn);
+
+        // Event listener for click on navigation links
         document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function() {
-                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
+            link.addEventListener('click', function(event) {
+                event.preventDefault();  // Prevent default link behavior
+                fadeOut();
+                setTimeout(() => {
+                    window.location = link.href;  // Navigate after fade out
+                }, 500);  // Wait for 500ms (duration of fade-out)
             });
         });
     </script>
