@@ -49,8 +49,17 @@ header nav ul li a {
     color: white;
     text-decoration: none;
     font-size: 1.2rem;
+    padding: 10px 0;
+    position: relative;
 }
 
+/* Active navbar link underline */
+header nav ul li a.active {
+    border-bottom: 4px solid #fff; /* White underline */
+    padding-bottom: 6px;
+}
+
+/* Hover effect for navbar links */
 header nav ul li a:hover {
     text-decoration: underline;
 }
