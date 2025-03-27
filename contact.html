@@ -32,6 +32,43 @@
             color: #fff;
         }
 
+        header {
+            background-color: #121212;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        nav ul li a.active {
+            font-weight: bold;
+            color: #2575fc;
+        }
+
         .container {
             display: flex;
             flex-direction: column;
@@ -85,15 +122,33 @@
             transform: scale(1);
             box-shadow: 0 0 10px rgba(37, 117, 252, 0.7);
         }
+
+        footer {
+            text-align: center;
+            background-color: #121212;
+            padding: 10px;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Contact Foulz Tweaks and Optimizations</h1>
+        <a href="https://guns.lol/foulz" target="_blank">
+            <img src="/Images/logofr.png" alt="Logo" class="logo">
+        </a>
+        <h1>Foulz Tweaks and Optimizations</h1>
+        <nav>
+            <ul>
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/optimizations" class="nav-link">Optimizations</a></li>
+                <li><a href="/bypass" class="nav-link">Bypass</a></li>
+                <li><a href="/contact" class="nav-link active">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
     <div class="container">
-        <p>Feel free to reach out through any of the platforms below:</p>
+        <p>Feel free to reach out through any of the platforms below. I'll assist you with anything you purchase or request support for:</p>
         
         <div class="button-container">
             <a href="https://discord.gg/rbworld" class="button discord" target="_blank">Discord</a>
