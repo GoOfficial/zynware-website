@@ -20,3 +20,20 @@ navLinks.forEach(link => {
         });
     });
 });
+
+// Typing Effect
+document.addEventListener("DOMContentLoaded", () => {
+    const title = "Foulz Tweaks and Optimizations";
+    const titleElement = document.getElementById("main-title");
+    let i = 0;
+
+    function type() {
+        if (i < title.length) {
+            titleElement.textContent += title.charAt(i);
+            i++;
+            setTimeout(type, 100); // Adjust speed by changing the delay (100ms)
+        }
+    }
+
+    type();
+});
