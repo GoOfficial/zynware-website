@@ -21,15 +21,18 @@ navLinks.forEach(link => {
     });
 });
 
-// Typing Effect
+// Typing Effect (Fix for Contact Page)
 document.addEventListener("DOMContentLoaded", () => {
-    const title = "Foulz Tweaks and Optimizations";
+    const title = "Foulz Tweaks and Optimizations - Contact Us"; // Adjusted title for contact page
     const titleElement = document.getElementById("main-title");
     let i = 0;
 
+    // Clear text content first to ensure correct re-rendering on each load
+    titleElement.textContent = '';
+
     function type() {
         if (i < title.length) {
-            titleElement.textContent += title.charAt(i);
+            titleElement.innerHTML += title.charAt(i); // Use innerHTML to handle more complex text rendering
             i++;
             setTimeout(type, 100); // Adjust speed by changing the delay (100ms)
         }
