@@ -16,13 +16,13 @@
     <link rel="icon" href="/Images/logofr.png" type="image/png">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/script.js"></script> <!-- Linked script.js for typing effect and other scripts -->
+    <script src="/script.js"></script> <!-- Linked script.js for smooth scroll and active link effect -->
 
     <style>
         /* Contact Page Styles */
         body {
             font-family: 'Tektur', sans-serif;
-            background-color: #121212;
+            background-color: #FFB6C1; /* Baby pink background */
             color: #fff;
             margin: 0;
             padding: 0;
@@ -40,6 +40,13 @@
             flex-direction: column;
             align-items: center;
             margin-top: 50px;
+        }
+
+        .message {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            color: #fff;
         }
 
         .button-container {
@@ -95,7 +102,7 @@
         <a href="https://guns.lol/foulz" target="_blank">
             <img src="/Images/logofr.png" alt="Logo" class="logo">
         </a>
-        <h1 id="main-title"></h1> <!-- Typing effect target here -->
+        <h1>Contact Us</h1>
         <nav>
             <ul>
                 <li><a href="/" class="nav-link">Home</a></li>
@@ -108,7 +115,7 @@
 
     <section id="home">
         <div class="container">
-            <p>Feel free to reach out through any of the platforms below:</p>
+            <p class="message">I (Foulz) will assist you with anything you purchase or request support with. Feel free to reach out!</p>
             
             <div class="button-container">
                 <a href="https://discord.gg/rbworld" class="button discord" target="_blank">Discord</a>
@@ -124,24 +131,20 @@
     </footer>
 
     <script>
-        // Typing Effect for Title (Fix for Contact Page)
-        document.addEventListener("DOMContentLoaded", () => {
-            const title = "Foulz Tweaks and Optimizations - Contact Us"; // Adjusted title for contact page
-            const titleElement = document.getElementById("main-title");
-            let i = 0;
+        // Smooth Scroll and Active Link Highlighting
+        $(document).ready(function () {
+            $("a").click(function (event) {
+                event.preventDefault();
+                var url = $(this).attr("href");
 
-            // Clear text content first to ensure correct re-rendering on each load
-            titleElement.textContent = '';
+                $("body").fadeOut(500, function () {
+                    window.location = url;
+                });
+            });
 
-            function type() {
-                if (i < title.length) {
-                    titleElement.innerHTML += title.charAt(i); // Use innerHTML to handle more complex text rendering
-                    i++;
-                    setTimeout(type, 100); // Adjust speed by changing the delay (100ms)
-                }
-            }
-
-            type();
+            $(window).on("load", function () {
+                $("body").fadeIn(1000);
+            });
         });
     </script>
 </body>
