@@ -9,14 +9,38 @@
     <title>Optimizations | Foulz Tweaks and Optimizations</title>
     <link rel="stylesheet" href="/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="/Images/logofr.png" type="image/png">
+    <link rel="icon" href="/Images/logofr.png" type="image/png"> <!-- Correct favicon path -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/script.js"></script> <!-- Link to your script.js file -->
+
+    <style>
+        /* Adding typing effect */
+        .typing-effect {
+            font-family: 'Tektur', sans-serif;
+            font-size: 2.5rem;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 0.15em solid black; /* Typing cursor effect */
+            width: 0;
+            animation: typing 3s steps(30) 1s forwards, blink 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <img src="/Images/logofr.png" alt="Logo" class="logo">
-        <h1>Foulz Tweaks and Optimizations</h1>
+        <h1 class="typing-effect">Foulz Tweaks and Optimizations</h1> <!-- Applied typing effect here -->
         <nav>
             <ul>
                 <li><a href="/" class="nav-link">Home</a></li>
@@ -29,7 +53,7 @@
 
     <section id="optimizations">
         <h2>Optimizations</h2>
-        <p id="typed-text">Explore tweaks and adjustments to boost your system’s speed and efficiency.</p>
+        <p>Explore tweaks and adjustments to boost your system’s speed and efficiency.</p>
         <div class="optimization-list">
             <h3>Unlock Maximum Performance with .foulz's App</h3>
             <ul>
@@ -54,10 +78,9 @@
                 <li><strong>Service and Task Optimization:</strong> Disable unnecessary system services and background tasks to prioritize essential operations.</li>
                 <li><strong>Custom Paging File Size:</strong> Adjust the paging file for better memory allocation, especially on systems with limited RAM.</li>
                 <li><strong>File System Adjustments:</strong> Optimize your file system settings for faster disk performance, particularly on SSDs.</li>
-                <strong>Windows Feature Management:</strong>
-                <li>Turn off unnecessary Windows features such as Internet Explorer or Media Player to save system resources.</li>
+                <li><strong>Windows Feature Management:</strong> Turn off unnecessary Windows features such as Internet Explorer or Media Player to save system resources.</li>
                 <li><strong>CPU Affinity Tuning:</strong> Assign specific CPU cores to demanding applications for better performance and responsiveness.</li>
-                <li><strong>Game Performance Prioritization:</strong> Adjust system settings to prioritize gaming performance over other system tasks.</li>
+                <strong>Game Performance Prioritization:</strong> Adjust system settings to prioritize gaming performance over other system tasks.</li>
                 <li><strong>Input Lag Reduction:</strong> Enable Low Latency Mode and optimize GPU scheduling to reduce input lag and improve game responsiveness.</li>
                 <li><strong>Frame Rate Control:</strong> Cap your system’s frame rate to a desired maximum to improve GPU load and overall performance.</li>
                 <li><strong>GPU Scheduling Tweaks:</strong> Optimize graphics settings to prevent GPU hangs and boost gaming and rendering performance.</li>
@@ -103,22 +126,6 @@
             $(window).on("load", function () {
                 $("body").fadeIn(1000);
             });
-        });
-
-        // Typing effect script
-        document.addEventListener("DOMContentLoaded", function() {
-            let textElement = document.getElementById("typed-text");
-            let text = textElement.innerText;
-            textElement.innerText = "";
-            let i = 0;
-            function type() {
-                if (i < text.length) {
-                    textElement.innerText += text.charAt(i);
-                    i++;
-                    setTimeout(type, 50);  // Typing speed
-                }
-            }
-            type();
         });
     </script>
 </body>
