@@ -15,14 +15,11 @@
     <link rel="stylesheet" href="/style.css">
     <link rel="icon" href="/Images/logofr.png" type="image/png">
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/script.js"></script> <!-- Linked script.js for smooth scroll and active link effect -->
-
     <style>
         /* Contact Page Styles */
         body {
-            font-family: 'Tektur', sans-serif;
-            background-color: #FFB6C1; /* Baby pink background */
+            font-family: Arial, sans-serif;
+            background-color: #121212;
             color: #fff;
             margin: 0;
             padding: 0;
@@ -35,52 +32,11 @@
             color: #fff;
         }
 
-        header {
-            background-color: #121212; /* Set header background same as footer */
-            padding: 20px 0; /* Adjust padding for consistency */
-            text-align: center;
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style-type: none;
-            padding: 0;
-        }
-
-        nav ul li {
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #fff; /* Set navbar text back to white */
-            font-size: 1rem;
-        }
-
-        nav ul li a.active {
-            font-weight: bold;
-            color: #2575fc;
-        }
-
-        .logo {
-            width: 50px;
-            height: 50px;
-            margin-top: 10px;
-        }
-
         .container {
             display: flex;
             flex-direction: column;
             align-items: center;
             margin-top: 50px;
-        }
-
-        .message {
-            text-align: center;
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            color: #fff;
         }
 
         .button-container {
@@ -133,24 +89,22 @@
 </head>
 <body>
     <header>
-        <a href="https://guns.lol/foulz" target="_blank">
-            <img src="/Images/logofr.png" alt="Logo" class="logo">
-        </a>
-        <h1>Foulz Tweaks and Optimizations</h1> <!-- Corrected header -->
-        <nav>
-            <ul>
-                <li><a href="/" class="nav-link">Home</a></li>
-                <li><a href="/optimizations" class="nav-link">Optimizations</a></li>
-                <li><a href="/bypass" class="nav-link">Bypass</a></li>
-                <li><a href="/contact" class="nav-link active">Contact</a></li>
-            </ul>
-        </nav>
+        <h1>Contact Foulz Tweaks and Optimizations</h1>
     </header>
 
-    <section id="home">
-        <div class="container">
-            <!-- Text above the buttons -->
-            <p class="message">I (Foulz) will assist you with anything you purchase or request support with. Feel free to reach out!</p>
-            
-            <div class="button-container">
-                <a href="https://discord.gg/rbworld" class="button discord" target="_blank">Discord_
+    <div class="container">
+        <p>Feel free to reach out through any of the platforms below:</p>
+        
+        <div class="button-container">
+            <a href="https://discord.gg/rbworld" class="button discord" target="_blank">Discord</a>
+            <a href="https://twitch.tv/f0ulzz" class="button twitch" target="_blank">Twitch</a>
+            <a href="https://guns.lol/foulz" class="button guns" target="_blank">Guns</a>
+            <a href="https://www.roblox.com/users/3639760299/profile" class="button roblox" target="_blank">Roblox</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Foulz Tweaks and Optimizations. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
