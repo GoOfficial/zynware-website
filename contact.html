@@ -14,7 +14,6 @@
 
     <link rel="stylesheet" href="/style.css">
     <link rel="icon" href="/Images/logofr.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap" rel="stylesheet"> <!-- Tektur font -->
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/script.js"></script> <!-- Linked script.js for typing effect and other scripts -->
@@ -22,8 +21,8 @@
     <style>
         /* Contact Page Styles */
         body {
-            font-family: 'Tektur', sans-serif; /* Set to Tektur font */
-            background: linear-gradient(135deg, #2b2b2b, #121212); /* Smooth gradient background */
+            font-family: 'Tektur', sans-serif;
+            background-color: #121212;
             color: #fff;
             margin: 0;
             padding: 0;
@@ -125,37 +124,24 @@
     </footer>
 
     <script>
-        // Typing Effect for Title
+        // Typing Effect for Title (Fix for Contact Page)
         document.addEventListener("DOMContentLoaded", () => {
-            const title = "Foulz Tweaks and Optimizations - Contact Us";
+            const title = "Foulz Tweaks and Optimizations - Contact Us"; // Adjusted title for contact page
             const titleElement = document.getElementById("main-title");
             let i = 0;
 
+            // Clear text content first to ensure correct re-rendering on each load
+            titleElement.textContent = '';
+
             function type() {
                 if (i < title.length) {
-                    titleElement.textContent += title.charAt(i);
+                    titleElement.innerHTML += title.charAt(i); // Use innerHTML to handle more complex text rendering
                     i++;
                     setTimeout(type, 100); // Adjust speed by changing the delay (100ms)
                 }
             }
 
             type();
-        });
-
-        // Smooth Scroll and Active Link Highlighting
-        $(document).ready(function () {
-            $("a").click(function (event) {
-                event.preventDefault();
-                var url = $(this).attr("href");
-
-                $("body").fadeOut(500, function () {
-                    window.location = url;
-                });
-            });
-
-            $(window).on("load", function () {
-                $("body").fadeIn(1000);
-            });
         });
     </script>
 </body>
