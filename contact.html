@@ -23,6 +23,8 @@
             color: #fff;
             margin: 0;
             padding: 0;
+            opacity: 0;
+            animation: fadeIn 2s forwards; /* Fading animation */
         }
 
         h1 {
@@ -128,6 +130,16 @@
             background-color: #121212;
             padding: 10px;
             color: #fff;
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
         }
     </style>
 </head>
