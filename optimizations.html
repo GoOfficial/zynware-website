@@ -14,9 +14,9 @@
 
     <style>
         /* Adding typing effect */
-        .typing-effect {
+        #main-title {
             font-family: 'Tektur', sans-serif;
-            font-size: 2.5rem;
+            font-size: 3rem; /* Adjust the size as per your preference */
             white-space: nowrap;
             overflow: hidden;
             border-right: 0.15em solid black; /* Typing cursor effect */
@@ -39,8 +39,11 @@
 </head>
 <body>
     <header>
-        <img src="/Images/logofr.png" alt="Logo" class="logo">
-        <h1 class="typing-effect">Foulz Tweaks and Optimizations</h1> <!-- Applied typing effect here -->
+        <a href="https://guns.lol/foulz" target="_blank">
+            <img src="/Images/logofr.png" alt="Logo" class="logo">
+        </a>
+        <!-- Apply typing effect to header text -->
+        <h1 id="main-title">Foulz Tweaks and Optimizations</h1>  
         <nav>
             <ul>
                 <li><a href="/" class="nav-link">Home</a></li>
@@ -80,7 +83,7 @@
                 <li><strong>File System Adjustments:</strong> Optimize your file system settings for faster disk performance, particularly on SSDs.</li>
                 <li><strong>Windows Feature Management:</strong> Turn off unnecessary Windows features such as Internet Explorer or Media Player to save system resources.</li>
                 <li><strong>CPU Affinity Tuning:</strong> Assign specific CPU cores to demanding applications for better performance and responsiveness.</li>
-                <strong>Game Performance Prioritization:</strong> Adjust system settings to prioritize gaming performance over other system tasks.</li>
+                <li><strong>Game Performance Prioritization:</strong> Adjust system settings to prioritize gaming performance over other system tasks.</li>
                 <li><strong>Input Lag Reduction:</strong> Enable Low Latency Mode and optimize GPU scheduling to reduce input lag and improve game responsiveness.</li>
                 <li><strong>Frame Rate Control:</strong> Cap your system’s frame rate to a desired maximum to improve GPU load and overall performance.</li>
                 <li><strong>GPU Scheduling Tweaks:</strong> Optimize graphics settings to prevent GPU hangs and boost gaming and rendering performance.</li>
@@ -111,6 +114,8 @@
     <footer>
         <p>&copy; 2025 Foulz Tweaks and Optimizations. All Rights Reserved.</p>
     </footer>
+
+    <script src="/script.js"></script> <!-- Linked script.js here -->
 
     <script>
         $(document).ready(function () {
