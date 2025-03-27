@@ -35,6 +35,40 @@
             color: #fff;
         }
 
+        header {
+            background-color: #121212; /* Match header background with other pages */
+            padding: 20px 0; /* Adjust padding for consistency */
+            text-align: center;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        nav ul li a.active {
+            font-weight: bold;
+            color: #2575fc;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin-top: 10px;
+        }
+
         .container {
             display: flex;
             flex-direction: column;
@@ -45,7 +79,7 @@
         .message {
             text-align: center;
             font-size: 1.5rem;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             color: #fff;
         }
 
@@ -95,41 +129,6 @@
             transform: scale(1);
             box-shadow: 0 0 10px rgba(37, 117, 252, 0.7);
         }
-
-        /* Fix header background size */
-        header {
-            background-color: #121212; /* Match header background with other pages */
-            padding: 20px 0; /* Adjust padding for consistency */
-            text-align: center;
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style-type: none;
-            padding: 0;
-        }
-
-        nav ul li {
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #fff;
-            font-size: 1rem;
-        }
-
-        nav ul li a.active {
-            font-weight: bold;
-            color: #2575fc;
-        }
-
-        .logo {
-            width: 50px;
-            height: 50px;
-            margin-top: 10px;
-        }
     </style>
 </head>
 <body>
@@ -150,7 +149,7 @@
 
     <section id="home">
         <div class="container">
-            <!-- Added the message text here -->
+            <!-- Text above the buttons -->
             <p class="message">I (Foulz) will assist you with anything you purchase or request support with. Feel free to reach out!</p>
             
             <div class="button-container">
