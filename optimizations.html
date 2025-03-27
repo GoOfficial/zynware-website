@@ -11,39 +11,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="/Images/logofr.png" type="image/png"> <!-- Correct favicon path -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <style>
-        /* Adding typing effect */
-        #main-title {
-            font-family: 'Tektur', sans-serif;
-            font-size: 3rem; /* Adjust the size as per your preference */
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 0.15em solid black; /* Typing cursor effect */
-            width: 0;
-            animation: typing 3s steps(30) 1s forwards, blink 0.75s step-end infinite;
-        }
-
-        @keyframes typing {
-            to {
-                width: 100%;
-            }
-        }
-
-        @keyframes blink {
-            50% {
-                border-color: transparent;
-            }
-        }
-    </style>
 </head>
 <body>
     <header>
-        <a href="https://guns.lol/foulz" target="_blank">
-            <img src="/Images/logofr.png" alt="Logo" class="logo">
-        </a>
-        <!-- Apply typing effect to header text -->
-        <h1 id="main-title">Foulz Tweaks and Optimizations</h1>  
+        <img src="/Images/logofr.png" alt="Logo" class="logo">
+        <h1>Foulz Tweaks and Optimizations</h1>
         <nav>
             <ul>
                 <li><a href="/" class="nav-link">Home</a></li>
@@ -114,8 +86,6 @@
     <footer>
         <p>&copy; 2025 Foulz Tweaks and Optimizations. All Rights Reserved.</p>
     </footer>
-
-    <script src="/script.js"></script> <!-- Linked script.js here -->
 
     <script>
         $(document).ready(function () {
