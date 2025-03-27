@@ -13,63 +13,109 @@
     <meta property="og:type" content="website" />
 
     <link rel="stylesheet" href="/style.css">
-    <link rel="icon" href="/Images/logofr.png" type="image/png"> <!-- Correct favicon path -->
-    <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="icon" href="/Images/logofr.png" type="image/png">
+
+    <style>
+        /* Contact Page Styles */
+        body {
+            font-family: Tektur, sans-serif;
+            background-color: #fbe0e6; /* Baby Pink background */
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            color: #fff;
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            border: 2px solid #2575fc;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 10px rgba(37, 117, 252, 0.7);
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(37, 117, 252, 1);
+        }
+
+        .discord:hover {
+            box-shadow: 0 0 20px rgba(114, 137, 218, 1);
+        }
+
+        .twitch:hover {
+            box-shadow: 0 0 20px rgba(114, 64, 153, 1);
+        }
+
+        .roblox:hover {
+            box-shadow: 0 0 20px rgba(255, 0, 0, 1);
+        }
+
+        .guns:hover {
+            box-shadow: 0 0 20px rgba(0, 204, 255, 1);
+        }
+
+        .button:active {
+            transform: scale(1);
+            box-shadow: 0 0 10px rgba(37, 117, 252, 0.7);
+        }
+    </style>
 </head>
 <body>
     <header>
-        <!-- Make the logo clickable and link it to the desired URL -->
         <a href="https://guns.lol/foulz" target="_blank">
             <img src="/Images/logofr.png" alt="Logo" class="logo">
         </a>
-        <!-- Changed <h1> to the new main-title id for typing effect -->
-        <h1 id="main-title">Foulz Tweaks and Optimizations</h1>  
-
+        <h1>Foulz Tweaks and Optimizations</h1>
         <nav>
             <ul>
-                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/" class="nav-link active">Home</a></li>
                 <li><a href="/optimizations" class="nav-link">Optimizations</a></li>
                 <li><a href="/bypass" class="nav-link">Bypass</a></li>
-                <li><a href="/contact" class="nav-link active">Contact</a></li>
+                <li><a href="/contact" class="nav-link">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="contact">
-        <div class="container">
-            <p>Feel free to reach out through any of the platforms below:</p>
+    <div class="container">
+        <p>Feel free to reach out through any of the platforms below:</p>
 
-            <div class="button-container">
-                <a href="https://discord.gg/rbworld" class="button discord" target="_blank">Discord</a>
-                <a href="https://twitch.tv/f0ulzz" class="button twitch" target="_blank">Twitch</a>
-                <a href="https://guns.lol/foulz" class="button guns" target="_blank">Guns</a>
-                <a href="https://www.roblox.com/users/3639760299/profile" class="button roblox" target="_blank">Roblox</a>
-            </div>
+        <div class="button-container">
+            <a href="https://discord.gg/rbworld" class="button discord" target="_blank">Discord</a>
+            <a href="https://twitch.tv/f0ulzz" class="button twitch" target="_blank">Twitch</a>
+            <a href="https://guns.lol/foulz" class="button guns" target="_blank">Guns</a>
+            <a href="https://www.roblox.com/users/3639760299/profile" class="button roblox" target="_blank">Roblox</a>
         </div>
-    </section>
+    </div>
 
     <footer>
         <p>&copy; 2025 Foulz Tweaks and Optimizations. All Rights Reserved.</p>
     </footer>
-
-    <script src="/script.js"></script> <!-- Linked script.js here -->
-
-    <script>
-        $(document).ready(function () {
-            $("a").click(function (event) {
-                event.preventDefault();
-                var url = $(this).attr("href");
-
-                $("body").fadeOut(500, function () {
-                    window.location = url;
-                });
-            });
-
-            $(window).on("load", function () {
-                $("body").fadeIn(1000);
-            });
-        });
-    </script>
 </body>
 </html>
