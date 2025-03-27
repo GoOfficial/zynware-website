@@ -52,7 +52,7 @@
             padding: 15px 30px;
             font-size: 1.2em;
             color: #fff;
-            background-color: #2ecc71;
+            background-color: #3498db; /* Blue buttons */
             border-radius: 5px;
             text-decoration: none;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -103,7 +103,7 @@
     <script src="/script.js"></script> <!-- Linked script.js here -->
 
     <script>
-        // Typing Effect Fix
+        // Fixing the Typing Effect
         document.addEventListener("DOMContentLoaded", () => {
             const title = "Foulz Tweaks and Optimizations";
             const titleElement = document.getElementById("main-title");
@@ -111,7 +111,7 @@
 
             function type() {
                 if (i < title.length) {
-                    // Only append the next character
+                    // Correctly append one character at a time
                     titleElement.textContent += title.charAt(i);
                     i++;
                     setTimeout(type, 100); // Adjust speed by changing the delay (100ms)
