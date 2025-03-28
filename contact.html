@@ -7,24 +7,22 @@
 
     <!-- Open Graph meta tags for link preview -->
     <meta property="og:title" content="Contact - Foulz Tweaks and Optimizations" />
-    <meta property="og:description" content="Get in touch with Foulz Tweaks and Optimizations via Discord, Twitch, Roblox, or Guns." />
+    <meta property="og:description" content="Get in touch with us for inquiries and support related to Foulz Tweaks and Optimizations." />
     <meta property="og:image" content="https://rainyshub.site/Images/logofr.png" />
     <meta property="og:url" content="https://rainyshub.site/contact" />
     <meta property="og:type" content="website" />
 
     <link rel="stylesheet" href="/style.css">
-    <link rel="icon" href="/Images/logofr.png" type="image/png"> <!-- Correct favicon path -->
+    <link rel="icon" href="/Images/logofr.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+    <!-- Navbar -->
     <header>
-        <!-- Make the logo clickable and link it to the desired URL -->
         <a href="https://guns.lol/foulz" target="_blank">
             <img src="/Images/logofr.png" alt="Logo" class="logo">
         </a>
-        <!-- Changed <h1> to the new main-title id for typing effect -->
-        <h1 id="main-title">Foulz Tweaks and Optimizations</h1>  
+        <h1 id="main-title">Foulz Tweaks and Optimizations</h1>
 
         <nav>
             <ul>
@@ -38,15 +36,20 @@
 
     <section id="contact">
         <div class="container">
-            <p>Feel free to reach out through any of the platforms below:</p>
+            <h2>Contact Us</h2>
+            <p>If you have any questions or need support, feel free to reach out to us.</p>
+            <form action="#" method="post">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
 
-            <!-- Added buttons from the previous code -->
-            <div class="button-container">
-                <a href="https://discord.gg/rbworld" class="button discord" target="_blank">Discord</a>
-                <a href="https://twitch.tv/f0ulzz" class="button twitch" target="_blank">Twitch</a>
-                <a href="https://guns.lol/foulz" class="button guns" target="_blank">Guns</a>
-                <a href="https://www.roblox.com/users/3639760299/profile" class="button roblox" target="_blank">Roblox</a>
-            </div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
         </div>
     </section>
 
@@ -54,23 +57,6 @@
         <p>&copy; 2025 Foulz Tweaks and Optimizations. All Rights Reserved.</p>
     </footer>
 
-    <script src="/script.js"></script> <!-- Linked script.js here -->
-
-    <script>
-        $(document).ready(function () {
-            $("a").click(function (event) {
-                event.preventDefault();
-                var url = $(this).attr("href");
-
-                $("body").fadeOut(500, function () {
-                    window.location = url;
-                });
-            });
-
-            $(window).on("load", function () {
-                $("body").fadeIn(1000);
-            });
-        });
-    </script>
+    <script src="/script.js"></script>
 </body>
 </html>
