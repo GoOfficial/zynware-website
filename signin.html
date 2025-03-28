@@ -50,5 +50,22 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Include jQuery -->
     <script src="/script.js"></script> <!-- Link to your script.js -->
+
+    <script>
+        $(document).ready(function () {
+            $("a:not(.discord)").click(function (event) {
+                event.preventDefault();
+                var url = $(this).attr("href");
+
+                $("body").fadeOut(500, function () {
+                    window.location = url;
+                });
+            });
+
+            $(window).on("load", function () {
+                $("body").fadeIn(1000);
+            });
+        });
+    </script>
 </body>
 </html>
