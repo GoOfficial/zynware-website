@@ -40,3 +40,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     type();
 });
+
+// Discord login status check (this can be extended later for actual login management)
+document.addEventListener("DOMContentLoaded", () => {
+    // Check if the user is logged in via Discord (this would be after successful OAuth)
+    const discordLoginButton = document.querySelector(".discord-login button");
+    const userLoggedIn = false; // Here you will check the actual login status from backend
+
+    if (userLoggedIn) {
+        discordLoginButton.innerText = "Logged in with Discord"; // Change button text to indicate logged in
+        discordLoginButton.disabled = true; // Disable the login button once logged in
+    }
+});
