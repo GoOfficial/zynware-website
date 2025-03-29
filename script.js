@@ -41,18 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
     type();
 });
 
-// Discord login status check (this can be extended later for actual login management)
-document.addEventListener("DOMContentLoaded", () => {
-    // Check if the user is logged in via Discord (this would be after successful OAuth)
-    const discordLoginButton = document.querySelector(".discord-login button");
-    const userLoggedIn = false; // Here you will check the actual login status from backend
-
-    if (userLoggedIn) {
-        discordLoginButton.innerText = "Logged in with Discord"; // Change button text to indicate logged in
-        discordLoginButton.disabled = true; // Disable the login button once logged in
-    }
-});
-
 // Check if the user is logged in
 document.addEventListener("DOMContentLoaded", () => {
     const discordToken = localStorage.getItem('discordToken');
@@ -60,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const logoutButton = document.createElement("li");  // Create logout button
     logoutButton.classList.add("nav-link");
 
+    // Check if the user is logged in by looking for the discordToken
     if (discordToken) {
         // If user is logged in, update the navbar
         fetch('https://discord.com/api/users/@me', {
