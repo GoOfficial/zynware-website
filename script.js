@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
     type();
 });
 
-// Check if the user is logged in
+// Check if the user is logged in and update navbar
 document.addEventListener("DOMContentLoaded", () => {
     const userInfo = document.getElementById("user-info");
     const discordToken = localStorage.getItem('discordToken'); // Or sessionStorage
