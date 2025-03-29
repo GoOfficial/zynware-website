@@ -97,8 +97,8 @@ if (window.location.pathname === '/auth/discord/callback') {
     const urlParams = new URLSearchParams(window.location.search);
     const authCode = urlParams.get('code');
 
-    const clientId = 'YOUR_CLIENT_ID'; // replace with your own client id
-    const clientSecret = 'YOUR_CLIENT_SECRET'; // replace with your own client secret
+    const clientId = '1354998845486010368';
+    const clientSecret = 'ueyTXUBiKsLGK4rlOclDqpTvcnd-AyFt';
     const redirectUri = 'https://foulz.xyz/auth/discord/callback';
 
     async function exchangeCodeForToken(code) {
