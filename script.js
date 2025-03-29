@@ -41,47 +41,52 @@ document.addEventListener("DOMContentLoaded", () => {
     type();
 });
 
-// Check if the user is logged in and update navbar
+// Discord login status check (this can be extended later for actual login management)
 document.addEventListener("DOMContentLoaded", () => {
     const userInfo = document.getElementById("user-info");
-    const discordToken = localStorage.getItem('discordToken'); // Or sessionStorage
-    const logoutButton = document.createElement("li");
+    const discordToken = localStorage.getItem('discordToken'); // Fetch the token from localStorage
 
-    // If user is logged in, update navbar
+    // If the user is logged in (token exists in localStorage)
     if (discordToken) {
-        fetch('https://discord.com/api/users/@me', {
-            headers: {
-                'Authorization': `Bearer ${discordToken}`
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            const username = `${data.username}#${data.discriminator}`;
-
-            // Update user info
-            userInfo.innerHTML = `<a href="#">${username}</a>`;
-            userInfo.classList.add("user-name"); // Add any styling class
-
-            // Create a logout button
-            logoutButton.classList.add("nav-link");
-            logoutButton.innerText = "Log Out";
-            logoutButton.addEventListener("click", () => {
-                // Log out process: Remove token and reload page
-                localStorage.removeItem('discordToken');
-                window.location.reload();
-            });
-
-            const navbar = document.querySelector('nav ul');
-            navbar.appendChild(logoutButton); // Add the logout button
-        })
-        .catch(error => console.log("Error fetching user data:", error));
+        fetchUserData(discordToken);
     } else {
-        // If not logged in, ensure Sign In button is visible
-        userInfo.innerHTML = `<a href="/signin" class="nav-link">Sign In</a>`;
+        // If not logged in, show "Sign In" link
+        userInfo.innerHTML = '<a href="/signin" class="nav-link">Sign In</a>';
     }
 });
 
-// Only run the OAuth code on the /auth/discord/callback page
+// Fetch user data from Discord API
+function fetchUserData(token) {
+    fetch('https://discord.com/api/users/@me', {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Update navbar with username
+        const username = `${data.username}#${data.discriminator}`;
+        const userInfo = document.getElementById("user-info");
+
+        userInfo.innerHTML = `<a href="#" class="nav-link">${username}</a>`;
+
+        // Add logout button
+        const logoutButton = document.createElement('li');
+        logoutButton.classList.add("nav-link");
+        logoutButton.innerText = "Log Out";
+        logoutButton.addEventListener("click", logout);
+        document.querySelector("nav ul").appendChild(logoutButton);
+    })
+    .catch(error => console.log('Error fetching user data:', error));
+}
+
+// Logout function: Removes token and reloads the page
+function logout() {
+    localStorage.removeItem('discordToken');
+    window.location.reload();
+}
+
+// OAuth callback page handling (after user logs in via Discord OAuth)
 if (window.location.pathname === '/auth/discord/callback') {
     const urlParams = new URLSearchParams(window.location.search);
     const authCode = urlParams.get('code');
@@ -109,7 +114,7 @@ if (window.location.pathname === '/auth/discord/callback') {
             const data = await response.json();
             if (data.access_token) {
                 localStorage.setItem('discordToken', data.access_token);
-                fetchUserData(data.access_token);
+                window.location.href = '/'; // Redirect to home after login
             } else {
                 alert('Login Failed: ' + JSON.stringify(data));
             }
@@ -118,23 +123,6 @@ if (window.location.pathname === '/auth/discord/callback') {
         }
     }
 
-    async function fetchUserData(token) {
-        try {
-            const userResponse = await fetch('https://discord.com/api/users/@me', {
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            });
-
-            const userData = await userResponse.json();
-            alert(`Welcome, ${userData.username}#${userData.discriminator}!`);
-            window.location.href = '/';
-        } catch (error) {
-            alert('Error fetching user data: ' + error);
-        }
-    }
-
-    // If there's a code, exchange it for a token
     if (authCode) {
         exchangeCodeForToken(authCode);
     } else {
