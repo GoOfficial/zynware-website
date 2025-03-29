@@ -99,7 +99,15 @@ if (window.location.pathname === '/auth/discord/callback') {
             });
 
             const userData = await userResponse.json();
-            alert(`Welcome, ${userData.username}#${userData.discriminator}!`);
+            const discordUsername = `${userData.username}#${userData.discriminator}`;
+            
+            // Store the username in localStorage
+            localStorage.setItem('discordUsername', discordUsername);
+
+            // Display the username in the navbar (you can call another function here to do that)
+            updateNavbarWithUsername(discordUsername);
+            
+            alert(`Welcome, ${discordUsername}!`);
             window.location.href = '/';
         } catch (error) {
             alert('Error fetching user data: ' + error);
@@ -113,3 +121,50 @@ if (window.location.pathname === '/auth/discord/callback') {
         alert('Authorization Code Not Found');
     }
 }
+
+// Update the navbar with the username if already logged in
+function updateNavbarWithUsername(username) {
+    const signInButton = document.querySelector('nav ul li a[href="/signin"]');
+    if (signInButton) {
+        signInButton.textContent = username; // Replace Sign In with the Discord username
+        signInButton.href = '#'; // Make the username clickable but not a link to /signin
+    }
+
+    // Optionally, add a log-out button
+    const logoutButton = document.createElement('a');
+    logoutButton.textContent = 'Log Out';
+    logoutButton.href = '#';
+    logoutButton.addEventListener('click', logout);
+    document.querySelector('nav ul').appendChild(logoutButton);
+}
+
+// Check if the user is logged in when the page loads
+document.addEventListener("DOMContentLoaded", () => {
+    const username = localStorage.getItem('discordUsername');
+    if (username) {
+        updateNavbarWithUsername(username); // Update navbar with username if already logged in
+    }
+});
+
+// Logout function to clear the login
+function logout() {
+    // Remove the username from localStorage
+    localStorage.removeItem('discordUsername');
+    localStorage.removeItem('discordToken');
+
+    // Reset the navbar
+    const signInButton = document.querySelector('nav ul li a[href="#"]');
+    if (signInButton) {
+        signInButton.textContent = "Sign In"; // Reset the button text to "Sign In"
+        signInButton.href = '/signin'; // Redirect to the sign-in page when clicked
+    }
+
+    // Remove the logout button
+    const logoutButton = document.querySelector('nav ul li a[href="#"]');
+    if (logoutButton) {
+        logoutButton.remove();
+    }
+
+    alert('You have been logged out.');
+    window.location.href = '/'; // Optionally, redirect to homepage after logout
+});
