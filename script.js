@@ -21,33 +21,36 @@ navLinks.forEach(link => {
     });
 });
 
-// Typing Effect for Contact Page
+// Typing Effect (Fix for Contact Page)
 document.addEventListener("DOMContentLoaded", () => {
-    const title = "Foulz Tweaks and Optimizations"; 
+    const title = "Foulz Tweaks and Optimizations"; // Adjusted title for contact page
     const titleElement = document.getElementById("main-title");
     let i = 0;
 
+    // Clear text content first to ensure correct re-rendering on each load
     titleElement.textContent = '';
 
     function type() {
         if (i < title.length) {
-            titleElement.innerHTML += title.charAt(i);
+            titleElement.innerHTML += title.charAt(i); // Use innerHTML to handle more complex text rendering
             i++;
-            setTimeout(type, 100);
+            setTimeout(type, 100); // Adjust speed by changing the delay (100ms)
         }
     }
 
     type();
 });
 
-// Check Discord login status
+// Discord login status check (this can be extended later for actual login management)
 document.addEventListener("DOMContentLoaded", () => {
     const userInfo = document.getElementById("user-info");
-    const discordToken = localStorage.getItem('discordToken'); 
+    const discordToken = localStorage.getItem('discordToken'); // Fetch the token from localStorage
 
+    // If the user is logged in (token exists in localStorage)
     if (discordToken) {
         fetchUserData(discordToken);
     } else {
+        // If not logged in, show "Sign In" link
         userInfo.innerHTML = '<a href="/signin" class="nav-link">Sign In</a>';
     }
 });
@@ -59,31 +62,22 @@ function fetchUserData(token) {
             'Authorization': `Bearer ${token}`
         }
     })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok: ' + response.statusText);
-        }
-        return response.json();
-    })
+    .then(response => response.json())
     .then(data => {
-        if (data.username) {
-            const username = `${data.username}#${data.discriminator}`;
-            const userInfo = document.getElementById("user-info");
+        // Update navbar with username
+        const username = `${data.username}#${data.discriminator}`;
+        const userInfo = document.getElementById("user-info");
 
-            // Update navbar with username
-            userInfo.innerHTML = `<a href="#" class="nav-link">${username}</a>`;
+        userInfo.innerHTML = `<a href="#" class="nav-link">${username}</a>`;
 
-            // Add logout button
-            const logoutButton = document.createElement('li');
-            logoutButton.classList.add("nav-link");
-            logoutButton.innerText = "Log Out";
-            logoutButton.addEventListener("click", logout);
-            document.querySelector("nav ul").appendChild(logoutButton);
-        } else {
-            console.error('Username could not be found in the response', data);
-        }
+        // Add logout button
+        const logoutButton = document.createElement('li');
+        logoutButton.classList.add("nav-link");
+        logoutButton.innerText = "Log Out";
+        logoutButton.addEventListener("click", logout);
+        document.querySelector("nav ul").appendChild(logoutButton);
     })
-    .catch(error => console.error('Error fetching user data:', error));
+    .catch(error => console.log('Error fetching user data:', error));
 }
 
 // Logout function: Removes token and reloads the page
@@ -92,7 +86,7 @@ function logout() {
     window.location.reload();
 }
 
-// OAuth callback page handling
+// OAuth callback page handling (after user logs in via Discord OAuth)
 if (window.location.pathname === '/auth/discord/callback') {
     const urlParams = new URLSearchParams(window.location.search);
     const authCode = urlParams.get('code');
@@ -125,7 +119,7 @@ if (window.location.pathname === '/auth/discord/callback') {
                 alert('Login Failed: ' + JSON.stringify(data));
             }
         } catch (error) {
-            alert('Error during token exchange: ' + error.message);
+            alert('Error during token exchange: ' + error);
         }
     }
 
