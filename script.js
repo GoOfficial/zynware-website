@@ -21,36 +21,33 @@ navLinks.forEach(link => {
     });
 });
 
-// Typing Effect (Fix for Contact Page)
+// Typing Effect for Contact Page
 document.addEventListener("DOMContentLoaded", () => {
-    const title = "Foulz Tweaks and Optimizations"; // Adjusted title for contact page
+    const title = "Foulz Tweaks and Optimizations"; 
     const titleElement = document.getElementById("main-title");
     let i = 0;
 
-    // Clear text content first to ensure correct re-rendering on each load
     titleElement.textContent = '';
 
     function type() {
         if (i < title.length) {
-            titleElement.innerHTML += title.charAt(i); // Use innerHTML to handle more complex text rendering
+            titleElement.innerHTML += title.charAt(i);
             i++;
-            setTimeout(type, 100); // Adjust speed by changing the delay (100ms)
+            setTimeout(type, 100);
         }
     }
 
     type();
 });
 
-// Discord login status check (this can be extended later for actual login management)
+// Check Discord login status
 document.addEventListener("DOMContentLoaded", () => {
     const userInfo = document.getElementById("user-info");
-    const discordToken = localStorage.getItem('discordToken'); // Fetch the token from localStorage
+    const discordToken = localStorage.getItem('discordToken'); 
 
-    // If the user is logged in (token exists in localStorage)
     if (discordToken) {
         fetchUserData(discordToken);
     } else {
-        // If not logged in, show "Sign In" link
         userInfo.innerHTML = '<a href="/signin" class="nav-link">Sign In</a>';
     }
 });
@@ -62,22 +59,31 @@ function fetchUserData(token) {
             'Authorization': `Bearer ${token}`
         }
     })
-    .then(response => response.json())
-    .then(data => {
-        // Update navbar with username
-        const username = `${data.username}#${data.discriminator}`;
-        const userInfo = document.getElementById("user-info");
-
-        userInfo.innerHTML = `<a href="#" class="nav-link">${username}</a>`;
-
-        // Add logout button
-        const logoutButton = document.createElement('li');
-        logoutButton.classList.add("nav-link");
-        logoutButton.innerText = "Log Out";
-        logoutButton.addEventListener("click", logout);
-        document.querySelector("nav ul").appendChild(logoutButton);
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok: ' + response.statusText);
+        }
+        return response.json();
     })
-    .catch(error => console.log('Error fetching user data:', error));
+    .then(data => {
+        if (data.username) {
+            const username = `${data.username}#${data.discriminator}`;
+            const userInfo = document.getElementById("user-info");
+
+            // Update navbar with username
+            userInfo.innerHTML = `<a href="#" class="nav-link">${username}</a>`;
+
+            // Add logout button
+            const logoutButton = document.createElement('li');
+            logoutButton.classList.add("nav-link");
+            logoutButton.innerText = "Log Out";
+            logoutButton.addEventListener("click", logout);
+            document.querySelector("nav ul").appendChild(logoutButton);
+        } else {
+            console.error('Username could not be found in the response', data);
+        }
+    })
+    .catch(error => console.error('Error fetching user data:', error));
 }
 
 // Logout function: Removes token and reloads the page
@@ -86,13 +92,13 @@ function logout() {
     window.location.reload();
 }
 
-// OAuth callback page handling (after user logs in via Discord OAuth)
+// OAuth callback page handling
 if (window.location.pathname === '/auth/discord/callback') {
     const urlParams = new URLSearchParams(window.location.search);
     const authCode = urlParams.get('code');
 
-    const clientId = '1354998845486010368';
-    const clientSecret = 'ueyTXUBiKsLGK4rlOclDqpTvcnd-AyFt';
+    const clientId = 'YOUR_CLIENT_ID'; // replace with your own client id
+    const clientSecret = 'YOUR_CLIENT_SECRET'; // replace with your own client secret
     const redirectUri = 'https://foulz.xyz/auth/discord/callback';
 
     async function exchangeCodeForToken(code) {
@@ -119,7 +125,7 @@ if (window.location.pathname === '/auth/discord/callback') {
                 alert('Login Failed: ' + JSON.stringify(data));
             }
         } catch (error) {
-            alert('Error during token exchange: ' + error);
+            alert('Error during token exchange: ' + error.message);
         }
     }
 
