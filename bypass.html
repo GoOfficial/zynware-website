@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bypass | Foulz Tweaks and Optimizations</title>
-
+    
     <!-- Open Graph meta tags for link preview -->
-    <meta property="og:title" content="Bypass - Foulz Tweaks and Optimizations" />
-    <meta property="og:description" content="Discover bypasses and techniques for enhanced gaming and system performance with Foulz Tweaks and Optimizations." />
-    <meta property="og:image" content="https://foulz.xyz/Images/logofr.png">
-    <meta property="og:url" content="https://foulz.xyz/bypass" />
-    <meta property="og:type" content="website" />
-
+    <meta property="og:image" content="/Images/logofr.png">
+    <meta property="og:title" content="Bypass | Foulz Tweaks and Optimizations">
+    <meta property="og:description" content="Discover bypasses and techniques for enhanced gaming and system performance with Foulz Tweaks and Optimizations.">
+    
+    <title>Bypass | Foulz Tweaks and Optimizations</title>
+    
     <link rel="stylesheet" href="/style.css">
-    <link rel="icon" href="/Images/logofr.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/Images/logofr.png" type="image/png">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
@@ -108,21 +107,5 @@
     </footer>
 
     <script src="/script.js"></script>
-    <script>
-        $(document).ready(function () {
-            $("a").click(function (event) {
-                event.preventDefault();
-                var url = $(this).attr("href");
-
-                $("body").fadeOut(500, function () {
-                    window.location = url;
-                });
-            });
-
-            $(window).on("load", function () {
-                $("body").fadeIn(1000);
-            });
-        });
-    </script>
 </body>
 </html>
