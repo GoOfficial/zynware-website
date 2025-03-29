@@ -108,22 +108,22 @@
 
     <script src="/script.js"></script>
     <script>
-         $(document).ready(function () {
-             $("a").click(function (event) {
-                 event.preventDefault();
-                 var url = $(this).attr("href");
- 
-                 $("body").fadeOut(500, function () {
-                     window.location = url;
-                 });
-             });
- 
-             $(window).on("load", function () {
-                 $("body").fadeIn(1000);
-             });
-         });
-     </script>
- </body>
- </html>
+        $(document).ready(function () {
+            // Add fade-out effect on link click
+            $("a").click(function (event) {
+                event.preventDefault();
+                var url = $(this).attr("href");
+
+                $("body").fadeOut(500, function () {
+                    window.location = url;
+                });
+            });
+
+            // Add fade-in effect when the page loads
+            $(window).on("load", function () {
+                $("body").fadeIn(1000);
+            });
+        });
+    </script>
 </body>
 </html>
