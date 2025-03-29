@@ -53,61 +53,63 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// Discord login callback (handle the login response)
-const urlParams = new URLSearchParams(window.location.search);
-const authCode = urlParams.get('code');
+// Only run the OAuth code on the /auth/discord/callback page
+if (window.location.pathname === '/auth/discord/callback') {
+    const urlParams = new URLSearchParams(window.location.search);
+    const authCode = urlParams.get('code');
 
-const clientId = '1354998845486010368';
-const clientSecret = 'ueyTXUBiKsLGK4rlOclDqpTvcnd-AyFt';
-const redirectUri = 'https://foulz.xyz/auth/discord/callback';
+    const clientId = '1354998845486010368';
+    const clientSecret = 'ueyTXUBiKsLGK4rlOclDqpTvcnd-AyFt';
+    const redirectUri = 'https://foulz.xyz/auth/discord/callback';
 
-async function exchangeCodeForToken(code) {
-    try {
-        const response = await fetch('https://discord.com/api/oauth2/token', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: new URLSearchParams({
-                client_id: clientId,
-                client_secret: clientSecret,
-                grant_type: 'authorization_code',
-                code: code,
-                redirect_uri: redirectUri
-            })
-        });
+    async function exchangeCodeForToken(code) {
+        try {
+            const response = await fetch('https://discord.com/api/oauth2/token', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                    client_id: clientId,
+                    client_secret: clientSecret,
+                    grant_type: 'authorization_code',
+                    code: code,
+                    redirect_uri: redirectUri
+                })
+            });
 
-        const data = await response.json();
-        if (data.access_token) {
-            localStorage.setItem('discordToken', data.access_token);
-            fetchUserData(data.access_token);
-        } else {
-            alert('Login Failed: ' + JSON.stringify(data));
-        }
-    } catch (error) {
-        alert('Error during token exchange: ' + error);
-    }
-}
-
-async function fetchUserData(token) {
-    try {
-        const userResponse = await fetch('https://discord.com/api/users/@me', {
-            headers: {
-                'Authorization': `Bearer ${token}`
+            const data = await response.json();
+            if (data.access_token) {
+                localStorage.setItem('discordToken', data.access_token);
+                fetchUserData(data.access_token);
+            } else {
+                alert('Login Failed: ' + JSON.stringify(data));
             }
-        });
-
-        const userData = await userResponse.json();
-        alert(`Welcome, ${userData.username}#${userData.discriminator}!`);
-        window.location.href = '/';
-    } catch (error) {
-        alert('Error fetching user data: ' + error);
+        } catch (error) {
+            alert('Error during token exchange: ' + error);
+        }
     }
-}
 
-// If there's a code, exchange it for a token
-if (authCode) {
-    exchangeCodeForToken(authCode);
-} else {
-    alert('Authorization Code Not Found');
+    async function fetchUserData(token) {
+        try {
+            const userResponse = await fetch('https://discord.com/api/users/@me', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            const userData = await userResponse.json();
+            alert(`Welcome, ${userData.username}#${userData.discriminator}!`);
+            window.location.href = '/';
+        } catch (error) {
+            alert('Error fetching user data: ' + error);
+        }
+    }
+
+    // If there's a code, exchange it for a token
+    if (authCode) {
+        exchangeCodeForToken(authCode);
+    } else {
+        alert('Authorization Code Not Found');
+    }
 }
