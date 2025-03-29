@@ -43,14 +43,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Check if the user is logged in
 document.addEventListener("DOMContentLoaded", () => {
-    const discordToken = localStorage.getItem('discordToken');
-    const signInButton = document.querySelector(".nav-link-signin");  // Get Sign In button
-    const logoutButton = document.createElement("li");  // Create logout button
-    logoutButton.classList.add("nav-link");
+    const userInfo = document.getElementById("user-info");
+    const discordToken = localStorage.getItem('discordToken'); // Or sessionStorage
+    const logoutButton = document.createElement("li");
 
-    // Check if the user is logged in by looking for the discordToken
+    // If user is logged in, update navbar
     if (discordToken) {
-        // If user is logged in, update the navbar
         fetch('https://discord.com/api/users/@me', {
             headers: {
                 'Authorization': `Bearer ${discordToken}`
@@ -60,30 +58,26 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(data => {
             const username = `${data.username}#${data.discriminator}`;
 
-            // Update navbar with username and add logout button
-            signInButton.textContent = username;
-            signInButton.setAttribute("href", "#");
-            signInButton.classList.add("user-name");
+            // Update user info
+            userInfo.innerHTML = `<a href="#">${username}</a>`;
+            userInfo.classList.add("user-name"); // Add any styling class
 
-            // Create Log Out button and append it to the navbar
-            logoutButton.textContent = "Log Out";
+            // Create a logout button
+            logoutButton.classList.add("nav-link");
+            logoutButton.innerText = "Log Out";
             logoutButton.addEventListener("click", () => {
-                // Log out: Remove token from localStorage and reload the page
+                // Log out process: Remove token and reload page
                 localStorage.removeItem('discordToken');
                 window.location.reload();
             });
 
             const navbar = document.querySelector('nav ul');
-            navbar.appendChild(logoutButton);
+            navbar.appendChild(logoutButton); // Add the logout button
         })
         .catch(error => console.log("Error fetching user data:", error));
     } else {
-        // If not logged in, ensure the Sign In button is visible
-        if (signInButton) {
-            signInButton.textContent = "Sign In";
-            signInButton.setAttribute("href", "/signin");
-            signInButton.classList.remove("user-name");
-        }
+        // If not logged in, ensure Sign In button is visible
+        userInfo.innerHTML = `<a href="/signin" class="nav-link">Sign In</a>`;
     }
 });
 
