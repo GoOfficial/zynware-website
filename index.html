@@ -21,13 +21,12 @@
 
 <body>
     <header>
+        <!-- Make the logo clickable and link it to the desired URL -->
         <a href="https://guns.lol/foulz" target="_blank">
             <img src="/Images/logofr.png" alt="Logo" class="logo">
         </a>
-        <h1 id="main-title"></h1>
         
-        <!-- Discord Button -->
-        <a href="https://discord.gg/YOUR_INVITE_LINK" class="discord-btn">Join Our Discord</a>
+        <h1 id="main-title"></h1>
 
         <nav>
             <ul>
@@ -45,31 +44,23 @@
     <section id="home">
         <h2>Welcome to Foulz Tweaks and Optimizations</h2>
         <p>Unlock the full potential of your PC with our optimization tools.</p>
-        
-        <h3>Performance Enhancements & Privacy Protection</h3>
-        <p>Our application is designed to improve your system’s performance and maintain your privacy. 
-           By tweaking system settings and clearing unnecessary logs, your PC will run more efficiently 
-           while also preventing applications from tracking your activity through Windows logs.</p>
 
-        <h3>Why Use Our Tweaks?</h3>
-        <ul>
-            <li>Boost FPS and reduce system lag</li>
-            <li>Remove unnecessary processes that slow down your PC</li>
-            <li>Clear Windows logs for enhanced privacy</li>
-            <li>Prevent detection from apps that monitor logs</li>
-        </ul>
-
-        <h3>Disclaimer</h3>
-        <p>Our tools are designed solely for performance and privacy improvements. 
-           We do not encourage breaking Discord TOS, Roblox TOS, or any platform's rules. 
-           Users are responsible for how they use these tools.</p>
+        <section id="why-use">
+            <h3>Why Use Our Tweaks?</h3>
+            <ul>
+                <li>The first and only app offering this unique combination of optimizations and privacy enhancements</li>
+                <li>Boost FPS and reduce system lag</li>
+                <li>Remove unnecessary processes that slow down your PC</li>
+                <li>Clear Windows logs for enhanced privacy</li>
+                <li>Prevent detection from apps that monitor logs</li>
+            </ul>
+        </section>
     </section>
 
-    <!-- Purchase Section -->
     <section id="purchase">
-        <h2>Purchase Our Product</h2>
-        <p>We currently accept CashApp, and soon we will support PayPal, Visa, Mastercard, and more.</p>
-        <a href="/purchase.html" class="purchase-btn">Purchase Now</a>
+        <h3>Purchase Our Optimization Tool</h3>
+        <p>We currently accept CashApp and will soon implement a shop that supports PayPal, Visa, MasterCard, and more.</p>
+        <button class="purchase-btn" onclick="window.location.href='/purchase.html'">Purchase Now</button>
     </section>
 
     <footer>
@@ -83,7 +74,6 @@
             $("a").click(function (event) {
                 event.preventDefault();
                 var url = $(this).attr("href");
-
                 $("body").fadeOut(500, function () {
                     window.location = url;
                 });
