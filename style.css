@@ -156,3 +156,20 @@ html {
     background-color: #cccccc;
     cursor: not-allowed;
 }
+
+.purchase-btn {
+    background: linear-gradient(to right, purple, black);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.purchase-btn:hover {
+    background: linear-gradient(to right, black, purple);
+    transform: scale(1.05);
+}
