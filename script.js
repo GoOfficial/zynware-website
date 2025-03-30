@@ -53,6 +53,16 @@ document.addEventListener("DOMContentLoaded", () => {
         // If not logged in, show "Sign In" link
         userInfo.innerHTML = '<a href="/signin" class="nav-link">Sign In</a>';
     }
+
+    // Get the current page's URL
+    const currentPage = window.location.pathname;
+
+    // Loop through all nav links and add the 'active' class to the current page's link
+    navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
+        }
+    });
 });
 
 // Fetch user data from Discord API
