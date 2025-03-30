@@ -158,18 +158,19 @@ html {
 }
 
 .purchase-btn {
-    background: linear-gradient(to right, purple, black);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
+    background: linear-gradient(to right, purple, black) !important;
+    color: white !important;
+    border: none !important;
+    padding: 10px 20px !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    transition: 0.3s !important;
+    display: inline-block !important;
 }
 
 .purchase-btn:hover {
-    background: linear-gradient(to right, black, purple);
-    transform: scale(1.05);
+    background: linear-gradient(to right, black, purple) !important;
+    transform: scale(1.05) !important;
 }
