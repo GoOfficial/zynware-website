@@ -21,12 +21,13 @@
 
 <body>
     <header>
-        <!-- Make the logo clickable and link it to the desired URL -->
         <a href="https://guns.lol/foulz" target="_blank">
             <img src="/Images/logofr.png" alt="Logo" class="logo">
         </a>
-        <!-- Changed <h1> to the new main-title id for typing effect -->
         <h1 id="main-title"></h1>
+        
+        <!-- Discord Button -->
+        <a href="https://discord.gg/YOUR_INVITE_LINK" class="discord-btn">Join Our Discord</a>
 
         <nav>
             <ul>
@@ -34,8 +35,6 @@
                 <li><a href="/optimizations" class="nav-link">Optimizations</a></li>
                 <li><a href="/bypass" class="nav-link">Bypass</a></li>
                 <li><a href="/contact" class="nav-link">Contact</a></li>
-
-                <!-- User Info (Sign In or Discord Username) -->
                 <li id="user-info">
                     <a href="/signin" class="nav-link">Sign In</a>
                 </li>
@@ -46,13 +45,38 @@
     <section id="home">
         <h2>Welcome to Foulz Tweaks and Optimizations</h2>
         <p>Unlock the full potential of your PC with our optimization tools.</p>
+        
+        <h3>Performance Enhancements & Privacy Protection</h3>
+        <p>Our application is designed to improve your system’s performance and maintain your privacy. 
+           By tweaking system settings and clearing unnecessary logs, your PC will run more efficiently 
+           while also preventing applications from tracking your activity through Windows logs.</p>
+
+        <h3>Why Use Our Tweaks?</h3>
+        <ul>
+            <li>Boost FPS and reduce system lag</li>
+            <li>Remove unnecessary processes that slow down your PC</li>
+            <li>Clear Windows logs for enhanced privacy</li>
+            <li>Prevent detection from apps that monitor logs</li>
+        </ul>
+
+        <h3>Disclaimer</h3>
+        <p>Our tools are designed solely for performance and privacy improvements. 
+           We do not encourage breaking Discord TOS, Roblox TOS, or any platform's rules. 
+           Users are responsible for how they use these tools.</p>
+    </section>
+
+    <!-- Purchase Section -->
+    <section id="purchase">
+        <h2>Purchase Our Product</h2>
+        <p>We currently accept CashApp, and soon we will support PayPal, Visa, Mastercard, and more.</p>
+        <a href="/purchase.html" class="purchase-btn">Purchase Now</a>
     </section>
 
     <footer>
         <p>&copy; 2025 Foulz Tweaks and Optimizations. All Rights Reserved.</p>
     </footer>
 
-    <script src="/script.js"></script> <!-- Linked script.js here -->
+    <script src="/script.js"></script>
 
     <script>
         $(document).ready(function () {
@@ -70,7 +94,6 @@
             });
         });
     </script>
-
 </body>
 
 </html>
