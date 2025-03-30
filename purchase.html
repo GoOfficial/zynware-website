@@ -50,6 +50,22 @@
     </footer>
 
     <script src="/script.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("a").click(function (event) {
+                event.preventDefault();
+                var url = $(this).attr("href");
+                $("body").fadeOut(500, function () {
+                    window.location = url;
+                });
+            });
+
+            $(window).on("load", function () {
+                $("body").fadeIn(1000);
+            });
+        });
+    </script>
 </body>
 
 </html>
