@@ -86,8 +86,49 @@ function fetchUserData(token) {
         logoutButton.innerText = "Log Out";
         logoutButton.addEventListener("click", logout);
         document.querySelector("nav ul").appendChild(logoutButton);
+
+        // Show the Redeem License Key form only if the user is logged in
+        showRedeemForm(data.id);
     })
     .catch(error => console.log('Error fetching user data:', error));
+}
+
+// Show the redeem form if the user is logged in
+function showRedeemForm(discordUserId) {
+    const redeemSection = document.getElementById('redeem');
+    redeemSection.style.display = 'block'; // Make the form visible
+
+    // Handle the form submission for redeeming the license key
+    document.getElementById('redeemForm').addEventListener('submit', async function (e) {
+        e.preventDefault(); // Prevent the form from refreshing the page
+
+        const licenseKey = document.getElementById('licenseKey').value;
+        const messageDiv = document.getElementById('message');
+
+        try {
+            // Send the license key and user data to the server
+            const response = await fetch('/api/redeem', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ key: licenseKey, discordUserId: discordUserId }),
+            });
+
+            if (response.ok) {
+                const result = await response.text();
+                messageDiv.style.color = 'lightgreen';
+                messageDiv.textContent = result; // Display success message
+            } else {
+                const error = await response.text();
+                messageDiv.style.color = 'red';
+                messageDiv.textContent = error; // Display error message
+            }
+        } catch (err) {
+            messageDiv.style.color = 'red';
+            messageDiv.textContent = 'An error occurred. Please try again later.';
+        }
+    });
 }
 
 // Logout function: Removes token and reloads the page
