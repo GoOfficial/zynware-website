@@ -41,103 +41,59 @@ document.addEventListener("DOMContentLoaded", () => {
     type();
 });
 
-// Discord login status check (this can be extended later for actual login management)
+// Handle dynamic navbar updates based on login state
 document.addEventListener("DOMContentLoaded", () => {
     const userInfo = document.getElementById("user-info");
+    const redeemLink = document.getElementById("redeem-link");
     const discordToken = localStorage.getItem('discordToken'); // Fetch the token from localStorage
 
     // If the user is logged in (token exists in localStorage)
     if (discordToken) {
+        // Fetch user data from Discord API
         fetchUserData(discordToken);
     } else {
-        // If not logged in, show "Sign In" link
+        // If not logged in, show "Sign In" link and hide "Redeem License Key" link
         userInfo.innerHTML = '<a href="/signin" class="nav-link">Sign In</a>';
+        redeemLink.style.display = 'none'; // Hide the "Redeem License Key" link
     }
 
-    // Get the current page's URL
-    const currentPage = window.location.pathname;
+    // Function to fetch user data from Discord
+    function fetchUserData(token) {
+        fetch('https://discord.com/api/users/@me', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            const username = `${data.username}#${data.discriminator}`;
+            userInfo.innerHTML = `<a href="#" class="nav-link">${username}</a>`;
 
-    // Loop through all nav links and add the 'active' class to the current page's link
-    navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPage) {
-            link.classList.add('active');
-        }
-    });
+            // Show the "Redeem License Key" link
+            redeemLink.style.display = 'block';
+
+            // Add a logout button if not already added
+            const logoutButton = document.createElement('li');
+            logoutButton.classList.add("nav-link");
+            logoutButton.innerText = "Log Out";
+            logoutButton.addEventListener("click", logout);
+            // Avoid adding multiple logout buttons
+            if (!document.querySelector("#logout-button")) {
+                logoutButton.id = "logout-button";
+                document.querySelector("nav ul").appendChild(logoutButton);
+            }
+        })
+        .catch(error => console.log('Error fetching user data:', error));
+    }
+
+    // Logout function: Removes token and reloads the page
+    function logout() {
+        localStorage.removeItem('discordToken');
+        window.location.reload();
+    }
 });
 
-// Fetch user data from Discord API
-function fetchUserData(token) {
-    fetch('https://discord.com/api/users/@me', {
-        headers: {
-            'Authorization': `Bearer ${token}`
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        // Update navbar with username
-        const username = `${data.username}#${data.discriminator}`;
-        const userInfo = document.getElementById("user-info");
-
-        userInfo.innerHTML = `<a href="#" class="nav-link">${username}</a>`;
-
-        // Add logout button
-        const logoutButton = document.createElement('li');
-        logoutButton.classList.add("nav-link");
-        logoutButton.innerText = "Log Out";
-        logoutButton.addEventListener("click", logout);
-        document.querySelector("nav ul").appendChild(logoutButton);
-
-        // Show the Redeem License Key form only if the user is logged in
-        showRedeemForm(data.id);
-    })
-    .catch(error => console.log('Error fetching user data:', error));
-}
-
-// Show the redeem form if the user is logged in
-function showRedeemForm(discordUserId) {
-    const redeemSection = document.getElementById('redeem');
-    redeemSection.style.display = 'block'; // Make the form visible
-
-    // Handle the form submission for redeeming the license key
-    document.getElementById('redeemForm').addEventListener('submit', async function (e) {
-        e.preventDefault(); // Prevent the form from refreshing the page
-
-        const licenseKey = document.getElementById('licenseKey').value;
-        const messageDiv = document.getElementById('message');
-
-        try {
-            // Send the license key and user data to the server
-            const response = await fetch('/api/redeem', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ key: licenseKey, discordUserId: discordUserId }),
-            });
-
-            if (response.ok) {
-                const result = await response.text();
-                messageDiv.style.color = 'lightgreen';
-                messageDiv.textContent = result; // Display success message
-            } else {
-                const error = await response.text();
-                messageDiv.style.color = 'red';
-                messageDiv.textContent = error; // Display error message
-            }
-        } catch (err) {
-            messageDiv.style.color = 'red';
-            messageDiv.textContent = 'An error occurred. Please try again later.';
-        }
-    });
-}
-
-// Logout function: Removes token and reloads the page
-function logout() {
-    localStorage.removeItem('discordToken');
-    window.location.reload();
-}
-
-// OAuth callback page handling (after user logs in via Discord OAuth)
+// Discord OAuth callback page handling (after user logs in via Discord OAuth)
 if (window.location.pathname === '/auth/discord/callback') {
     const urlParams = new URLSearchParams(window.location.search);
     const authCode = urlParams.get('code');
