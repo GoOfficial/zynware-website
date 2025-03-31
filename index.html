@@ -74,56 +74,6 @@
     <script src="/script.js"></script>
 
     <script>
-        // Update navbar dynamically based on login status
-        document.addEventListener("DOMContentLoaded", () => {
-            const userInfo = document.getElementById("user-info");
-            const redeemLink = document.getElementById("redeem-link");
-            const discordToken = localStorage.getItem('discordToken'); // Fetch the token from localStorage
-
-            // If the user is logged in (token exists in localStorage)
-            if (discordToken) {
-                // Fetch user data from Discord API
-                fetchUserData(discordToken);
-            } else {
-                // If not logged in, show "Sign In" link
-                userInfo.innerHTML = '<a href="/signin" class="nav-link">Sign In</a>';
-                redeemLink.style.display = 'none'; // Hide the "Redeem License Key" link
-            }
-
-            // Function to fetch user data from Discord
-            function fetchUserData(token) {
-                fetch('https://discord.com/api/users/@me', {
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
-                })
-                .then(response => response.json())
-                .then(data => {
-                    const username = `${data.username}#${data.discriminator}`;
-                    userInfo.innerHTML = `<a href="#" class="nav-link">${username}</a>`;
-
-                    // Show the "Redeem License Key" link
-                    redeemLink.style.display = 'block';
-
-                    // Add a logout button
-                    const logoutButton = document.createElement('li');
-                    logoutButton.classList.add("nav-link");
-                    logoutButton.innerText = "Log Out";
-                    logoutButton.addEventListener("click", logout);
-                    document.querySelector("nav ul").appendChild(logoutButton);
-                })
-                .catch(error => console.log('Error fetching user data:', error));
-            }
-
-            // Logout function
-            function logout() {
-                localStorage.removeItem('discordToken');
-                window.location.reload();
-            }
-        });
-    </script>
-
-    <script>
         $(document).ready(function () {
             $("a").click(function (event) {
                 event.preventDefault();
