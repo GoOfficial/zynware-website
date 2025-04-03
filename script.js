@@ -136,3 +136,12 @@ if (window.location.pathname === '/auth/discord/callback') {
         alert('Authorization Code Not Found');
     }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const socialsSection = document.getElementById("socials");
+
+    if (socialsSection) {
+        socialsSection.style.display = "block";  // Forces display to block
+        socialsSection.style.setProperty('display', 'block', 'important');  // Apply !important dynamically
+    }
+});
