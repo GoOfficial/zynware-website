@@ -176,7 +176,7 @@ html {
 }
 
 #socials {
-    display: block !important;
+    display: inline-block !important;
     opacity: 1 !important;
     visibility: visible !important;
 }
