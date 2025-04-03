@@ -174,3 +174,9 @@ html {
     background: linear-gradient(to right, black, #5844e5) !important;
     transform: scale(1.05) !important;
 }
+
+#socials {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
