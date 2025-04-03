@@ -157,7 +157,7 @@ html {
     cursor: not-allowed;
 }
 
-.purchase-btn {
+.purchase-btn, .social-buttons button {
     background: linear-gradient(to right, #5844e5, black) !important;
     color: white !important;
     border: none !important;
@@ -170,7 +170,7 @@ html {
     display: inline-block !important;
 }
 
-.purchase-btn:hover {
+.purchase-btn:hover, .social-buttons button:hover {
     background: linear-gradient(to right, black, #5844e5) !important;
     transform: scale(1.05) !important;
 }
