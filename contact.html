@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,51 +18,52 @@
     <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+
 <body>
-    <!-- Navbar -->
-    <header>
-        <!-- Logo -->
-        <a href="https://guns.lol/foulz" target="_blank">
-            <img src="/Images/logofr.png" alt="Logo" class="logo">
-        </a>
-        <h1 id="main-title"></h1>  
-        <nav>
-            <ul>
-                <li><a href="/" class="nav-link">Home</a></li>
-                <li><a href="/purchase" class="nav-link">Purchase</a></li>
-                <li><a href="/optimizations" class="nav-link">Optimizations</a></li>
-                <li><a href="/bypass" class="nav-link">Bypass</a></li>
-                <li><a href="/contact" class="nav-link">Contact</a></li>
-                <li id="redeem-link" style="display: none;">
-                    <a href="/api/redeem" class="nav-link">Redeem License Key</a>
-                </li>
-                <li id="user-info">
-                    <a href="/signin" class="nav-link">Sign In</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
 
-    <section id="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <p>Get in touch with us for inquiries and support.</p>
+    <div class="glass-container">
+        <header class="glass-nav">
+            <a href="https://guns.lol/foulz" target="_blank">
+                <img src="/Images/logofr.png" alt="Logo" class="logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="/" class="nav-link">Home</a></li>
+                    <li><a href="/purchase" class="nav-link">Purchase</a></li>
+                    <li><a href="/optimizations" class="nav-link">Optimizations</a></li>
+                    <li><a href="/bypass" class="nav-link">Bypass</a></li>
+                    <li><a href="/contact" class="nav-link">Contact</a></li>
+                    <li id="user-info">
+                        <a href="/signin" class="nav-link">Sign In</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
 
-            <!-- Social Media Buttons -->
-            <div class="button-container">
-                <a href="https://discord.com/invite/CEyNFdzneg" class="button discord" target="_blank">Discord</a>
-                <a href="https://twitch.tv/f0ulzz" class="button twitch" target="_blank">Twitch</a>
-                <a href="https://guns.lol/foulz" class="button guns" target="_blank">Guns</a>
-                <a href="https://www.roblox.com/users/3639760299/profile" class="button roblox" target="_blank">Roblox</a>
-            </div>
-        </div>
-    </section>
+        <main>
+            <section id="contact">
+                <div class="container">
+                    <h2>Contact Us</h2>
+                    <p>Get in touch with us for inquiries and support.</p>
 
-    <footer>
-        <p>&copy; 2025 Foulz Tweaks and Optimizations. All Rights Reserved.</p>
-    </footer>
+                    <!-- Social Media Buttons -->
+                    <div class="button-container">
+                        <a href="https://discord.com/invite/CEyNFdzneg" class="button discord" target="_blank">Discord</a>
+                        <a href="https://twitch.tv/f0ulzz" class="button twitch" target="_blank">Twitch</a>
+                        <a href="https://guns.lol/foulz" class="button guns" target="_blank">Guns</a>
+                        <a href="https://www.roblox.com/users/3639760299/profile" class="button roblox" target="_blank">Roblox</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Foulz Tweaks and Optimizations. All Rights Reserved.</p>
+        </footer>
+    </div>
 
     <script src="/script.js"></script>
+
     <script>
         $(document).ready(function () {
             $("a").click(function (event) {
@@ -79,4 +81,5 @@
         });
     </script>
 </body>
+
 </html>
