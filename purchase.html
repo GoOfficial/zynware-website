@@ -20,59 +20,59 @@
 </head>
 
 <body>
-    <header>
-        <a href="https://guns.lol/foulz" target="_blank">
-            <img src="/Images/logofr.png" alt="Logo" class="logo">
-        </a>
-        <h1 id="main-title"></h1>
-        <nav>
-            <ul>
-                <li><a href="/" class="nav-link">Home</a></li>
-                <li><a href="/purchase" class="nav-link">Purchase</a></li>
-                <li><a href="/optimizations" class="nav-link">Optimizations</a></li>
-                <li><a href="/bypass" class="nav-link">Bypass</a></li>
-                <li><a href="/contact" class="nav-link">Contact</a></li>
-                <li id="redeem-link" style="display: none;">
-                    <a href="/api/redeem" class="nav-link">Redeem License Key</a>
-                </li>
-                <li id="user-info">
-                    <a href="/signin" class="nav-link">Sign In</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
 
-    <section id="purchase">
-        <h2>Purchase Our Optimization Tool</h2>
-        <p> Currently, the only available option to purchase is by joining our Discord server and creating a ticket. A developer will respond to assist you with the purchase.</p>
-        <button class="purchase-btn" onclick="window.location.href='https://discord.com/invite/CEyNFdzneg'">Discord</button>
-    </section>
+    <div class="glass-container">
+        <header class="glass-nav">
+            <a href="https://guns.lol/foulz" target="_blank">
+                <img src="/Images/logofr.png" alt="Logo" class="logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="/" class="nav-link">Home</a></li>
+                    <li><a href="/purchase" class="nav-link">Purchase</a></li>
+                    <li><a href="/optimizations" class="nav-link">Optimizations</a></li>
+                    <li><a href="/bypass" class="nav-link">Bypass</a></li>
+                    <li><a href="/contact" class="nav-link">Contact</a></li>
+                    <li id="user-info">
+                        <a href="/signin" class="nav-link">Sign In</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
 
-    <!-- New Section for Products and Payment Info -->
-    <section id="products">
-        <h2>Our Products</h2>
-        <div class="product">
-            <h3>PC Check Bypass - $10</h3>
-            <p>Safeguard your privacy by clearing Windows logs and preventing applications from tracking your activity.</p>
-        </div>
-        <div class="product">
-            <h3>PC Optimizer - $7</h3>
-            <p>Boost the performance of your PC with our advanced optimization techniques, making your system faster and more responsive.</p>
-        </div>
-        <div class="product">
-            <h3>PC Check Bypass & PC Optimizer Bundle - $13</h3>
-            <p>Get the best of both worlds: Enhance your privacy with the bypass and speed up your PC with our optimization tools—all in one bundle.</p>
-        </div>
-    </section>
+        <main>
+            <section id="purchase">
+                <h2>Purchase Our Optimization Tool</h2>
+                <p>Currently, the only available option to purchase is by joining our Discord server and creating a ticket. A developer will respond to assist you with the purchase.</p>
+                <button class="purchase-btn" onclick="window.location.href='https://discord.com/invite/CEyNFdzneg'">Discord</button>
+            </section>
 
-    <section id="payment-options">
-        <h2>Payment Options</h2>
-        <p>Currently, we accept <strong>CashApp</strong> for quick and secure payments. We are also in the process of expanding our payment options to include <strong>PayPal, Visa, MasterCard, Cryptocurrency</strong>, and more. Stay tuned for updates on these convenient methods!</p>
-    </section>
+            <section id="products">
+                <h3>Our Products</h3>
+                <div class="product">
+                    <h4>PC Check Bypass - $10</h4>
+                    <p>Safeguard your privacy by clearing Windows logs and preventing applications from tracking your activity.</p>
+                </div>
+                <div class="product">
+                    <h4>PC Optimizer - $7</h4>
+                    <p>Boost the performance of your PC with our advanced optimization techniques, making your system faster and more responsive.</p>
+                </div>
+                <div class="product">
+                    <h4>PC Check Bypass & PC Optimizer Bundle - $13</h4>
+                    <p>Get the best of both worlds: Enhance your privacy with the bypass and speed up your PC with our optimization tools—all in one bundle.</p>
+                </div>
+            </section>
 
-    <footer>
-        <p>&copy; 2025 Foulz Tweaks and Optimizations. All Rights Reserved.</p>
-    </footer>
+            <section id="payment-options">
+                <h3>Payment Options</h3>
+                <p>Currently, we accept <strong>CashApp</strong> for quick and secure payments. We are also in the process of expanding our payment options to include <strong>PayPal, Visa, MasterCard, Cryptocurrency</strong>, and more. Stay tuned for updates on these convenient methods!</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Foulz Tweaks and Optimizations. All Rights Reserved.</p>
+        </footer>
+    </div>
 
     <script src="/script.js"></script>
 
