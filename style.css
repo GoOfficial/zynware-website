@@ -1,20 +1,33 @@
-/* General body and layout styles */
+/* Background and base */
 body {
     font-family: 'Tektur', sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
+    background: url('/Images/optimize.gif') no-repeat center center fixed;
+    background-size: cover;
     margin: 0;
     padding: 0;
+    color: white;
     overflow-x: hidden;
 }
 
-header {
-    background-color: #5844E5;
-    color: white;
+.glass-container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Glassy navbar */
+header.glass-nav {
+    background: rgba(0, 0, 0, 0.3);
     padding: 10px 20px;
     display: flex;
-    justify-content: space-between; /* Space between logo/title and navbar */
     align-items: center;
+    border-radius: 12px;
+    justify-content: space-between;
 }
 
 header .logo {
@@ -22,161 +35,103 @@ header .logo {
     height: auto;
 }
 
-header h1 {
-    font-size: 1.8em;
-    margin-left: 20px; /* Space between logo and text */
-    font-weight: bold;
-}
-
-nav {
-    margin-left: auto; /* Pushes the navbar to the right */
-}
-
 nav ul {
     list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
+    padding: 0;
+    margin: 0;
 }
 
 nav ul li {
     margin-right: 20px;
 }
 
-nav a {
+.nav-link {
     text-decoration: none;
     color: white;
     font-size: 1.1em;
-    padding: 10px 20px;
+    padding: 10px 15px;
+    border-radius: 8px;
     transition: background-color 0.3s;
-    border-radius: 5px;
 }
 
-nav a:hover {
-    background-color: #7a5cd2;
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.15);
 }
 
-nav a.active {
-    border-bottom: 4px solid white;
+main {
+    margin-top: 20px;
 }
 
 section {
-    padding: 50px 20px;
-    margin: 20px;
-    border-radius: 8px;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 40px 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
-section h2 {
-    color: #333;
+section h2, section h3 {
+    text-align: center;
     font-size: 2em;
-    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
-section p {
+section p, section ul li {
     font-size: 1.1em;
     line-height: 1.6em;
-}
-
-.cta-button {
-    display: inline-block;
-    padding: 10px 25px;
-    background-color: #5844E5;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1.1em;
-    transition: background-color 0.3s;
-}
-
-.cta-button:hover {
-    background-color: #7a5cd2;
-}
-
-footer {
-    background-color: #5844E5;
-    color: white;
     text-align: center;
-    padding: 15px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    left: 0;
 }
 
-footer p {
-    margin: 0;
-    font-size: 1em;
-}
-
-/* Back to top button */
-#back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #5844E5;
-    color: white;
-    border: none;
-    padding: 15px 20px;
-    border-radius: 50%;
-    font-size: 20px;
-    cursor: pointer;
-    display: none;
-    transition: background-color 0.3s;
-}
-
-#back-to-top:hover {
-    background-color: #7a5cd2;
-}
-
-/* Smooth scrolling */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Discord Login Button styles */
-.discord-login button {
-    background-color: #7289da; /* Discord blue */
-    border: none;
-    color: white;
-    padding: 15px 25px;
-    font-size: 1.1em;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.discord-login button:hover {
-    background-color: #5b6e8e;
-}
-
-.discord-login button:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
+ul {
+    padding-left: 20px;
 }
 
 .purchase-btn, .social-buttons button {
-    background: linear-gradient(to right, #5844e5, black) !important;
-    color: white !important;
-    border: none !important;
-    padding: 10px 20px !important;
-    font-size: 18px !important;
-    font-weight: bold !important;
-    border-radius: 8px !important;
-    cursor: pointer !important;
-    transition: 0.3s !important;
-    display: inline-block !important;
+    background: linear-gradient(to right, #5844e5, black);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 10px;
 }
 
 .purchase-btn:hover, .social-buttons button:hover {
-    background: linear-gradient(to right, black, #5844e5) !important;
-    transform: scale(1.05) !important;
+    background: linear-gradient(to right, black, #5844e5);
+    transform: scale(1.05);
 }
 
-#socials {
-    display: inline-block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
+footer {
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    text-align: center;
+    padding: 15px 10px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+/* Discord Widget Centering */
+#discord-widget iframe {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .glass-container {
+        margin: 10px;
+    }
+
+    section {
+        padding: 20px;
+    }
 }
