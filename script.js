@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
     const userInfo = document.getElementById("user-info");
     const discordToken = localStorage.getItem('discordToken');
+    const redeemLink = document.getElementById('redeem-link');
 
     // If the user is logged in (token exists in localStorage)
     if (discordToken) {
