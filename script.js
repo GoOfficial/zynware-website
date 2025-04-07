@@ -44,8 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Handle dynamic navbar updates based on login state
 document.addEventListener("DOMContentLoaded", () => {
     const userInfo = document.getElementById("user-info");
-    const redeemLink = document.getElementById("redeem-link");
-    const discordToken = localStorage.getItem('discordToken'); // Fetch the token from localStorage
+    const discordToken = localStorage.getItem('discordToken');
 
     // If the user is logged in (token exists in localStorage)
     if (discordToken) {
