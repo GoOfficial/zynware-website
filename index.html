@@ -112,73 +112,81 @@
 
 <body>
 
-    <div id="content-wrapper" style="display:none;">
-        <header>
-            <a href="https://guns.lol/foulz" target="_blank">
-                <img src="/Images/logofr.png" alt="Logo" class="logo">
-            </a>
-            <h1 id="main-title"></h1>
-            <nav>
+    <header>
+        <a href="https://guns.lol/foulz" target="_blank">
+            <img src="/Images/logofr.png" alt="Logo" class="logo">
+        </a>
+        <h1 id="main-title"></h1>
+        <nav>
+            <ul>
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/purchase" class="nav-link">Purchase</a></li>
+                <li><a href="/optimizations" class="nav-link">Optimizations</a></li>
+                <li><a href="/bypass" class="nav-link">Bypass</a></li>
+                <li><a href="/contact" class="nav-link">Contact</a></li>
+                <li id="user-info">
+                    <a href="/signin" class="nav-link">Sign In</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h2>Welcome to Foulz Tweaks and Optimizations</h2>
+            <p>Unlock the full potential of your PC with our optimization tools.</p>
+
+            <section id="why-use">
+                <h3>Why Use Our Tweaks?</h3>
                 <ul>
-                    <li><a href="/" class="nav-link">Home</a></li>
-                    <li><a href="/purchase" class="nav-link">Purchase</a></li>
-                    <li><a href="/optimizations" class="nav-link">Optimizations</a></li>
-                    <li><a href="/bypass" class="nav-link">Bypass</a></li>
-                    <li><a href="/contact" class="nav-link">Contact</a></li>
-                    <li id="user-info">
-                        <a href="/signin" class="nav-link">Sign In</a>
-                    </li>
+                    <li>The first and only app offering this unique combination of optimizations and privacy enhancements</li>
+                    <li>Boost FPS and reduce system lag</li>
+                    <li>Remove unnecessary processes that slow down your PC</li>
+                    <li>Clear Windows logs for enhanced privacy</li>
+                    <li>Prevent detection from apps that monitor logs</li>
                 </ul>
-            </nav>
-        </header>
-
-        <main>
-            <section id="home">
-                <h2>Welcome to Foulz Tweaks and Optimizations</h2>
-                <p>Unlock the full potential of your PC with our optimization tools.</p>
-
-                <section id="why-use">
-                    <h3>Why Use Our Tweaks?</h3>
-                    <ul>
-                        <li>The first and only app offering this unique combination of optimizations and privacy enhancements</li>
-                        <li>Boost FPS and reduce system lag</li>
-                        <li>Remove unnecessary processes that slow down your PC</li>
-                        <li>Clear Windows logs for enhanced privacy</li>
-                        <li>Prevent detection from apps that monitor logs</li>
-                    </ul>
-                </section>
             </section>
+        </section>
 
-            <section id="purchase">
-                <h3>Purchase Our Optimization Tool</h3>
-                <p>We currently accept CashApp and will soon implement a shop that supports PayPal, Visa, MasterCard, and more.</p>
-                <button class="purchase-btn" onclick="window.location.href='/purchase'">Purchase Now</button>
-            </section>
+        <section id="purchase">
+            <h3>Purchase Our Optimization Tool</h3>
+            <p>We currently accept CashApp and will soon implement a shop that supports PayPal, Visa, MasterCard, and more.</p>
+            <button class="purchase-btn" onclick="window.location.href='/purchase'">Purchase Now</button>
+        </section>
 
-            <section id="socials">
-                <h3>Follow Me</h3>
-                <div class="social-buttons">
-                    <button class="purchase-btn" onclick="window.open('https://guns.lol/foulz', '_blank')">Visit Guns</button>
-                    <button class="purchase-btn" onclick="window.open('https://twitch.tv/f0ulzz', '_blank')">Visit Twitch</button>
-                </div>
-            </section>
+        <section id="socials">
+            <h3>Follow Me</h3>
+            <div class="social-buttons">
+                <button class="purchase-btn" onclick="window.open('https://guns.lol/foulz', '_blank')">Visit Guns</button>
+                <button class="purchase-btn" onclick="window.open('https://twitch.tv/f0ulzz', '_blank')">Visit Twitch</button>
+            </div>
+        </section>
 
-            <section id="discord-widget">
-                <h3>Join Our Discord Server</h3>
-                <iframe src="https://discord.com/widget?id=1355023513077022720&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-            </section>
-        </main>
+        <section id="discord-widget">
+            <h3>Join Our Discord Server</h3>
+            <iframe src="https://discord.com/widget?id=1355023513077022720&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+        </section>
+    </main>
 
-        <footer>
-            <p>&copy; 2025 Foulz Tweaks and Optimizations. All Rights Reserved.</p>
-        </footer>
-    </div>
+    <footer>
+        <p>&copy; 2025 Foulz Tweaks and Optimizations. All Rights Reserved.</p>
+    </footer>
 
     <script src="/script.js"></script>
 
     <script>
-        $(window).on("load", function () {
-            $("#content-wrapper").fadeIn(2000); // Full page fade-in over 2 seconds
+        $(document).ready(function () {
+            $("a").click(function (event) {
+                event.preventDefault();
+                var url = $(this).attr("href");
+                $("body").fadeOut(500, function () {
+                    window.location = url;
+                });
+            });
+
+            $(window).on("load", function () {
+                $("body").fadeIn(1000);
+            });
         });
     </script>
 </body>
