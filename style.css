@@ -23,19 +23,11 @@ nav {
     padding: 10px 30px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     position: sticky;
     top: 0;
     z-index: 1000;
     border-radius: 0 0 12px 12px;
-}
-
-/* Logo */
-nav .logo {
-    font-size: 22px;
-    font-weight: bold;
-    color: #fff;
-    letter-spacing: 1px;
 }
 
 /* Navbar links */
@@ -103,13 +95,4 @@ nav ul li a.active {
 /* Show dropdown */
 .dropdown.open .dropdown-menu {
     display: flex;
-}
-
-/* Typing Effect (optional, if you use it elsewhere) */
-#main-title {
-    font-size: 28px;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 50px;
-    text-shadow: 0 0 8px #5844e5;
 }
