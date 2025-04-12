@@ -143,5 +143,23 @@ document.addEventListener("DOMContentLoaded", () => {
     if (socialsSection) {
         socialsSection.style.display = "block";  // Forces display to block
         socialsSection.style.setProperty('display', 'block', 'important');  // Apply !important dynamically
+        
     }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const dropdown = document.querySelector('.dropdown');
+    const toggle = dropdown.querySelector('.dropdown-toggle');
+
+    toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdown.classList.toggle('open');
+    });
+
+    // Optional: close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove('open');
+        }
+    });
 });
