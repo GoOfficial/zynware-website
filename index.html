@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home | ZYNWARE</title>
 
-    <!-- Open Graph meta tags -->
+    <!-- Open Graph -->
     <meta property="og:title" content="Home - ZYNWARE" />
     <meta property="og:description" content="Welcome to ZYNWARE, where you can find performance tweaks and system enhancements for your PC." />
     <meta property="og:image" content="https://zynware.xyz/Images/zynware.jpg" />
@@ -41,69 +41,6 @@
 
         .logo {
             height: 60px;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 10px;
-            gap: 25px;
-        }
-
-        nav ul li {
-            position: relative;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 10px 15px;
-            border-radius: 10px;
-            transition: background 0.3s, box-shadow 0.3s;
-        }
-
-        nav a:hover {
-            background: rgba(88, 68, 229, 0.4);
-            box-shadow: 0 0 10px #5844e5;
-        }
-
-        .dropdown-toggle::after {
-            content: " ▼";
-            font-size: 12px;
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: 45px;
-            left: 0;
-            background: rgba(30, 30, 30, 0.85);
-            backdrop-filter: blur(12px);
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-            min-width: 160px;
-            display: none;
-            flex-direction: column;
-            z-index: 999;
-        }
-
-        .dropdown-menu a {
-            padding: 10px 20px;
-            color: white;
-            text-decoration: none;
-            transition: 0.2s;
-        }
-
-        .dropdown-menu a:hover {
-            background: rgba(88, 68, 229, 0.4);
-            border-radius: 8px;
-        }
-
-        .dropdown.open .dropdown-menu {
-            display: flex;
         }
 
         main {
@@ -160,7 +97,7 @@
             <ul>
                 <li><a href="/" class="nav-link">Home</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle nav-link">Product</a>
+                    <a href="javascript:void(0)" class="dropdown-toggle nav-link">Product</a>
                     <div class="dropdown-menu">
                         <a href="https://cdn.discordapp.com/attachments/1359337659054690434/1359338269720182934/Foulz_TweaksBETA.zip?ex=67fa69aa&is=67f9182a&hm=d396092cb790e4e1693194d57c4e9cb4cbd74f61d207868b7e71aaa71842bb95&">Download</a>
                         <a href="/pricing">Pricing</a>
@@ -218,8 +155,6 @@
         <p>&copy; 2025 ZYNWARE. All Rights Reserved.</p>
     </footer>
 
-    <script src="/script.js"></script>
-
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const dropdown = document.querySelector('.dropdown');
@@ -238,11 +173,11 @@
         });
 
         $(document).ready(function () {
-            $("a").click(function (event) {
+            $("a.nav-link").not(".dropdown-toggle").click(function (event) {
                 event.preventDefault();
                 var url = $(this).attr("href");
                 $("body").fadeOut(500, function () {
-                    window.location = url;
+                    window.location.href = url;
                 });
             });
 
