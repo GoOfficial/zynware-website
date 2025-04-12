@@ -134,4 +134,48 @@ footer {
     section {
         padding: 20px;
     }
+
+/* Dropdown Menu Styling */
+.dropdown {
+    position: relative;
+    }
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(30, 30, 30, 0.95);
+    backdrop-filter: blur(12px);
+    border-radius: 10px;
+    min-width: 150px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    }
+
+.dropdown-menu li {
+    padding: 10px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+.dropdown-menu li:last-child {
+    border-bottom: none;
+    }
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    }
+
+/* Improved Glass Theme */
+header.glass-nav {
+    background: rgba(10, 10, 10, 0.65);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+nav a.nav-link {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 6px;
+    }
 }
