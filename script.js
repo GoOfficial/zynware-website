@@ -23,7 +23,7 @@ navLinks.forEach(link => {
 
 // Typing Effect (Fix for Contact Page)
 document.addEventListener("DOMContentLoaded", () => {
-    const title = "Foulz Tweaks and Optimizations"; // Adjusted title for contact page
+    const title = "ZYNWARE | Optimize, Bypass & Repair"; // Adjusted title for contact page
     const titleElement = document.getElementById("main-title");
     let i = 0;
 
