@@ -1,181 +1,115 @@
-/* Background and base */
-body {
-    font-family: 'Tektur', sans-serif;
-    background: url('/Images/optimize.gif') no-repeat center center fixed;
-    background-size: cover;
+/* General Reset */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body & Background */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('/Images/optimize.gif') no-repeat center center fixed;
+    background-size: cover;
     color: white;
     overflow-x: hidden;
 }
 
-.glass-container {
-    max-width: 1000px;
-    margin: 30px auto;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 15px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-}
-
-/* Glassy navbar */
-header.glass-nav {
-    background: rgba(0, 0, 0, 0.3);
-    padding: 10px 20px;
+/* Glassy Navbar */
+nav {
+    width: 100%;
+    background: rgba(30, 30, 30, 0.6);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    padding: 10px 30px;
     display: flex;
     align-items: center;
-    border-radius: 12px;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-radius: 0 0 12px 12px;
 }
 
-header .logo {
-    width: 50px;
-    height: auto;
+/* Logo */
+nav .logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 1px;
 }
 
+/* Navbar links */
 nav ul {
     list-style: none;
     display: flex;
-    padding: 0;
-    margin: 0;
+    align-items: center;
+    gap: 30px;
 }
 
 nav ul li {
-    margin-right: 20px;
+    position: relative;
 }
 
-.nav-link {
+nav ul li a {
     text-decoration: none;
     color: white;
-    font-size: 1.1em;
     padding: 10px 15px;
-    border-radius: 8px;
-    transition: background-color 0.3s;
-}
-
-.nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-}
-
-main {
-    margin-top: 20px;
-}
-
-section {
-    background-color: rgba(0, 0, 0, 0.4);
-    padding: 40px 20px;
     border-radius: 12px;
-    margin-bottom: 25px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-}
-
-section h2, section h3 {
-    text-align: center;
-    font-size: 2em;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-}
-
-section p, section ul li {
-    font-size: 1.1em;
-    line-height: 1.6em;
-    text-align: center;
-}
-
-ul {
-    padding-left: 20px;
-}
-
-.purchase-btn, .social-buttons button {
-    background: linear-gradient(to right, #5844e5, black);
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
     transition: 0.3s;
-    margin: 10px;
+    font-weight: 500;
 }
 
-.purchase-btn:hover, .social-buttons button:hover {
-    background: linear-gradient(to right, black, #5844e5);
-    transform: scale(1.05);
+nav ul li a:hover,
+nav ul li a.active {
+    background: rgba(88, 68, 229, 0.5);
+    box-shadow: 0 0 10px #5844e5;
 }
 
-footer {
-    background: rgba(0, 0, 0, 0.3);
-    color: white;
-    text-align: center;
-    padding: 15px 10px;
-    border-radius: 10px;
-    margin-top: 30px;
+/* Dropdown Toggle */
+.dropdown-toggle::after {
+    content: " ▼";
+    font-size: 12px;
 }
 
-/* Discord Widget Centering */
-#discord-widget iframe {
-    display: block;
-    margin: 0 auto;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .glass-container {
-        margin: 10px;
-    }
-
-    section {
-        padding: 20px;
-    }
-
-/* Dropdown Menu Styling */
-.dropdown {
-    position: relative;
-    }
-
+/* Dropdown Menu */
 .dropdown-menu {
-    display: none;
     position: absolute;
-    top: 100%;
+    top: 45px;
     left: 0;
-    background-color: rgba(30, 30, 30, 0.95);
-    backdrop-filter: blur(12px);
-    border-radius: 10px;
-    min-width: 150px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    }
+    background: rgba(30, 30, 30, 0.85);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    min-width: 160px;
+    display: none;
+    flex-direction: column;
+    padding: 10px 0;
+    z-index: 999;
+    transition: all 0.2s ease-in-out;
+}
 
-.dropdown-menu li {
-    padding: 10px 15px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
+.dropdown-menu a {
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    transition: 0.2s;
+}
 
-.dropdown-menu li:last-child {
-    border-bottom: none;
-    }
+.dropdown-menu a:hover {
+    background: rgba(88, 68, 229, 0.4);
+    box-shadow: inset 0 0 10px #5844e5;
+    border-radius: 8px;
+}
 
-.dropdown:hover .dropdown-menu {
-    display: block;
-    }
+/* Show dropdown */
+.dropdown.open .dropdown-menu {
+    display: flex;
+}
 
-/* Improved Glass Theme */
-header.glass-nav {
-    background: rgba(10, 10, 10, 0.65);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-nav a.nav-link {
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    border-radius: 6px;
-    }
+/* Typing Effect (optional, if you use it elsewhere) */
+#main-title {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 50px;
+    text-shadow: 0 0 8px #5844e5;
 }
