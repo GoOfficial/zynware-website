@@ -33,8 +33,36 @@ body {
     align-items: center;
 }
 
+.custom-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 40px;
+    background: rgba(20, 20, 35, 0.4); /* Clear with soft blue tint */
+    border-bottom: 1px solid rgba(80, 120, 255, 0.2);
+    z-index: 999;
+    backdrop-filter: blur(8px);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    flex: 0 0 15%;
+}
+
 .logo {
-    height: 60px;
+    height: 30px;
+    margin-right: 8px;
+}
+
+.logo-text {
+    color: #b0b9ff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 /* Nav links */
@@ -179,4 +207,79 @@ footer {
     font-size: 1.6rem;
     line-height: 2.6rem;
     margin-bottom: 25px;
+}
+
+.nav-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    font-size: 0.9rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #eaeaff;
+    padding: 6px 10px;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: #8f9fff;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 32px;
+    background-color: rgba(20, 20, 35, 0.8);
+    padding: 10px;
+    border-radius: 6px;
+    backdrop-filter: blur(6px);
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content li {
+    margin-bottom: 5px;
+}
+
+.dropdown-content li:last-child {
+    margin-bottom: 0;
+}
+
+.dropdown-content a {
+    color: #d0d8ff;
+    font-size: 0.85rem;
+}
+
+.header-right {
+    flex: 0 0 auto;
+}
+
+.signin-btn {
+    font-size: 0.85rem;
+    color: #b0b9ff;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    transition: 0.3s ease;
+}
+
+.signin-btn:hover {
+    border-color: #8f9fff;
+    background-color: rgba(90, 110, 255, 0.1);
 }
