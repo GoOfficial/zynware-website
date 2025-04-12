@@ -7,11 +7,21 @@
 
 /* Body & Background */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Tektur', sans-serif;
     background: url('/Images/optimize.gif') no-repeat center center fixed;
     background-size: cover;
     color: white;
     overflow-x: hidden;
+    position: relative;
+}
+
+/* Overlay for readability */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: -1;
 }
 
 /* Glassy Navbar */
@@ -95,4 +105,53 @@ nav ul li a.active {
 /* Show dropdown */
 .dropdown.open .dropdown-menu {
     display: flex;
+}
+
+/* Card style for sections */
+.card {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    margin-bottom: 30px;
+}
+
+/* Typography Enhancements */
+h2, h3 {
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 0 0 5px #8a7dff, 0 0 15px #8a7dff;
+}
+
+/* Buttons */
+.social-buttons button, .purchase-btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #8a7dff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    box-shadow: 0 0 10px #8a7dff;
+    transition: 0.3s;
+}
+
+.social-buttons button:hover, .purchase-btn:hover {
+    background-color: #6c5ce7;
+    box-shadow: 0 0 15px #8a7dff;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 10px;
+    color: #aaa;
+}
+
+/* List Styling */
+ul {
+    line-height: 1.8;
+    padding-left: 20px;
 }
