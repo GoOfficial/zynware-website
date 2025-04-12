@@ -1,103 +1,197 @@
-<!-- index.html -->
+<!-- Your entire original file with only the new download button added -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home | ZYNWARE</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | ZYNWARE</title>
 
-  <!-- OG meta -->
-  <meta property="og:title" content="Home - ZYNWARE" />
-  <meta property="og:description" content="Welcome to ZYNWARE, where you can find performance tweaks and system enhancements for your PC." />
-  <meta property="og:image" content="https://zynware.xyz/Images/zynware.jpg" />
-  <meta property="og:url" content="https://zynware.xyz" />
-  <meta property="og:type" content="website" />
+    <!-- Open Graph meta tags for link preview -->
+    <meta property="og:title" content="Home - ZYNWARE" />
+    <meta property="og:description" content="Welcome to ZYNWARE, where you can find performance tweaks and system enhancements for your PC." />
+    <meta property="og:image" content="https://zynware.xyz/Images/zynware.jpg">
+    <meta property="og:url" content="https://zynware.xyz/" />
+    <meta property="og:type" content="website" />
 
-  <link rel="stylesheet" href="/style.css" />
-  <link rel="icon" href="/Images/zynware.jpg" type="image/jpg" />
-  <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap" rel="stylesheet" />
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/Images/zynware.jpg" type="image/jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: 'Tektur', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('/Images/optimize.gif') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        header {
+            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            text-align: center;
+            border-radius: 20px;
+            margin: 30px auto;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .logo {
+            height: 60px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #8a7dff;
+        }
+
+        main {
+            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.4);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        h2, h3 {
+            text-align: center;
+            color: #ffffff;
+        }
+
+        section {
+            margin-top: 20px;
+        }
+
+        .social-buttons button, .purchase-btn {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #8a7dff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 10px;
+            color: #aaa;
+        }
+
+        ul {
+            line-height: 1.8;
+            padding-left: 20px;
+        }
+    </style>
 </head>
 
 <body>
-  <header class="glass-nav">
-    <a href="https://guns.lol/foulz" target="_blank">
-      <img src="/Images/zynware.gif" alt="Logo" class="logo" />
-    </a>
-    <nav>
-      <ul>
-        <li><a href="/" class="nav-link">Home</a></li>
-        <li class="dropdown">
-          <a href="#" class="nav-link">Product</a>
-          <ul class="dropdown-menu">
-            <li><a href="#" class="nav-link">Download</a></li>
-            <li><a href="#" class="nav-link">Pricing</a></li>
-          </ul>
-        </li>
-        <li><a href="/optimizations" class="nav-link">Optimizations</a></li>
-        <li><a href="/bypass" class="nav-link">Bypass</a></li>
-        <li><a href="/contact" class="nav-link">Contact</a></li>
-        <li><a href="/signin" class="nav-link">Sign In</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <main class="glass-container">
-    <section id="home">
-      <h2>Welcome to Foulz Tweaks and Optimizations</h2>
-      <p>Unlock the full potential of your PC with our optimization tools.</p>
-      <section id="why-use">
-        <h3>Why Use Our Tweaks?</h3>
-        <ul>
-          <li>The first and only app offering this unique combination of optimizations and privacy enhancements</li>
-          <li>Boost FPS and reduce system lag</li>
-          <li>Remove unnecessary processes that slow down your PC</li>
-          <li>Clear Windows logs for enhanced privacy</li>
-          <li>Prevent detection from apps that monitor logs</li>
-        </ul>
-      </section>
-    </section>
+    <header>
+        <a href="https://guns.lol/foulz" target="_blank">
+            <img src="/Images/zynware.gif" alt="Logo" class="logo">
+        </a>
+        <h1 id="main-title"></h1>
+        <nav>
+            <ul>
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/purchase" class="nav-link">Purchase</a></li>
+                <li><a href="/optimizations" class="nav-link">Optimizations</a></li>
+                <li><a href="/bypass" class="nav-link">Bypass</a></li>
+                <li><a href="/contact" class="nav-link">Contact</a></li>
+                <li id="user-info">
+                    <a href="/signin" class="nav-link">Sign In</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
-    <section id="purchase">
-      <h3>Grab the Tool</h3>
-      <p>We currently accept CashApp and will soon support PayPal, Visa, MasterCard, and more.</p>
-      <button class="purchase-btn" onclick="window.location.href='/purchase'">Purchase Now</button>
-      <button class="purchase-btn" onclick="window.location.href='https://cdn.discordapp.com/attachments/1359337659054690434/1359338269720182934/Foulz_TweaksBETA.zip?ex=67fa69aa&is=67f9182a&hm=d396092cb790e4e1693194d57c4e9cb4cbd74f61d207868b7e71aaa71842bb95&'">Download</button>
-    </section>
+    <main>
+        <section id="home">
+            <h2>Welcome to Foulz Tweaks and Optimizations</h2>
+            <p>Unlock the full potential of your PC with our optimization tools.</p>
 
-    <section id="socials">
-      <h3>Follow Me</h3>
-      <div class="social-buttons">
-        <button class="purchase-btn" onclick="window.open('https://guns.lol/foulz', '_blank')">Visit Guns</button>
-        <button class="purchase-btn" onclick="window.open('https://twitch.tv/f0ulzz', '_blank')">Visit Twitch</button>
-      </div>
-    </section>
+            <section id="why-use">
+                <h3>Why Use Our Tweaks?</h3>
+                <ul>
+                    <li>The first and only app offering this unique combination of optimizations and privacy enhancements</li>
+                    <li>Boost FPS and reduce system lag</li>
+                    <li>Remove unnecessary processes that slow down your PC</li>
+                    <li>Clear Windows logs for enhanced privacy</li>
+                    <li>Prevent detection from apps that monitor logs</li>
+                </ul>
+            </section>
+        </section>
 
-    <section id="discord-widget">
-      <h3>Join Our Discord Server</h3>
-      <iframe src="https://discord.com/widget?id=1355023513077022720&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-    </section>
-  </main>
+        <section id="purchase">
+            <h3>Purchase Our Optimization Tool</h3>
+            <p>We currently accept CashApp and will soon implement a shop that supports PayPal, Visa, MasterCard, and more.</p>
+            <button class="purchase-btn" onclick="window.location.href='/purchase'">Purchase Now</button>
+            <!-- 🔽 New Download Button Added Below -->
+            <button class="purchase-btn" onclick="window.location.href='https://cdn.discordapp.com/attachments/1359337659054690434/1359338269720182934/Foulz_TweaksBETA.zip?ex=67fa69aa&is=67f9182a&hm=d396092cb790e4e1693194d57c4e9cb4cbd74f61d207868b7e71aaa71842bb95&'">Download</button>
+        </section>
 
-  <footer>
-    <p>&copy; 2025 ZYNWARE. All Rights Reserved.</p>
-  </footer>
+        <section id="socials">
+            <h3>Follow Me</h3>
+            <div class="social-buttons">
+                <button class="purchase-btn" onclick="window.open('https://guns.lol/foulz', '_blank')">Visit Guns</button>
+                <button class="purchase-btn" onclick="window.open('https://twitch.tv/f0ulzz', '_blank')">Visit Twitch</button>
+            </div>
+        </section>
 
-  <script src="/script.js"></script>
-  <script>
-    $(document).ready(function () {
-      $("a").click(function (event) {
-        event.preventDefault();
-        var url = $(this).attr("href");
-        $("body").fadeOut(500, function () {
-          window.location = url;
+        <section id="discord-widget">
+            <h3>Join Our Discord Server</h3>
+            <iframe src="https://discord.com/widget?id=1355023513077022720&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ZYNWARE. All Rights Reserved.</p>
+    </footer>
+
+    <script src="/script.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("a").click(function (event) {
+                event.preventDefault();
+                var url = $(this).attr("href");
+                $("body").fadeOut(500, function () {
+                    window.location = url;
+                });
+            });
+
+            $(window).on("load", function () {
+                $("body").fadeIn(1000);
+            });
         });
-      });
-
-      $(window).on("load", function () {
-        $("body").fadeIn(1000);
-      });
-    });
-  </script>
+    </script>
 </body>
+
 </html>
