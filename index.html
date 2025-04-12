@@ -2,121 +2,140 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home | ZYNWARE</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home | ZYNWARE</title>
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Home - ZYNWARE" />
-  <meta property="og:description" content="Welcome to ZYNWARE, where you can find performance tweaks and system enhancements for your PC." />
-  <meta property="og:image" content="https://zynware.xyz/Images/zynware.jpg" />
-  <meta property="og:url" content="https://zynware.xyz/" />
-  <meta property="og:type" content="website" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="Home - ZYNWARE" />
+    <meta property="og:description" content="Welcome to ZYNWARE, where you can find performance tweaks and system enhancements for your PC." />
+    <meta property="og:image" content="https://zynware.xyz/Images/zynware.jpg" />
+    <meta property="og:url" content="https://zynware.xyz/" />
+    <meta property="og:type" content="website" />
 
-  <link rel="stylesheet" href="/style.css" />
-  <link rel="icon" href="/Images/zynware.jpg" type="image/jpg" />
-  <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap" rel="stylesheet" />
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" href="/Images/zynware.jpg" type="image/jpg" />
+    <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
-
-  <header class="custom-header">
-    <div class="header-left">
-      <a href="https://guns.lol/foulz" target="_blank">
-        <img src="/Images/zynware.gif" alt="ZYNWARE Logo" class="logo" />
-      </a>
-      <span class="logo-text">ZYNWARE</span>
+    <div class="navbar-container">
+        <a href="/" class="logo-link">
+            <img src="/Images/zynware.gif" alt="ZYNWARE Logo" class="logo" />
+        </a>
+        <nav>
+            <ul>
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropdown-toggle nav-link">Product</a>
+                    <div class="dropdown-menu">
+                        <a href="https://cdn.discordapp.com/attachments/1359337659054690434/1359338269720182934/Foulz_TweaksBETA.zip">Download</a>
+                        <a href="/pricing">Pricing</a>
+                    </div>
+                </li>
+                <li><a href="/optimizations" class="nav-link">Optimizations</a></li>
+                <li><a href="/bypass" class="nav-link">Bypass</a></li>
+                <li><a href="/contact" class="nav-link">Contact</a></li>
+                <li id="user-info">
+                    <a href="/signin" class="nav-link">Sign In</a>
+                </li>
+            </ul>
+        </nav>
     </div>
 
-    <nav class="nav-center">
-      <ul class="nav-links">
-        <li><a href="/" class="nav-link">Home</a></li>
-        <li class="dropdown">
-          <a href="javascript:void(0)" class="dropdown-toggle nav-link">Product</a>
-          <div class="dropdown-menu">
-            <a href="https://cdn.discordapp.com/attachments/1359337659054690434/1359338269720182934/Foulz_TweaksBETA.zip?ex=67fa69aa&is=67f9182a&hm=d396092cb790e4e1693194d57c4e9cb4cbd74f61d207868b7e71aaa71842bb95&">Download</a>
-            <a href="/pricing">Pricing</a>
-          </div>
-        </li>
-        <li><a href="/optimizations" class="nav-link">Optimizations</a></li>
-        <li><a href="/bypass" class="nav-link">Bypass</a></li>
-        <li><a href="/contact" class="nav-link">Contact</a></li>
-      </ul>
-    </nav>
-
-    <div class="header-right">
-      <a href="/signin" class="signin-btn">Sign In</a>
+    <main>
+<section class="full-section hero" id="intro">
+    <div class="hero-text">
+        <h1>Welcome to ZYNWARE</h1>
+        <p>
+            A utility-based software and website developed by Foulz, designed to bypass PC checks,
+            apply deep system optimizations, and improve performance for gaming and general use.
+        </p>
+        <p>
+            <strong>Website:</strong> Hosts key-based validation, download links, and info for tools
+            that enhance system performance or bypass restrictions (like security checks, hardware locks, etc).
+        </p>
+        <p>
+            <strong>Application:</strong> A slick, animated desktop app with a dark, glossy UI that applies
+            real optimizations, disables bloat, and helps users unlock the full potential of their systems —
+            especially useful for low-end PCs or restricted environments.
+        </p>
+        <p>
+            ZYNWARE is built for users who want more control over their PC — whether that’s removing
+            limitations or making it run like a beast.
+        </p>
     </div>
-  </header>
+</section>
 
-  <section class="hero fullpage-section">
-    <h1>Welcome to ZYNWARE</h1>
-    <p>A utility-based software and website developed by Foulz, designed to bypass PC checks, apply deep system optimizations, and improve performance for gaming and general use.</p>
-    <p><strong>Website:</strong> Hosts key-based validation, download links, and info for tools that enhance system performance or bypass restrictions (like security checks, hardware locks, etc).</p>
-    <p><strong>Application:</strong> A slick, animated desktop app with a dark, glossy UI that applies real optimizations, disables bloat, and helps users unlock the full potential of their systems — especially useful for low-end PCs or restricted environments.</p>
-    <p>ZYNWARE is built for users who want more control over their PC — whether that’s removing limitations or making it run like a beast.</p>
-  </section>
+        <section class="medium-section" id="why-choose">
+            <h2>Why Choose ZYNWARE?</h2>
+            <ul>
+                <li><strong>Maximize FPS & Minimize System Lag:</strong> Optimize resource allocation and eliminate bottlenecks for smoother gameplay and faster performance.</li>
+                <li><strong>Eliminate Bloat & Background Clutter:</strong> Automatically disable unnecessary processes and services that drain performance.</li>
+                <li><strong>Enhance Privacy by Clearing Windows Logs:</strong> Remove traces of system activity to maintain a cleaner, more private environment.</li>
+                <li><strong>Bypass Detection from Log-Monitoring Apps:</strong> Stay under the radar with smart tweaks that prevent tracking and system flagging.</li>
+            </ul>
+        </section>
 
-  <section class="features">
-    <h2>Why Choose ZYNWARE?</h2>
-    <ul>
-      <li><strong>Maximize FPS & Minimize System Lag</strong><br>Optimize resource allocation and eliminate bottlenecks for smoother gameplay and faster performance.</li>
-      <li><strong>Eliminate Bloat & Background Clutter</strong><br>Automatically disable unnecessary processes and services that drain performance.</li>
-      <li><strong>Enhance Privacy by Clearing Windows Logs</strong><br>Remove traces of system activity to maintain a cleaner, more private environment.</li>
-      <li><strong>Bypass Detection from Log-Monitoring Apps</strong><br>Stay under the radar with smart tweaks that prevent tracking and system flagging.</li>
-    </ul>
-  </section>
+        <section class="medium-section" id="purchase">
+            <h2>Purchase Our Optimization Tool</h2>
+            <p>We currently accept CashApp and will soon implement a shop that supports PayPal, Visa, MasterCard, and more.</p>
+            <button class="purchase-btn" onclick="window.location.href='/purchase'">Purchase Now</button>
+            <button class="purchase-btn" onclick="window.location.href='https://cdn.discordapp.com/attachments/1359337659054690434/1359338269720182934/Foulz_TweaksBETA.zip'">Download</button>
+        </section>
 
-  <section class="purchase">
-    <h2>Purchase Our Optimization Tool</h2>
-    <p>We currently accept CashApp and will soon implement a shop that supports PayPal, Visa, MasterCard, and more.</p>
-    <button onclick="window.location.href='/purchase'">Purchase Now</button>
-    <button onclick="window.location.href='https://cdn.discordapp.com/attachments/1359337659054690434/1359338269720182934/Foulz_TweaksBETA.zip?ex=67fa69aa&is=67f9182a&hm=d396092cb790e4e1693194d57c4e9cb4cbd74f61d207868b7e71aaa71842bb95&'">Download</button>
-  </section>
+        <section class="medium-section" id="discord-widget">
+            <h2>Join Our Discord Server</h2>
+            <iframe src="https://discord.com/widget?id=1355023513077022720&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+        </section>
+    </main>
 
-  <section class="discord">
-    <h2>Join Our Discord Server</h2>
-    <iframe src="https://discord.com/widget?id=1355023513077022720&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-  </section>
+    <button id="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">Back to Top</button>
 
-  <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">Back to Top</button>
+    <footer>
+        <p>&copy; 2025 ZYNWARE. All Rights Reserved.</p>
+    </footer>
 
-  <footer>
-    <p>&copy; 2025 ZYNWARE. All Rights Reserved.</p>
-  </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const dropdown = document.querySelector('.dropdown');
+            const toggle = dropdown.querySelector('.dropdown-toggle');
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const dropdown = document.querySelector('.dropdown');
-      const toggle = dropdown.querySelector('.dropdown-toggle');
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                dropdown.classList.toggle('open');
+            });
 
-      toggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        dropdown.classList.toggle('open');
-      });
-
-      document.addEventListener('click', (e) => {
-        if (!dropdown.contains(e.target)) {
-          dropdown.classList.remove('open');
-        }
-      });
-    });
-
-    $(document).ready(function () {
-      $("a.nav-link").not(".dropdown-toggle").click(function (event) {
-        event.preventDefault();
-        var url = $(this).attr("href");
-        $("body").fadeOut(500, function () {
-          window.location.href = url;
+            document.addEventListener('click', (e) => {
+                if (!dropdown.contains(e.target)) {
+                    dropdown.classList.remove('open');
+                }
+            });
         });
-      });
 
-      $(window).on("load", function () {
-        $("body").fadeIn(1000);
-      });
-    });
-  </script>
+        $(document).ready(function () {
+            $("a.nav-link").not(".dropdown-toggle").click(function (event) {
+                event.preventDefault();
+                var url = $(this).attr("href");
+                $("body").fadeOut(500, function () {
+                    window.location.href = url;
+                });
+            });
 
+            $(window).on("load", function () {
+                $("body").fadeIn(1000);
+            });
+
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > window.innerHeight) {
+                    $("#back-to-top").fadeIn();
+                } else {
+                    $("#back-to-top").fadeOut();
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>
