@@ -155,3 +155,28 @@ footer {
     padding: 30px;
     color: #aaa;
 }
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 10%;
+}
+
+.hero-text {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px #5844e5;
+}
+
+.hero p {
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+    margin-bottom: 25px;
+}
