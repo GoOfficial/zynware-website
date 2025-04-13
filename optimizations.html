@@ -124,6 +124,13 @@
             event.preventDefault();
             var url = $(this).attr("href");
 
+            // Check if it's an internal link (doesn't contain 'http' or 'www')
+            if (url.includes('http') || url.includes('www')) {
+                // If external, don't handle with AJAX
+                window.location = url;
+                return;
+            }
+
             // If the URL is the same as the current page, prevent navigation
             if (window.location.pathname === url) return;
 
@@ -206,6 +213,7 @@
         });
     });
 </script>
+
 
 
 
