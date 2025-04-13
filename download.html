@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Download | ZYNWARE</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Download - ZYNWARE" />
+    <meta property="og:description" content="Quick setup guide and system requirements to install ZYNWARE." />
+    <meta property="og:image" content="https://zynware.xyz/Images/zynware.jpg" />
+    <meta property="og:url" content="https://zynware.xyz/download" />
+    <meta property="og:type" content="website" />
+
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" href="/Images/zynware.jpg" type="image/jpg" />
+    <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div class="navbar-container">
+        <a href="/" class="logo-link">
+            <img src="/Images/zynware.gif" alt="ZYNWARE Logo" class="logo" />
+        </a>
+        <nav>
+            <ul>
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropdown-toggle nav-link">Product</a>
+                    <div class="dropdown-menu">
+                        <a href="/download">Download</a>
+                        <a href="/pricing">Pricing</a>
+                    </div>
+                </li>
+                <li><a href="/optimizations" class="nav-link">Optimizations</a></li>
+                <li><a href="/bypass" class="nav-link">Bypass</a></li>
+                <li><a href="/contact" class="nav-link">Contact</a></li>
+                <li id="user-info">
+                    <a href="/signin" class="nav-link">Sign In</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <main>
+        <section class="full-section" id="setup-guide">
+            <h2 class="centered-text" style="color: #ff6600;">Quick Setup Guide</h2>
+            <div class="setup-steps">
+                <div class="step-box">
+                    <div class="step-number">1</div>
+                    <img src="/Images/icons/download.svg" alt="Download Icon" class="step-icon">
+                    <h3>Download</h3>
+                    <p>Download the latest version of ZYNWARE from our secure servers.</p>
+                </div>
+                <div class="step-box">
+                    <div class="step-number">2</div>
+                    <img src="/Images/icons/install.svg" alt="Install Icon" class="step-icon">
+                    <h3>Install</h3>
+                    <p>Run the installer and follow the simple setup wizard.</p>
+                </div>
+                <div class="step-box">
+                    <div class="step-number">3</div>
+                    <img src="/Images/icons/optimize.svg" alt="Optimize Icon" class="step-icon">
+                    <h3>Optimize</h3>
+                    <p>Let ZYNWARE analyze and optimize your system for gaming.</p>
+                </div>
+                <div class="step-box">
+                    <div class="step-number">4</div>
+                    <img src="/Images/icons/game.svg" alt="Game Icon" class="step-icon">
+                    <h3>Game</h3>
+                    <p>Enjoy enhanced gaming performance and reduced latency.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="medium-section" id="system-requirements">
+            <h2>System Requirements</h2>
+            <div class="requirements-grid">
+                <div class="req-box">
+                    <h3>🖥️ OS</h3>
+                    <p>Windows 10/11 (64-bit)</p>
+                </div>
+                <div class="req-box">
+                    <h3>🧠 Memory</h3>
+                    <p>100 MB RAM</p>
+                </div>
+                <div class="req-box">
+                    <h3>🛠️ Processor</h3>
+                    <p>Intel Core i3 / AMD Ryzen 3 or better</p>
+                </div>
+                <div class="req-box">
+                    <h3>💾 Storage</h3>
+                    <p>10 MB available space</p>
+                </div>
+                <div class="req-box">
+                    <h3>🔐 Additional</h3>
+                    <p>Administrator privileges required</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <button id="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">Back to Top</button>
+
+    <footer>
+        <p>&copy; 2025 ZYNWARE. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const dropdown = document.querySelector('.dropdown');
+            const toggle = dropdown.querySelector('.dropdown-toggle');
+
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                dropdown.classList.toggle('open');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!dropdown.contains(e.target)) {
+                    dropdown.classList.remove('open');
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $("a.nav-link").not(".dropdown-toggle").click(function (event) {
+                event.preventDefault();
+                var url = $(this).attr("href");
+                $("body").fadeOut(500, function () {
+                    window.location.href = url;
+                });
+            });
+
+            $(window).on("load", function () {
+                $("body").fadeIn(1000);
+            });
+
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > window.innerHeight) {
+                    $("#back-to-top").fadeIn();
+                } else {
+                    $("#back-to-top").fadeOut();
+                }
+            });
+        });
+    </script>
+    <script src="/script.js"></script>
+</body>
+
+</html>
