@@ -1,168 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In | Foulz Tweaks and Optimizations</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Open Graph meta tags for link preview -->
-    <meta property="og:title" content="Sign In - Foulz Tweaks and Optimizations" />
-    <meta property="og:description" content="Sign in with Discord to access Foulz Tweaks and Optimizations and unlock all performance tools." />
-    <meta property="og:image" content="https://foulz.xyz/Images/logofr.png" />
-    <meta property="og:url" content="https://foulz.xyz/signin" />
-    <meta property="og:type" content="website" />
+  <title>Sign In | ZYNWARE</title>
 
-    <!-- Twitter Card meta tags for Twitter link preview -->
-    <meta name="twitter:title" content="Sign In - Foulz Tweaks and Optimizations" />
-    <meta name="twitter:description" content="Sign in with Discord to access Foulz Tweaks and Optimizations and unlock all performance tools." />
-    <meta name="twitter:image" content="https://foulz.xyz/Images/logofr.png" />
-    <meta name="twitter:card" content="summary_large_image" />
+  <!-- Open Graph Meta -->
+  <meta property="og:title" content="Sign In - ZYNWARE" />
+  <meta property="og:description" content="Sign in with Discord to access ZYNWARE and unlock all performance tools." />
+  <meta property="og:image" content="/Images/zynware.jpg" />
+  <meta property="og:url" content="https://zynware.xyz/signin" />
+  <meta property="og:type" content="website" />
 
-    <link rel="stylesheet" href="/style.css">
-    <link rel="icon" href="/Images/logofr.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Twitter Card -->
+  <meta name="twitter:title" content="Sign In - ZYNWARE" />
+  <meta name="twitter:description" content="Sign in with Discord to access ZYNWARE and unlock all performance tools." />
+  <meta name="twitter:image" content="/Images/zynware.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-    <style>
-        body {
-            font-family: 'Tektur', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: url('/Images/optimize.gif') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
-        }
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="icon" href="/Images/zynware.jpg" type="image/jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/script.js"></script>
 
-        header {
-            backdrop-filter: blur(10px);
-            background: rgba(0, 0, 0, 0.4);
-            padding: 20px;
-            text-align: center;
-            border-radius: 20px;
-            margin: 30px auto;
-            width: 90%;
-            max-width: 1200px;
-        }
+  <style>
+    body {
+      font-family: 'Tektur', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('/Images/optimize.gif') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
 
-        .logo {
-            height: 60px;
-        }
+    main {
+      backdrop-filter: blur(10px);
+      background: rgba(0, 0, 0, 0.5);
+      padding: 40px;
+      border-radius: 20px;
+      margin: 50px auto;
+      width: 90%;
+      max-width: 600px;
+      text-align: center;
+    }
 
-        nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 10px;
-        }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
 
-        nav ul li {
-            margin: 0 15px;
-        }
+    p {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
+    .button.discord {
+      padding: 12px 24px;
+      background-color: #5865F2;
+      color: white;
+      text-decoration: none;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+    }
 
-        nav a:hover,
-        .nav-link.active {
-            color: #8a7dff;
-        }
+    .button.discord:hover {
+      background-color: #4752c4;
+    }
 
-        main {
-            backdrop-filter: blur(10px);
-            background: rgba(0, 0, 0, 0.4);
-            padding: 30px;
-            border-radius: 20px;
-            margin: 20px auto;
-            width: 90%;
-            max-width: 600px;
-            text-align: center;
-        }
-
-        h2 {
-            color: #ffffff;
-        }
-
-        .button.discord {
-            margin-top: 20px;
-            padding: 12px 24px;
-            background-color: #5865F2;
-            color: white;
-            text-decoration: none;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1em;
-            transition: background-color 0.3s ease;
-            display: inline-block;
-        }
-
-        .button.discord:hover {
-            background-color: #4752c4;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            padding: 10px;
-            color: #aaa;
-        }
-    </style>
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 10px;
+      color: #aaa;
+    }
+  </style>
 </head>
-
 <body>
 
-    <header>
-        <a href="https://guns.lol/foulz" target="_blank">
-            <img src="/Images/logofr.png" alt="Logo" class="logo">
-        </a>
-        <h1 id="main-title"></h1>
-        <nav>
-            <ul>
-                <li><a href="/" class="nav-link">Home</a></li>
-                <li><a href="/purchase" class="nav-link">Purchase</a></li>
-                <li><a href="/optimizations" class="nav-link">Optimizations</a></li>
-                <li><a href="/bypass" class="nav-link">Bypass</a></li>
-                <li><a href="/contact" class="nav-link">Contact</a></li>
-                <li><a href="/signin" class="nav-link active">Sign In</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Navbar -->
+  <div class="navbar-container">
+    <a href="/" class="logo-link">
+      <img src="/Images/zynware.gif" alt="ZYNWARE Logo" class="logo" />
+    </a>
+    <nav>
+      <ul>
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li class="dropdown">
+          <a href="javascript:void(0)" class="dropdown-toggle nav-link">Product</a>
+          <div class="dropdown-menu">
+            <a href="/download" class="nav-link">Download</a>
+            <a href="/pricing" class="nav-link">Pricing</a>
+          </div>
+        </li>
+        <li><a href="/optimizations" class="nav-link">Optimizations</a></li>
+        <li><a href="/bypass" class="nav-link">Bypass</a></li>
+        <li><a href="/contact" class="nav-link">Contact</a></li>
+        <li id="user-info"><a href="/signin" class="nav-link active">Sign In</a></li>
+      </ul>
+    </nav>
+  </div>
 
-    <main>
-        <section id="signin">
-            <h2>Sign In with Discord</h2>
-            <p>Click the button below to sign in with your Discord account:</p>
-            <a href="https://discord.com/oauth2/authorize?client_id=1354998845486010368&response_type=code&redirect_uri=https%3A%2F%2Fzynware.xyz%2Fauth%2Fdiscord%2Fcallback&scope=identify+guilds.join+email" class="button discord">Sign In with Discord</a>
-        </section>
-    </main>
+  <!-- Sign In Content -->
+  <main>
+    <section id="signin">
+      <h2>Sign In with Discord</h2>
+      <p>Click the button below to sign in with your Discord account:</p>
+      <a href="https://discord.com/oauth2/authorize?client_id=1354998845486010368&response_type=code&redirect_uri=https%3A%2F%2Fzynware.xyz%2Fauth%2Fdiscord%2Fcallback&scope=identify+guilds.join+email" class="button discord">Sign In with Discord</a>
+    </section>
+  </main>
 
-    <footer>
-        <p>&copy; 2025 Foulz Tweaks and Optimizations. All Rights Reserved.</p>
-    </footer>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 ZYNWARE. All Rights Reserved.</p>
+  </footer>
 
-    <script src="/script.js"></script>
+  <!-- Scripts -->
+  <script>
+    $(document).ready(function () {
+      $(".dropdown").hover(
+        function () {
+          $(this).find(".dropdown-menu").stop(true, true).slideDown(200);
+        },
+        function () {
+          $(this).find(".dropdown-menu").stop(true, true).slideUp(200);
+        }
+      );
 
-    <script>
-        $(document).ready(function () {
-            $("a:not(.discord)").click(function (event) {
-                event.preventDefault();
-                var url = $(this).attr("href");
-                $("body").fadeOut(500, function () {
-                    window.location = url;
-                });
-            });
-
-            $(window).on("load", function () {
-                $("body").fadeIn(1000);
-            });
+      $("a:not(.discord)").click(function (event) {
+        event.preventDefault();
+        var url = $(this).attr("href");
+        $("body").fadeOut(500, function () {
+          window.location = url;
         });
-    </script>
-</body>
+      });
 
+      $(window).on("load", function () {
+        $("body").fadeIn(1000);
+      });
+    });
+  </script>
+
+</body>
 </html>
