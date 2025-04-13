@@ -1,249 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Open Graph Meta -->
-    <meta property="og:title" content="Contact Us - ZYNWARE" />
-    <meta property="og:description" content="Contact us for inquiries, support, and any other assistance related to ZYNWARE." />
-    <meta property="og:image" content="/Images/zynware.jpg" />
-    <meta property="og:url" content="https://zynware.xyz/contact" />
-    <meta property="og:type" content="website" />
+  <!-- Meta -->
+  <meta property="og:title" content="Contact Us - ZYNWARE" />
+  <meta property="og:description" content="Contact us for inquiries, support, and other assistance related to ZYNWARE." />
+  <meta property="og:image" content="/Images/zynware.jpg" />
+  <meta property="og:url" content="https://zynware.xyz/contact" />
+  <meta property="og:type" content="website" />
 
-    <title>Contact Us | ZYNWARE</title>
+  <title>Contact | ZYNWARE</title>
 
-    <link rel="stylesheet" href="/style.css" />
-    <link rel="icon" href="/Images/zynware.jpg" type="image/jpg" />
-    <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap" rel="stylesheet" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/script.js"></script>
+  <!-- Style & Fonts -->
+  <link rel="icon" href="/Images/zynware.jpg" type="image/jpg" />
+  <link rel="stylesheet" href="/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/script.js"></script>
 
-    <style>
-        body {
-            font-family: 'Tektur', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: url('/Images/optimize.gif') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
-        }
+  <style>
+    body {
+      font-family: 'Tektur', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #0e0e0e url('/Images/optimize.gif') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
 
-        .navbar-container {
-            backdrop-filter: blur(10px);
-            background: rgba(0, 0, 0, 0.4);
-            padding: 20px;
-            text-align: center;
-            border-radius: 20px;
-            margin: 30px auto;
-            width: 90%;
-            max-width: 1200px;
-        }
+    header {
+      max-width: 1200px;
+      margin: 40px auto;
+      text-align: center;
+    }
 
-        .logo {
-            height: 60px;
-        }
+    .logo {
+      height: 60px;
+    }
 
-        nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 10px;
-        }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
-        nav ul li {
-            margin: 0 15px;
-        }
+    nav li {
+      margin: 0 15px;
+      position: relative;
+    }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
 
-        nav a:hover {
-            color: #fb63b1;
-        }
+    nav a:hover {
+      color: #fb63b1;
+    }
 
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 10px;
-            border-radius: 10px;
-        }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 30px;
+      left: 0;
+      background: #1c1c1c;
+      padding: 10px;
+      border-radius: 10px;
+    }
 
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
 
-        .dropdown-menu a {
-            display: block;
-            margin: 5px 0;
-        }
+    .dropdown-menu a {
+      display: block;
+      margin: 5px 0;
+      white-space: nowrap;
+    }
 
-        #contact {
-            backdrop-filter: blur(10px);
-            background: rgba(0, 0, 0, 0.4);
-            padding: 40px;
-            border-radius: 20px;
-            margin: 40px auto;
-            width: 90%;
-            max-width: 1000px;
-            text-align: center;
-        }
+    #contact {
+      max-width: 900px;
+      margin: 60px auto 30px;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    }
 
-        #contact h2 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
+    #contact h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
 
-        .button-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 20px;
-        }
+    .button-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 30px;
+    }
 
-        .button {
-            padding: 12px 24px;
-            background-color: #fb63b1;
-            color: white;
-            text-decoration: none;
-            border-radius: 10px;
-            transition: background-color 0.3s;
-            font-weight: bold;
-        }
+    .button {
+      padding: 12px 24px;
+      background-color: #fb63b1;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
 
-        .button:hover {
-            background-color: #ff85c1;
-        }
+    .button:hover {
+      background-color: #ff85c1;
+    }
 
-        .cta-card {
-            max-width: 600px;
-            margin: 4rem auto;
-            padding: 2rem;
-            border-radius: 20px;
-            background: linear-gradient(145deg, #fb63b1, #ff85c1);
-            box-shadow: 0 0 20px rgba(251, 99, 177, 0.3);
-            text-align: center;
-            color: white;
-        }
+    .cta-card {
+      max-width: 600px;
+      margin: 4rem auto 2rem;
+      padding: 2rem;
+      border-radius: 20px;
+      background: linear-gradient(145deg, #fb63b1, #ff85c1);
+      box-shadow: 0 0 20px rgba(251, 99, 177, 0.3);
+      text-align: center;
+      color: white;
+    }
 
-        .cta-card h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
+    .cta-card h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
 
-        .cta-card p {
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-        }
+    .cta-card p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
 
-        .cta-card a.cta-button {
-            display: inline-block;
-            padding: 0.75rem 2rem;
-            font-size: 1rem;
-            background: white;
-            color: #fb63b1;
-            font-weight: bold;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
+    .cta-card a.cta-button {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      background: white;
+      color: #fb63b1;
+      font-weight: bold;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
 
-        .cta-card a.cta-button:hover {
-            background: #ffd2ec;
-        }
+    .cta-card a.cta-button:hover {
+      background: #ffd2ec;
+    }
 
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            padding: 10px;
-            color: #aaa;
-        }
-    </style>
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+  </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <div class="navbar-container">
-        <a href="/" class="logo-link">
-            <img src="/Images/zynware.gif" alt="ZYNWARE Logo" class="logo" />
-        </a>
-        <nav>
-            <ul>
-                <li><a href="/" class="nav-link">Home</a></li>
-                <li class="dropdown">
-                    <a href="javascript:void(0)" class="dropdown-toggle nav-link">Product</a>
-                    <div class="dropdown-menu">
-                        <a href="/download" class="nav-link">Download</a>
-                        <a href="/pricing" class="nav-link">Pricing</a>
-                    </div>
-                </li>
-                <li><a href="/optimizations" class="nav-link">Optimizations</a></li>
-                <li><a href="/bypass" class="nav-link">Bypass</a></li>
-                <li><a href="/contact" class="nav-link">Contact</a></li>
-                <li id="user-info"><a href="/signin" class="nav-link">Sign In</a></li>
-            </ul>
-        </nav>
+  <!-- Navbar -->
+  <header>
+    <a href="/"><img src="/Images/zynware.gif" class="logo" alt="ZYNWARE Logo" /></a>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Product</a>
+          <div class="dropdown-menu">
+            <a href="/download">Download</a>
+            <a href="/pricing">Pricing</a>
+          </div>
+        </li>
+        <li><a href="/optimizations">Optimizations</a></li>
+        <li><a href="/bypass">Bypass</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li id="user-info"><a href="/signin">Sign In</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Get in touch with us for support, questions, or feedback.</p>
+
+    <div class="button-container">
+      <a href="https://discord.com/invite/CEyNFdzneg" class="button" target="_blank">Discord</a>
+      <a href="https://twitch.tv/f0ulzz" class="button" target="_blank">Twitch</a>
+      <a href="https://guns.lol/foulz" class="button" target="_blank">Guns</a>
+      <a href="https://www.roblox.com/users/3639760299/profile" class="button" target="_blank">Roblox</a>
     </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Get in touch with us for inquiries and support.</p>
+  <!-- CTA Card -->
+  <section class="cta-card">
+    <h2>Want Full Access?</h2>
+    <p>Get started with all features including optimizations and bypass tools.</p>
+    <a href="/pricing" class="cta-button">Purchase Now</a>
+  </section>
 
-        <div class="button-container">
-            <a href="https://discord.com/invite/CEyNFdzneg" class="button" target="_blank">Discord</a>
-            <a href="https://twitch.tv/f0ulzz" class="button" target="_blank">Twitch</a>
-            <a href="https://guns.lol/foulz" class="button" target="_blank">Guns</a>
-            <a href="https://www.roblox.com/users/3639760299/profile" class="button" target="_blank">Roblox</a>
-        </div>
-    </section>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 ZYNWARE. All Rights Reserved.</p>
+  </footer>
 
-    <!-- CTA Card -->
-    <section class="cta-card">
-        <h2>Want Full Access?</h2>
-        <p>Get started with all features including optimizations and bypass tools.</p>
-        <a href="/pricing" class="cta-button">Purchase Now</a>
-    </section>
+  <!-- Page Effects -->
+  <script>
+    $(document).ready(function () {
+      $(".dropdown").hover(
+        function () {
+          $(this).find(".dropdown-menu").stop(true, true).slideDown(200);
+        },
+        function () {
+          $(this).find(".dropdown-menu").stop(true, true).slideUp(200);
+        }
+      );
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 ZYNWARE. All Rights Reserved.</p>
-    </footer>
+      $("a").click(function (event) {
+        if (!$(this).attr("target")) {
+          event.preventDefault();
+          var url = $(this).attr("href");
+          $("body").fadeOut(500, function () {
+            window.location = url;
+          });
+        }
+      });
 
-    <!-- Effects -->
-    <script>
-        $(document).ready(function () {
-            $(".dropdown").hover(
-                function () {
-                    $(this).find(".dropdown-menu").stop(true, true).slideDown(200);
-                },
-                function () {
-                    $(this).find(".dropdown-menu").stop(true, true).slideUp(200);
-                }
-            );
-
-            $("a").click(function (event) {
-                if (!$(this).attr("target")) {
-                    event.preventDefault();
-                    var url = $(this).attr("href");
-
-                    $("body").fadeOut(500, function () {
-                        window.location = url;
-                    });
-                }
-            });
-
-            $(window).on("load", function () {
-                $("body").fadeIn(1000);
-            });
-        });
-    </script>
+      $(window).on("load", function () {
+        $("body").fadeIn(1000);
+      });
+    });
+  </script>
 </body>
 </html>
