@@ -97,20 +97,26 @@
     </footer>
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
+    function initializeDropdown() {
         const dropdown = document.querySelector('.dropdown');
-        const toggle = dropdown.querySelector('.dropdown-toggle');
+        const toggle = dropdown?.querySelector('.dropdown-toggle');
 
-        toggle.addEventListener('click', (e) => {
-            e.preventDefault();
-            dropdown.classList.toggle('open');
-        });
+        if (dropdown && toggle) {
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                dropdown.classList.toggle('open');
+            });
 
-        document.addEventListener('click', (e) => {
-            if (!dropdown.contains(e.target)) {
-                dropdown.classList.remove('open');
-            }
-        });
+            document.addEventListener('click', (e) => {
+                if (!dropdown.contains(e.target)) {
+                    dropdown.classList.remove('open');
+                }
+            });
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        initializeDropdown();
     });
 
     $(document).ready(function () {
@@ -138,9 +144,12 @@
 
                         // Replace the content of #main-content with the new content
                         $("#main-content").html(newContent);
-                        
+
                         // Fade the new content back in
                         $("#main-content").fadeIn(500);
+
+                        // Re-initialize dropdown and other interactions
+                        initializeDropdown();
                     })
                     .catch(err => {
                         console.error('Failed to load page content:', err);
@@ -163,9 +172,12 @@
 
                         // Replace the content with the new page's content
                         $("#main-content").html(newContent);
-                        
+
                         // Fade in the new content
                         $("#main-content").fadeIn(500);
+
+                        // Re-initialize dropdown and other interactions
+                        initializeDropdown();
                     })
                     .catch(err => {
                         console.error('Failed to load page content:', err);
@@ -188,6 +200,7 @@
         });
     });
 </script>
+
 
 
 
