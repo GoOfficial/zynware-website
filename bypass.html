@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="icon" href="/Images/zynware.jpg" type="image/jpg" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+<div id="main-content">
     <style>
         .cta-card {
             max-width: 600px;
@@ -162,18 +162,30 @@
     });
 
     $(document).ready(function () {
+        // Ensure the page does not reload when clicking on navbar items
         $("a.nav-link").not(".dropdown-toggle").click(function (event) {
             event.preventDefault();
             var url = $(this).attr("href");
-            $("body").fadeOut(500, function () {
-                window.location.href = url;
+
+            // Push the state change to history so the URL updates
+            history.pushState(null, null, url);
+
+            // Fade out the page content before switching
+            $("#main-content").fadeOut(500, function () {
+                // Load the content of the clicked page into the main content area
+                $("#main-content").load(url + " #main-content", function () {
+                    // Fade the content back in after the page is loaded
+                    $("#main-content").fadeIn(500);
+                });
             });
         });
 
+        // On window load, fade in the content
         $(window).on("load", function () {
-            $("body").fadeIn(1000);
+            $("#main-content").fadeIn(1000);
         });
 
+        // Handle the back-to-top button visibility
         $(window).scroll(function () {
             if ($(this).scrollTop() > window.innerHeight) {
                 $("#back-to-top").fadeIn();
@@ -183,6 +195,8 @@
         });
     });
 </script>
+
     <script src="/script.js"></script>
 </body>
+</div>
 </html>
