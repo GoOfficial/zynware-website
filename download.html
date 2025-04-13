@@ -183,8 +183,7 @@
             event.preventDefault();
             var url = $(this).attr("href");
 
-            // If the URL is the same as the current page, prevent navigation
-            if (window.location.pathname === url) return;
+            // Removed the pathname check to always reload the page content
 
             // Push the state change to history so the URL updates
             history.pushState({ path: url }, '', url);
@@ -206,8 +205,8 @@
                         // Fade the new content back in
                         $("#main-content").fadeIn(500);
 
-                        // Re-initialize dropdown and other interactions after content load
-                        initializeDropdown(); // **FIX:** Reinitialize dropdown
+                        // Re-initialize dropdown and other interactions
+                        initializeDropdown();
                     })
                     .catch(err => {
                         console.error('Failed to load page content:', err);
@@ -217,7 +216,6 @@
 
         // Handle the back/forward navigation using the browser's back button (popstate event)
         window.onpopstate = function () {
-            // Load the content based on the current history state
             const path = window.location.pathname;
 
             $("#main-content").fadeOut(500, function () {
@@ -228,11 +226,9 @@
                         tempDiv.innerHTML = data;
                         const newContent = tempDiv.querySelector('#main-content').innerHTML;
 
-                        // Replace the content with the new page's content
                         $("#main-content").html(newContent);
-
-                        // Fade in the new content
                         $("#main-content").fadeIn(500);
+                        initializeDropdown();
                     })
                     .catch(err => {
                         console.error('Failed to load page content:', err);
@@ -255,6 +251,7 @@
         });
     });
 </script>
+
 
 
 
