@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing | ZYNWARE</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Pricing - ZYNWARE" />
+  <meta property="og:description" content="Choose a ZYNWARE plan that fits your needs—Bypass, Optimizer, or Bundle." />
+  <meta property="og:image" content="https://zynware.xyz/Images/zynware.jpg" />
+  <meta property="og:url" content="https://zynware.xyz/pricing" />
+  <meta property="og:type" content="website" />
+
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="icon" href="/Images/zynware.jpg" type="image/jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <div class="navbar-container">
+    <a href="/" class="logo-link">
+      <img src="/Images/zynware.gif" alt="ZYNWARE Logo" class="logo" />
+    </a>
+    <nav>
+      <ul>
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li class="dropdown">
+          <a href="javascript:void(0)" class="dropdown-toggle nav-link">Product</a>
+          <div class="dropdown-menu">
+            <a href="/download">Download</a>
+            <a href="/pricing">Pricing</a>
+          </div>
+        </li>
+        <li><a href="/optimizations" class="nav-link">Optimizations</a></li>
+        <li><a href="/bypass" class="nav-link">Bypass</a></li>
+        <li><a href="/contact" class="nav-link">Contact</a></li>
+        <li id="user-info"><a href="/signin" class="nav-link">Sign In</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main class="medium-section text-center">
+    <h2 class="section-title">Choose Your Plan</h2>
+    <div class="pricing-cards">
+
+      <!-- BYPASS -->
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <h3>BYPASS</h3>
+          <p class="price">$10 <span>One-time payment</span></p>
+        </div>
+        <ul class="features">
+          <li>✔ Clears Windows activity logs</li>
+          <li>✔ Bypass advanced PC checks</li>
+          <li>✔ Protects privacy in sensitive tools</li>
+          <li>✔ Lightweight and fast execution</li>
+          <li>✔ Built for competitive gamers</li>
+        </ul>
+        <button class="purchase-btn">Get Bypass</button>
+      </div>
+
+      <!-- OPTIMIZATION -->
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <h3>OPTIMIZATION</h3>
+          <p class="price">$7 <span>One-time payment</span></p>
+        </div>
+        <ul class="features">
+          <li>✔ Boosts FPS and system performance</li>
+          <li>✔ Reduces latency and stuttering</li>
+          <li>✔ Custom game tweaks & services</li>
+          <li>✔ Background task optimizer</li>
+          <li>✔ Advanced Windows tuning</li>
+        </ul>
+        <button class="purchase-btn">Get Optimizer</button>
+      </div>
+
+      <!-- BUNDLE -->
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <h3>BUNDLE</h3>
+          <p class="price">$13 <span>One-time payment</span></p>
+        </div>
+        <ul class="features">
+          <li>✔ Includes Bypass + Optimization</li>
+          <li>✔ Cheaper than buying separate</li>
+          <li>✔ Unified tool, simple setup</li>
+          <li>✔ Full PC performance & privacy</li>
+          <li>✔ Future updates included</li>
+        </ul>
+        <button class="purchase-btn">Get Bundle</button>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ZYNWARE. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const dropdown = document.querySelector('.dropdown');
+      const toggle = dropdown.querySelector('.dropdown-toggle');
+
+      toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdown.classList.toggle('open');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!dropdown.contains(e.target)) {
+          dropdown.classList.remove('open');
+        }
+      });
+    });
+  </script>
+  <script src="/script.js"></script>
+</body>
+
+</html>
