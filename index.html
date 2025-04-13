@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<div id="main-content">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -116,21 +116,20 @@
     $(document).ready(function () {
         $("a.nav-link").not(".dropdown-toggle").click(function (event) {
             event.preventDefault();
-            var url = $(this).attr("href");
+            const url = $(this).attr("href");
 
-            // Only transition to a new page if it's a different URL
-            if (window.location.href !== url) {
-                // Add fade out effect without white screen
-                $("body").fadeOut(500, function () {
-                    // Dynamically load the new page content (AJAX-style)
-                    loadPage(url);
+            $("#main-content").fadeOut(300, function () {
+                $("#main-content").load(url + " #main-content>*", function () {
+                    $("#main-content").fadeIn(300);
+
+                    // Re-run any init functions (like typing effect or others)
+                    if (typeof initPage === "function") initPage();
                 });
-            }
+            });
         });
 
         $(window).on("load", function () {
-            // Fade in after page loads
-            $("body").fadeIn(1000);
+            $("body").fadeIn(500);
         });
 
         $(window).scroll(function () {
@@ -141,21 +140,10 @@
             }
         });
     });
-
-    // Function to dynamically load new page content
-    function loadPage(url) {
-        // Fetch the new page content
-        $.get(url, function (data) {
-            // Extract the <body> content from the fetched page
-            var newBodyContent = $(data).find('body').html();
-            
-            // Replace the entire body with the new content (fade transition)
-            $('body').html(newBodyContent).fadeIn(500);
-        });
-    }
 </script>
 <script src="/script.js"></script>
 
-</body>
 
+</body>
+</div>
 </html>
