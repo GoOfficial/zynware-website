@@ -206,7 +206,7 @@ footer {
     flex: 1 1 200px;
     max-width: 240px;
     position: relative;
-    border: 1px solid rgba(255, 102, 0, 0.4);
+    border: 1px solid rgba(251, 99, 177, 1);
     backdrop-filter: blur(4px);
 }
 
