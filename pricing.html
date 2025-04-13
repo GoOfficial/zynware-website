@@ -149,10 +149,16 @@
                         // Create a temporary element to parse the HTML content
                         const tempDiv = document.createElement('div');
                         tempDiv.innerHTML = data;
+                        
+                        // Grab both the new content and the navbar
                         const newContent = tempDiv.querySelector('#main-content').innerHTML;
+                        const navbarContent = tempDiv.querySelector('.navbar-container').outerHTML;
 
                         // Replace the content of #main-content with the new content
                         $("#main-content").html(newContent);
+
+                        // Replace navbar in the body (if it changes)
+                        $(".navbar-container").replaceWith(navbarContent);
 
                         // Fade the new content back in
                         $("#main-content").fadeIn(500);
@@ -178,11 +184,12 @@
                         const tempDiv = document.createElement('div');
                         tempDiv.innerHTML = data;
                         const newContent = tempDiv.querySelector('#main-content').innerHTML;
+                        const navbarContent = tempDiv.querySelector('.navbar-container').outerHTML;
 
-                        // Replace the content with the new page's content
+                        // Replace the content and navbar
                         $("#main-content").html(newContent);
+                        $(".navbar-container").replaceWith(navbarContent);
 
-                        // Fade in the new content
                         $("#main-content").fadeIn(500);
 
                         // Re-initialize dropdown and other interactions
@@ -209,6 +216,7 @@
         });
     });
 </script>
+
   <script src="/script.js"></script>
 </body>
 </div>
