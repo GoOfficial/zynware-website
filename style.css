@@ -111,9 +111,12 @@ nav ul li {
 }
 
 .dropdown-menu a {
-    padding: 10px 20px;
-    color: white;
-    text-decoration: none;
+    display: none;
+    position: absolute;
+    background-color: #333; /* Adjust to fit your dark theme */
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
 }
 
 .dropdown-menu a:hover {
@@ -123,7 +126,7 @@ nav ul li {
 }
 
 .dropdown.open .dropdown-menu {
-    display: flex;
+    display: block;
 }
 
 /* Sections */
