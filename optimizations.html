@@ -96,21 +96,40 @@
 </footer>
 
 <script>
-    // Fade transition and dropdown toggle script
+    document.addEventListener("DOMContentLoaded", () => {
+        const dropdown = document.querySelector('.dropdown');
+        const toggle = dropdown.querySelector('.dropdown-toggle');
+
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            dropdown.classList.toggle('open');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('open');
+            }
+        });
+    });
+
     $(document).ready(function () {
-        // Fade transition (quick without white flash)
-        $("a.nav-link").not(".dropdown-toggle, .discord").click(function (event) {
-            const url = $(this).attr("href");
-            if (url && url !== "#") {
-                event.preventDefault();
-                $("body").css("opacity", 1).animate({ opacity: 0 }, 250, function () {
-                    window.location.href = url;
+        $("a.nav-link").not(".dropdown-toggle").click(function (event) {
+            event.preventDefault();
+            var url = $(this).attr("href");
+
+            // Only transition to a new page if it's a different URL
+            if (window.location.href !== url) {
+                // Add fade out effect without white screen
+                $("body").fadeOut(500, function () {
+                    // Dynamically load the new page content (AJAX-style)
+                    loadPage(url);
                 });
             }
         });
 
         $(window).on("load", function () {
-            $("body").css("opacity", 0).animate({ opacity: 1 }, 250);
+            // Fade in after page loads
+            $("body").fadeIn(1000);
         });
 
         $(window).scroll(function () {
@@ -122,24 +141,20 @@
         });
     });
 
-    // Dropdown toggle
-    document.addEventListener("DOMContentLoaded", () => {
-        const dropdown = document.querySelector('.dropdown');
-        const toggle = dropdown?.querySelector('.dropdown-toggle');
-
-        toggle?.addEventListener('click', (e) => {
-            e.preventDefault();
-            dropdown.classList.toggle('open');
+    // Function to dynamically load new page content
+    function loadPage(url) {
+        // Fetch the new page content
+        $.get(url, function (data) {
+            // Extract the <body> content from the fetched page
+            var newBodyContent = $(data).find('body').html();
+            
+            // Replace the entire body with the new content (fade transition)
+            $('body').html(newBodyContent).fadeIn(500);
         });
-
-        document.addEventListener('click', (e) => {
-            if (!dropdown?.contains(e.target)) {
-                dropdown?.classList.remove('open');
-            }
-        });
-    });
+    }
 </script>
 <script src="/script.js"></script>
+
 </body>
 
 </html>
