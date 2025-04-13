@@ -119,6 +119,9 @@
             event.preventDefault();
             var url = $(this).attr("href");
 
+            // If the URL is the same as the current page, prevent navigation
+            if (window.location.pathname === url) return;
+
             // Push the state change to history so the URL updates
             history.pushState(null, null, url);
 
@@ -131,6 +134,16 @@
                 });
             });
         });
+
+        // Handle back button (onpopstate)
+        window.onpopstate = function () {
+            // Load the content based on the current history state (back navigation)
+            $("#main-content").fadeOut(500, function () {
+                $("#main-content").load(window.location.pathname + " #main-content", function () {
+                    $("#main-content").fadeIn(500);
+                });
+            });
+        };
 
         // On window load, fade in the content
         $(window).on("load", function () {
@@ -147,6 +160,7 @@
         });
     });
 </script>
+
 
 
 <script src="/script.js"></script>
