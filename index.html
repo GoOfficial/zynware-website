@@ -97,43 +97,57 @@
     </footer>
 
 <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const dropdown = document.querySelector('.dropdown');
+        const toggle = dropdown.querySelector('.dropdown-toggle');
+
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            dropdown.classList.toggle('open');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('open');
+            }
+        });
+    });
+
     $(document).ready(function () {
-        function loadPage(path, addToHistory = true) {
-            const page = path === '/' ? 'index.html' : `${path.replace('/', '')}.html`;
-
-            $("#main-content").fadeOut(200, function () {
-                $("#main-content").load(`${page} #main-content>*`, function () {
-                    $("#main-content").fadeIn(200);
-
-                    if (addToHistory) {
-                        history.pushState({ path: path }, '', path);
-                    }
-
-                    if (typeof initPage === "function") initPage();
-                });
-            });
-        }
-
+        // Ensure the page does not reload when clicking on navbar items
         $("a.nav-link").not(".dropdown-toggle").click(function (event) {
             event.preventDefault();
-            const href = $(this).attr("href");
-            loadPage(href);
+            var url = $(this).attr("href");
+
+            // Push the state change to history so the URL updates
+            history.pushState(null, null, url);
+
+            // Fade out the page content before switching
+            $("#main-content").fadeOut(500, function () {
+                // Load the content of the clicked page into the main content area
+                $("#main-content").load(url + " #main-content", function () {
+                    // Fade the content back in after the page is loaded
+                    $("#main-content").fadeIn(500);
+                });
+            });
         });
 
-        window.addEventListener("popstate", function () {
-            loadPage(location.pathname, false);
+        // On window load, fade in the content
+        $(window).on("load", function () {
+            $("#main-content").fadeIn(1000);
         });
 
-        // Handle direct URL access (via 404.html redirect)
-        const redirectPath = sessionStorage.redirect;
-        if (redirectPath) {
-            sessionStorage.removeItem('redirect');
-            loadPage(redirectPath, false);
-        } else {
-            loadPage(location.pathname, false);
-        }
+        // Handle the back-to-top button visibility
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > window.innerHeight) {
+                $("#back-to-top").fadeIn();
+            } else {
+                $("#back-to-top").fadeOut();
+            }
+        });
     });
 </script>
+
 
 <script src="/script.js"></script>
 
