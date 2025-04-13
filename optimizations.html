@@ -124,13 +124,6 @@
             event.preventDefault();
             var url = $(this).attr("href");
 
-            // Check if it's an internal link (doesn't contain 'http' or 'www')
-            if (url.includes('http') || url.includes('www')) {
-                // If external, don't handle with AJAX
-                window.location = url;
-                return;
-            }
-
             // If the URL is the same as the current page, prevent navigation
             if (window.location.pathname === url) return;
 
@@ -146,16 +139,10 @@
                         // Create a temporary element to parse the HTML content
                         const tempDiv = document.createElement('div');
                         tempDiv.innerHTML = data;
-                        
-                        // Grab both the new content and the navbar
                         const newContent = tempDiv.querySelector('#main-content').innerHTML;
-                        const navbarContent = tempDiv.querySelector('.navbar-container').outerHTML;
 
                         // Replace the content of #main-content with the new content
                         $("#main-content").html(newContent);
-
-                        // Replace navbar in the body (if it changes)
-                        $(".navbar-container").replaceWith(navbarContent);
 
                         // Fade the new content back in
                         $("#main-content").fadeIn(500);
@@ -181,12 +168,11 @@
                         const tempDiv = document.createElement('div');
                         tempDiv.innerHTML = data;
                         const newContent = tempDiv.querySelector('#main-content').innerHTML;
-                        const navbarContent = tempDiv.querySelector('.navbar-container').outerHTML;
 
-                        // Replace the content and navbar
+                        // Replace the content with the new page's content
                         $("#main-content").html(newContent);
-                        $(".navbar-container").replaceWith(navbarContent);
 
+                        // Fade in the new content
                         $("#main-content").fadeIn(500);
 
                         // Re-initialize dropdown and other interactions
@@ -214,15 +200,6 @@
     });
 </script>
 
-
-
-
-
-
 <script src="/script.js"></script>
-
-
-
 </body>
-
 </html>
