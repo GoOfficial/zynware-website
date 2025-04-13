@@ -1,165 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta property="og:image" content="/Images/logofr.png">
-  <meta property="og:title" content="Optimizations | Foulz Tweaks and Optimizations">
-  <meta property="og:description" content="Explore tweaks and adjustments to boost your system’s speed and efficiency.">
-  <title>Optimizations | Foulz Tweaks and Optimizations</title>
-  <link rel="stylesheet" href="/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="/Images/logofr.png" type="image/png" />
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <style>
-    body {
-      font-family: 'Tektur', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: url('/Images/optimize.gif') no-repeat center center fixed;
-      background-size: cover;
-      color: white;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Optimizations | ZYNWARE</title>
 
-    header {
-      backdrop-filter: blur(10px);
-      background: rgba(0, 0, 0, 0.4);
-      padding: 20px;
-      text-align: center;
-      border-radius: 20px;
-      margin: 30px auto;
-      width: 90%;
-      max-width: 1200px;
-    }
+    <!-- Open Graph -->
+    <meta property="og:title" content="Optimizations - ZYNWARE" />
+    <meta property="og:description" content="Unlock the full potential of your PC with system optimizations tailored for performance, privacy, and efficiency." />
+    <meta property="og:image" content="https://zynware.xyz/Images/zynware.jpg" />
+    <meta property="og:url" content="https://zynware.xyz/optimizations" />
+    <meta property="og:type" content="website" />
 
-    .logo {
-      height: 60px;
-    }
-
-    nav ul {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-
-    nav ul li {
-      margin: 0 15px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #8a7dff;
-    }
-
-    section#optimizations {
-      backdrop-filter: blur(10px);
-      background: rgba(0, 0, 0, 0.4);
-      padding: 30px;
-      border-radius: 20px;
-      margin: 20px auto;
-      width: 90%;
-      max-width: 1200px;
-    }
-
-    h2 {
-      text-align: center;
-      color: #ffffff;
-      font-size: 2em;
-    }
-
-    .optimization-list h3 {
-      margin-top: 25px;
-      color: #cfcfff;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      padding: 10px;
-      color: #aaa;
-    }
-
-    ul {
-      line-height: 1.8;
-      padding-left: 20px;
-    }
-  </style>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" href="/Images/zynware.jpg" type="image/jpg" />
+    <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+
 <body>
-  <header>
-    <img src="/Images/logofr.png" alt="Logo" class="logo" />
-    <h1 id="main-title"></h1>
+<div class="navbar-container">
+    <a href="/" class="logo-link">
+        <img src="/Images/zynware.gif" alt="ZYNWARE Logo" class="logo" />
+    </a>
     <nav>
-      <ul>
-        <li><a href="/" class="nav-link">Home</a></li>
-        <li><a href="/purchase" class="nav-link">Purchase</a></li>
-        <li><a href="/optimizations" class="nav-link">Optimizations</a></li>
-        <li><a href="/bypass" class="nav-link">Bypass</a></li>
-        <li><a href="/contact" class="nav-link">Contact</a></li>
-        <li id="redeem-link" style="display: none;">
-          <a href="/api/redeem" class="nav-link">Redeem License Key</a>
-        <li id="user-info">
-          <a href="/signin" class="nav-link">Sign In</a>
-        </li>
-      </ul>
+        <ul>
+            <li><a href="/" class="nav-link">Home</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropdown-toggle nav-link">Product</a>
+                <div class="dropdown-menu">
+                    <a href="/download" class="nav-link">Download</a>
+                    <a href="/pricing" class="nav-link">Pricing</a>
+                </div>
+            </li>
+            <li><a href="/optimizations" class="nav-link">Optimizations</a></li>
+            <li><a href="/bypass" class="nav-link">Bypass</a></li>
+            <li><a href="/contact" class="nav-link">Contact</a></li>
+            <li id="user-info">
+                <a href="/signin" class="nav-link">Sign In</a>
+            </li>
+        </ul>
     </nav>
-  </header>
+</div>
 
-  <section id="optimizations">
-    <h2>Optimizations</h2>
-    <p>Explore tweaks and adjustments to boost your system’s speed and efficiency. Here's an overview of the optimizations:</p>
-    <div class="optimization-list">
-      <h3>System Performance Boost</h3>
-      <p>Enhance your system's responsiveness by applying targeted tweaks that reduce unnecessary processes and improve FPS in gaming and other resource-heavy tasks.</p>
+<main>
+    <!-- INTRO SECTION -->
+    <section class="full-section hero" id="intro">
+        <div class="hero-text">
+            <h1>Optimize Your PC Like Never Before</h1>
+            <p>
+                ZYNWARE’s optimization tools are designed to boost your system’s performance, improve resource efficiency, and unlock maximum potential for gaming, work, and everything in between.
+            </p>
+            <p>
+                Our software targets crucial system processes, applying powerful tweaks and optimizations that streamline your PC for smoother operation and a more responsive experience.
+            </p>
+        </div>
+    </section>
 
-      <h3>Log Management</h3>
-      <p>Clear logs that might slow down your system or give away unnecessary details about system activity, ensuring a cleaner, more efficient environment.</p>
+    <!-- WHY CHOOSE SECTION -->
+    <section class="medium-section" id="why-choose">
+        <h2>Why Choose ZYNWARE for Optimizations?</h2>
+        <ul>
+            <li><strong>Maximize FPS & System Performance:</strong> Fine-tune your system to enhance gaming and multitasking experiences with smoother FPS and less stutter.</li>
+            <li><strong>Streamline System Resources:</strong> Eliminate redundant processes and optimize background services to free up precious CPU and RAM for vital tasks.</li>
+            <li><strong>Enhance System Security & Privacy:</strong> Clear sensitive logs and disable tracking services to improve privacy and keep your system cleaner.</li>
+            <li><strong>Boost Responsiveness & Speed:</strong> Remove bottlenecks and speed up boot times, software launch speeds, and system operations.</li>
+        </ul>
+    </section>
 
-      <h3>Bloatware Removal</h3>
-      <p>Get rid of unwanted software and background processes that consume valuable system resources, improving speed and reducing load times.</p>
+    <!-- TOOL USAGE & BENEFITS -->
+    <section class="medium-section" id="tool-usage">
+        <h2>How Our Optimizations Work</h2>
+        <p>With just a few clicks, ZYNWARE’s optimizations enhance every corner of your system’s performance. Whether you’re looking to game at higher FPS or ensure your work PC runs efficiently, our easy-to-use tool applies comprehensive tweaks, settings, and adjustments.</p>
+        <ul>
+            <li><strong>System-wide Boosts:</strong> Targeted tweaks enhance CPU, GPU, RAM, and storage for balanced and efficient performance.</li>
+            <li><strong>Customizable Profiles:</strong> Choose from pre-set optimization profiles for gaming, productivity, or system health, or create your own.</li>
+            <li><strong>Automated Cleanups:</strong> Get rid of unnecessary data and processes that slow down your system without manually intervening.</li>
+        </ul>
+    </section>
 
-      <h3>Startup Optimization</h3>
-      <p>Streamline your boot process by disabling unnecessary startup programs, reducing startup time and allowing your system to load faster.</p>
+    <!-- PURCHASE SECTION -->
+    <section class="medium-section" id="purchase">
+        <h2>Get ZYNWARE Optimizations Now</h2>
+        <p>Improve your system today! Our tools are available for a one-time payment with options for future updates and support.</p>
+        <button class="purchase-btn" onclick="window.location.href='/pricing'">Get Optimizations</button>
+    </section>
 
-      <h3>Privacy Enhancements</h3>
-      <p>Increase your privacy by removing traces of personal data and preventing potential tracking from third-party applications.</p>
+</main>
 
-      <h3>Update Management</h3>
-      <p>Disable automatic updates that can cause unwanted interruptions and slowdowns, while keeping your system's software versions in control.</p>
+<button id="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">Back to Top</button>
 
-      <h3>Advanced System Tweaks</h3>
-      <p>Adjust critical settings to optimize your PC for peak performance, helping prevent performance degradation during high-demand tasks.</p>
-    </div>
-  </section>
+<footer>
+    <p>&copy; 2025 ZYNWARE. All Rights Reserved.</p>
+</footer>
 
-  <footer>
-    <p>&copy; 2025 Foulz Tweaks and Optimizations. All Rights Reserved.</p>
-  </footer>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const dropdown = document.querySelector('.dropdown');
+        const toggle = dropdown.querySelector('.dropdown-toggle');
 
-  <script src="/script.js"></script>
-  <script>
-    $(document).ready(function () {
-      $("a").click(function (event) {
-        event.preventDefault();
-        var url = $(this).attr("href");
-        $("body").fadeOut(500, function () {
-          window.location = url;
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            dropdown.classList.toggle('open');
         });
-      });
 
-      $(window).on("load", function () {
-        $("body").fadeIn(1000);
-      });
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('open');
+            }
+        });
     });
-  </script>
+
+    $(document).ready(function () {
+        $("a.nav-link").not(".dropdown-toggle").click(function (event) {
+            event.preventDefault();
+            var url = $(this).attr("href");
+            $("body").fadeOut(500, function () {
+                window.location.href = url;
+            });
+        });
+
+        $(window).on("load", function () {
+            $("body").fadeIn(1000);
+        });
+
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > window.innerHeight) {
+                $("#back-to-top").fadeIn();
+            } else {
+                $("#back-to-top").fadeOut();
+            }
+        });
+    });
+</script>
+<script src="/script.js"></script>
 </body>
+
 </html>
