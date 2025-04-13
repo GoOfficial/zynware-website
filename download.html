@@ -19,7 +19,8 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
-
+    <body>
+<div id="main-content">
   <!-- NAVBAR (same as index.html) -->
   <div class="navbar-container">
     <a href="/" class="logo-link">
@@ -44,8 +45,8 @@
   </div>
   <div id="main-content">
   <main>
-    <body>
-        <div id="main-content">
+
+
 <!-- QUICK SETUP GUIDE -->
 <section class="medium-section">
   <h2 class="section-title">Quick Setup Guide</h2>
@@ -232,9 +233,6 @@
 
                         // Fade in the new content
                         $("#main-content").fadeIn(500);
-
-                        // Re-initialize dropdown and other interactions
-                        initializeDropdown(); // **FIX:** Reinitialize dropdown
                     })
                     .catch(err => {
                         console.error('Failed to load page content:', err);
