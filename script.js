@@ -4,20 +4,17 @@ const navLinks = document.querySelectorAll('nav ul li a');
 // Add click event listeners to each navbar link
 navLinks.forEach(link => {
     link.addEventListener('click', (event) => {
-        // Prevent the default anchor behavior (no jumping to sections)
-        event.preventDefault();
+        // Prevent default navigation only for internal page navigation (not links to other pages)
+        if (link.getAttribute('href').startsWith('#')) {
+            event.preventDefault(); // Prevent default anchor behavior for internal links
 
-        // Remove 'active' class from all links
-        navLinks.forEach(link => link.classList.remove('active'));
-
-        // Add 'active' class to the clicked link
-        link.classList.add('active');
-
-        // Optionally scroll to the section smoothly
-        const targetId = link.getAttribute('href');
-        document.querySelector(targetId).scrollIntoView({
-            behavior: 'smooth'
-        });
+            // Smooth scroll to the section
+            const targetId = link.getAttribute('href');
+            document.querySelector(targetId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        // If it's an external link (like /download, /pricing, etc.), allow normal navigation
     });
 });
 
