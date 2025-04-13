@@ -100,118 +100,86 @@
 
     </div>
   </main>
-
+</div>
   <footer>
     <p>&copy; 2025 ZYNWARE. All Rights Reserved.</p>
   </footer>
 
 <script>
     function initializeDropdown() {
-        const dropdown = document.querySelector('.dropdown');
-        const toggle = dropdown?.querySelector('.dropdown-toggle');
+        document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+            const dropdown = toggle.closest('.dropdown');
 
-        if (dropdown && toggle) {
-            toggle.addEventListener('click', (e) => {
+            toggle.onclick = (e) => {
                 e.preventDefault();
                 dropdown.classList.toggle('open');
-            });
+            };
 
             document.addEventListener('click', (e) => {
                 if (!dropdown.contains(e.target)) {
                     dropdown.classList.remove('open');
                 }
             });
-        }
+        });
     }
 
-    document.addEventListener("DOMContentLoaded", () => {
-        initializeDropdown();
-    });
+    function loadPage(url) {
+        fetch(url)
+            .then(res => res.text())
+            .then(data => {
+                const temp = document.createElement('div');
+                temp.innerHTML = data;
+
+                const newMain = temp.querySelector('#main-content')?.innerHTML || '';
+                const newTitle = temp.querySelector('title')?.innerText || document.title;
+
+                document.title = newTitle;
+                document.querySelector('#main-content').innerHTML = newMain;
+
+                initializeDropdown();
+                $("#main-content").fadeIn(500);
+            })
+            .catch(err => console.error("Error loading page:", err));
+    }
 
     $(document).ready(function () {
-        // Ensure the page does not reload when clicking on navbar items
-        $("a.nav-link").not(".dropdown-toggle").click(function (event) {
-            event.preventDefault();
-            var url = $(this).attr("href");
+        // Fade in on load
+        $("#main-content").fadeIn(1000);
 
-            // If the URL is the same as the current page, prevent navigation
-            if (window.location.pathname === url) return;
+        // SPA-style nav click
+        $(document).on('click', 'a.nav-link:not(.dropdown-toggle)', function (e) {
+            e.preventDefault();
+            const url = $(this).attr('href');
 
-            // Push the state change to history so the URL updates
-            history.pushState({ path: url }, '', url);
-
-            // Fade out the page content before switching
-            $("#main-content").fadeOut(500, function () {
-                // Use fetch to load the content of the clicked page
-                fetch(url)
-                    .then(response => response.text())
-                    .then(data => {
-                        // Create a temporary element to parse the HTML content
-                        const tempDiv = document.createElement('div');
-                        tempDiv.innerHTML = data;
-                        const newContent = tempDiv.querySelector('#main-content').innerHTML;
-
-                        // Replace the content of #main-content with the new content
-                        $("#main-content").html(newContent);
-
-                        // Fade the new content back in
-                        $("#main-content").fadeIn(500);
-
-                        // Re-initialize dropdown and other interactions
-                        initializeDropdown();
-                    })
-                    .catch(err => {
-                        console.error('Failed to load page content:', err);
-                    });
+            history.pushState(null, '', url);
+            $("#main-content").fadeOut(300, function () {
+                loadPage(url);
             });
         });
 
-        // Handle the back/forward navigation using the browser's back button (popstate event)
-        window.onpopstate = function () {
-            // Load the content based on the current history state
-            const path = window.location.pathname;
-
-            $("#main-content").fadeOut(500, function () {
-                fetch(path)
-                    .then(response => response.text())
-                    .then(data => {
-                        const tempDiv = document.createElement('div');
-                        tempDiv.innerHTML = data;
-                        const newContent = tempDiv.querySelector('#main-content').innerHTML;
-
-                        // Replace the content with the new page's content
-                        $("#main-content").html(newContent);
-
-                        // Fade in the new content
-                        $("#main-content").fadeIn(500);
-
-                        // Re-initialize dropdown and other interactions
-                        initializeDropdown();
-                    })
-                    .catch(err => {
-                        console.error('Failed to load page content:', err);
-                    });
+        // Handle browser nav (back/forward)
+        window.addEventListener('popstate', () => {
+            $("#main-content").fadeOut(300, function () {
+                loadPage(location.pathname);
             });
-        };
-
-        // On window load, fade in the content
-        $(window).on("load", function () {
-            $("#main-content").fadeIn(1000);
         });
 
-        // Handle the back-to-top button visibility
-        $(window).scroll(function () {
+        // Back to top button
+        $(window).scroll(() => {
             if ($(this).scrollTop() > window.innerHeight) {
                 $("#back-to-top").fadeIn();
             } else {
                 $("#back-to-top").fadeOut();
             }
         });
+
+        initializeDropdown();
     });
 </script>
 
 
+
   <script src="/script.js"></script>
 </body>
-</div>
+
 </html>
