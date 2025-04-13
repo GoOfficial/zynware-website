@@ -185,3 +185,110 @@ footer {
     line-height: 2.6rem;
     margin-bottom: 25px;
 }
+
+.quick-setup-guide {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 60px 0;
+    position: relative;
+    border-top: 2px solid #ff6600;
+    border-bottom: 2px solid #ff6600;
+}
+
+.setup-step {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    flex: 1 1 200px;
+    max-width: 240px;
+    position: relative;
+    border: 1px solid rgba(255, 102, 0, 0.4);
+    backdrop-filter: blur(4px);
+}
+
+.setup-step img {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 15px;
+}
+
+.setup-step h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.setup-step p {
+    font-size: 0.95rem;
+    color: #ccc;
+}
+
+.step-number {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #0a0a0a;
+    border: 2px solid #ff6600;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    color: #ff6600;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Tektur', sans-serif;
+}
+
+/* === Section Titles === */
+.section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* === System Requirements Section === */
+.system-requirements {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    padding: 60px 0;
+    margin-top: 40px;
+    border-top: 2px solid #ff6600;
+    border-bottom: 2px solid #ff6600;
+}
+
+.sys-req-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 16px;
+    border-radius: 10px;
+    border-left: 3px solid #ff6600;
+}
+
+.sys-req-item img {
+    width: 24px;
+    height: 24px;
+    margin-top: 3px;
+}
+
+.sys-req-text h4 {
+    margin: 0;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.sys-req-text p {
+    margin: 5px 0 0;
+    color: #aaa;
+    font-size: 0.9rem;
+}
