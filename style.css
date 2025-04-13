@@ -128,14 +128,19 @@ ul {
 
 /* Buttons */
 .purchase-btn {
-    margin: 15px 10px 0 0;
-    padding: 10px 20px;
-    background-color: #fb63b1;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
+  background: linear-gradient(90deg, #FB63B1, #FF83D3);
+  color: white;
+  font-weight: bold;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 4px 10px rgba(251, 99, 177, 0.4);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.purchase-btn:hover {
+  transform: scale(1.05);
 }
 
 /* Back to Top */
@@ -291,4 +296,45 @@ footer {
     margin: 5px 0 0;
     color: #aaa;
     font-size: 0.9rem;
+}
+
+/* Pricing Cards */
+.pricing-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.pricing-card {
+  background: #0d0d0d;
+  border: 1px solid #FB63B1;
+  border-radius: 16px;
+  padding: 2rem;
+  width: 300px;
+  text-align: left;
+  position: relative;
+}
+.pricing-header h3 {
+  font-size: 1.5rem;
+  color: white;
+}
+.pricing-header .price {
+  font-size: 2rem;
+  color: #FB63B1;
+  margin-bottom: 1rem;
+}
+.pricing-header span {
+  display: block;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+.features {
+  list-style: none;
+  padding-left: 0;
+  margin: 1rem 0;
+}
+.features li {
+  padding: 6px 0;
+  color: white;
 }
