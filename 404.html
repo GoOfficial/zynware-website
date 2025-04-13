@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+  <head>
+    <meta charset="UTF-8" />
     <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0; URL='/'">
-</head>
-<body>
-    <p>Redirecting you to the right page...</p>
-</body>
+    <script>
+      sessionStorage.redirect = location.pathname + location.search;
+      window.location.replace('/');
+    </script>
+  </head>
+  <body>
+    Redirecting...
+  </body>
 </html>
