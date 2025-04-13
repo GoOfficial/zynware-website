@@ -114,18 +114,32 @@
     });
 
     $(document).ready(function () {
-        $("a.nav-link").not(".dropdown-toggle").click(function (event) {
-            event.preventDefault();
-            const url = $(this).attr("href");
-
+        function loadPage(url, addToHistory = true) {
             $("#main-content").fadeOut(300, function () {
                 $("#main-content").load(url + " #main-content>*", function () {
                     $("#main-content").fadeIn(300);
 
-                    // Re-run any init functions (like typing effect or others)
+                    // Update the browser URL (without reload)
+                    if (addToHistory) {
+                        history.pushState({ path: url }, '', url);
+                    }
+
+                    // Re-run page-specific features
                     if (typeof initPage === "function") initPage();
                 });
             });
+        }
+
+        $("a.nav-link").not(".dropdown-toggle").click(function (event) {
+            event.preventDefault();
+            const url = $(this).attr("href");
+            loadPage(url);
+        });
+
+        // Handle browser back/forward buttons
+        window.addEventListener("popstate", function (event) {
+            const path = location.pathname;
+            loadPage(path, false);
         });
 
         $(window).on("load", function () {
@@ -142,6 +156,7 @@
     });
 </script>
 <script src="/script.js"></script>
+
 
 
 </body>
