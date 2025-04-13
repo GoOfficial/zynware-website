@@ -122,30 +122,45 @@
   </footer>
 
   <!-- Scripts -->
-  <script>
-    $(document).ready(function () {
-      $(".dropdown").hover(
-        function () {
-          $(this).find(".dropdown-menu").stop(true, true).slideDown(200);
-        },
-        function () {
-          $(this).find(".dropdown-menu").stop(true, true).slideUp(200);
-        }
-      );
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const dropdown = document.querySelector('.dropdown');
+        const toggle = dropdown.querySelector('.dropdown-toggle');
 
-      $("a:not(.discord)").click(function (event) {
-        event.preventDefault();
-        var url = $(this).attr("href");
-        $("body").fadeOut(500, function () {
-          window.location = url;
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            dropdown.classList.toggle('open');
         });
-      });
 
-      $(window).on("load", function () {
-        $("body").fadeIn(1000);
-      });
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('open');
+            }
+        });
     });
-  </script>
+
+    $(document).ready(function () {
+        $("a.nav-link").not(".dropdown-toggle").click(function (event) {
+            event.preventDefault();
+            var url = $(this).attr("href");
+            $("body").fadeOut(500, function () {
+                window.location.href = url;
+            });
+        });
+
+        $(window).on("load", function () {
+            $("body").fadeIn(1000);
+        });
+
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > window.innerHeight) {
+                $("#back-to-top").fadeIn();
+            } else {
+                $("#back-to-top").fadeOut();
+            }
+        });
+    });
+</script>
 
 </body>
 </html>
