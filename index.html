@@ -96,46 +96,51 @@
         <p>&copy; 2025 ZYNWARE. All Rights Reserved.</p>
     </footer>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const dropdown = document.querySelector('.dropdown');
-            const toggle = dropdown.querySelector('.dropdown-toggle');
-
-            toggle.addEventListener('click', (e) => {
-                e.preventDefault();
-                dropdown.classList.toggle('open');
-            });
-
-            document.addEventListener('click', (e) => {
-                if (!dropdown.contains(e.target)) {
-                    dropdown.classList.remove('open');
-                }
-            });
-        });
-
-        $(document).ready(function () {
-            $("a.nav-link").not(".dropdown-toggle").click(function (event) {
+<script>
+    // Fade transition and dropdown toggle script
+    $(document).ready(function () {
+        // Fade transition (quick without white flash)
+        $("a.nav-link").not(".dropdown-toggle, .discord").click(function (event) {
+            const url = $(this).attr("href");
+            if (url && url !== "#") {
                 event.preventDefault();
-                var url = $(this).attr("href");
-                $("body").fadeOut(500, function () {
+                $("body").css("opacity", 1).animate({ opacity: 0 }, 250, function () {
                     window.location.href = url;
                 });
-            });
-
-            $(window).on("load", function () {
-                $("body").fadeIn(1000);
-            });
-
-            $(window).scroll(function () {
-                if ($(this).scrollTop() > window.innerHeight) {
-                    $("#back-to-top").fadeIn();
-                } else {
-                    $("#back-to-top").fadeOut();
-                }
-            });
+            }
         });
-    </script>
-    <script src="/script.js"></script>
+
+        $(window).on("load", function () {
+            $("body").css("opacity", 0).animate({ opacity: 1 }, 250);
+        });
+
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > window.innerHeight) {
+                $("#back-to-top").fadeIn();
+            } else {
+                $("#back-to-top").fadeOut();
+            }
+        });
+    });
+
+    // Dropdown toggle
+    document.addEventListener("DOMContentLoaded", () => {
+        const dropdown = document.querySelector('.dropdown');
+        const toggle = dropdown?.querySelector('.dropdown-toggle');
+
+        toggle?.addEventListener('click', (e) => {
+            e.preventDefault();
+            dropdown.classList.toggle('open');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!dropdown?.contains(e.target)) {
+                dropdown?.classList.remove('open');
+            }
+        });
+    });
+</script>
+<script src="/script.js"></script>
 </body>
 
 </html>
