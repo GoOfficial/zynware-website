@@ -19,7 +19,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <div id="main-content">
+
 <div class="navbar-container">
     <a href="/" class="logo-link">
         <img src="/Images/zynware.gif" alt="ZYNWARE Logo" class="logo" />
@@ -92,12 +92,13 @@
     </main>
 
     <button id="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">Back to Top</button>
-</div>
+
     <footer>
         <p>&copy; 2025 ZYNWARE. All Rights Reserved.</p>
     </footer>
 
 <script>
+    // Dropdown toggle logic
     function initializeDropdown() {
         const dropdown = document.querySelector('.dropdown');
         const toggle = dropdown?.querySelector('.dropdown-toggle');
@@ -120,59 +121,16 @@
         initializeDropdown();
     });
 
-    $(document).ready(function () {
-        function loadPage(url) {
-            $("#main-content").fadeOut(500, function () {
-                fetch(url)
-                    .then(response => response.text())
-                    .then(data => {
-                        const tempDiv = document.createElement('div');
-                        tempDiv.innerHTML = data;
-
-                        const newContent = tempDiv.querySelector('#main-content')?.innerHTML;
-
-                        if (newContent) {
-                            $("#main-content").html(newContent);
-                            $("#main-content").fadeIn(500);
-                            initializeDropdown();
-                        } else {
-                            console.warn("No #main-content found in the fetched page.");
-                        }
-                    })
-                    .catch(err => {
-                        console.error('Failed to load page content:', err);
-                    });
-            });
+    // Back-to-top button logic
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > window.innerHeight) {
+            $("#back-to-top").fadeIn();
+        } else {
+            $("#back-to-top").fadeOut();
         }
-
-        $("a.nav-link").not(".dropdown-toggle").click(function (event) {
-            event.preventDefault();
-            var url = $(this).attr("href");
-
-            if (window.location.pathname === url) return;
-
-            history.pushState({ path: url }, '', url);
-            loadPage(url);
-        });
-
-        window.onpopstate = function () {
-            const path = window.location.pathname;
-            loadPage(path);
-        };
-
-        $(window).on("load", function () {
-            $("#main-content").fadeIn(1000);
-        });
-
-        $(window).scroll(function () {
-            if ($(this).scrollTop() > window.innerHeight) {
-                $("#back-to-top").fadeIn();
-            } else {
-                $("#back-to-top").fadeOut();
-            }
-        });
     });
 </script>
+
 
 
 
