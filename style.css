@@ -194,8 +194,8 @@ footer {
     gap: 2rem;
     padding: 60px 0;
     position: relative;
-    border-top: 2px solid #ff6600;
-    border-bottom: 2px solid #ff6600;
+    border-top: 2px solid #fb63b1;
+    border-bottom: 2px solid #fb63b1;
 }
 
 .setup-step {
@@ -233,11 +233,11 @@ footer {
     left: 50%;
     transform: translateX(-50%);
     background: #0a0a0a;
-    border: 2px solid #ff6600;
+    border: 2px solid #fb63b1;
     border-radius: 50%;
     width: 28px;
     height: 28px;
-    color: #ff6600;
+    color: #fb63b1;
     font-weight: bold;
     display: flex;
     align-items: center;
@@ -261,8 +261,8 @@ footer {
     gap: 2rem;
     padding: 60px 0;
     margin-top: 40px;
-    border-top: 2px solid #ff6600;
-    border-bottom: 2px solid #ff6600;
+    border-top: 2px solid #fb63b1;
+    border-bottom: 2px solid #fb63b1;
 }
 
 .sys-req-item {
@@ -272,7 +272,7 @@ footer {
     background: rgba(255, 255, 255, 0.02);
     padding: 16px;
     border-radius: 10px;
-    border-left: 3px solid #ff6600;
+    border-left: 3px solid #fb63b1;
 }
 
 .sys-req-item img {
