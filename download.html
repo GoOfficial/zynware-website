@@ -42,7 +42,7 @@
       </ul>
     </nav>
   </div>
-  
+  <div id="main-content">
   <main>
 <!-- QUICK SETUP GUIDE -->
 <section class="medium-section">
@@ -151,46 +151,99 @@
     <p>&copy; 2025 ZYNWARE. All Rights Reserved.</p>
   </footer>
 
-  <script>
+<script>
     document.addEventListener("DOMContentLoaded", () => {
-      const dropdown = document.querySelector('.dropdown');
-      const toggle = dropdown.querySelector('.dropdown-toggle');
+        const dropdown = document.querySelector('.dropdown');
+        const toggle = dropdown.querySelector('.dropdown-toggle');
 
-      toggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        dropdown.classList.toggle('open');
-      });
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            dropdown.classList.toggle('open');
+        });
 
-      document.addEventListener('click', (e) => {
-        if (!dropdown.contains(e.target)) {
-          dropdown.classList.remove('open');
-        }
-      });
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('open');
+            }
+        });
     });
 
     $(document).ready(function () {
-      $("a.nav-link").not(".dropdown-toggle").click(function (event) {
-        event.preventDefault();
-        var url = $(this).attr("href");
-        $("body").fadeOut(500, function () {
-          window.location.href = url;
+        // Ensure the page does not reload when clicking on navbar items
+        $("a.nav-link").not(".dropdown-toggle").click(function (event) {
+            event.preventDefault();
+            var url = $(this).attr("href");
+
+            // If the URL is the same as the current page, prevent navigation
+            if (window.location.pathname === url) return;
+
+            // Push the state change to history so the URL updates
+            history.pushState({ path: url }, '', url);
+
+            // Fade out the page content before switching
+            $("#main-content").fadeOut(500, function () {
+                // Use fetch to load the content of the clicked page
+                fetch(url)
+                    .then(response => response.text())
+                    .then(data => {
+                        // Create a temporary element to parse the HTML content
+                        const tempDiv = document.createElement('div');
+                        tempDiv.innerHTML = data;
+                        const newContent = tempDiv.querySelector('#main-content').innerHTML;
+
+                        // Replace the content of #main-content with the new content
+                        $("#main-content").html(newContent);
+                        
+                        // Fade the new content back in
+                        $("#main-content").fadeIn(500);
+                    })
+                    .catch(err => {
+                        console.error('Failed to load page content:', err);
+                    });
+            });
         });
-      });
 
-      $(window).on("load", function () {
-        $("body").fadeIn(1000);
-      });
+        // Handle the back/forward navigation using the browser's back button (popstate event)
+        window.onpopstate = function () {
+            // Load the content based on the current history state
+            const path = window.location.pathname;
 
-      $(window).scroll(function () {
-        if ($(this).scrollTop() > window.innerHeight) {
-          $("#back-to-top").fadeIn();
-        } else {
-          $("#back-to-top").fadeOut();
-        }
-      });
+            $("#main-content").fadeOut(500, function () {
+                fetch(path)
+                    .then(response => response.text())
+                    .then(data => {
+                        const tempDiv = document.createElement('div');
+                        tempDiv.innerHTML = data;
+                        const newContent = tempDiv.querySelector('#main-content').innerHTML;
+
+                        // Replace the content with the new page's content
+                        $("#main-content").html(newContent);
+                        
+                        // Fade in the new content
+                        $("#main-content").fadeIn(500);
+                    })
+                    .catch(err => {
+                        console.error('Failed to load page content:', err);
+                    });
+            });
+        };
+
+        // On window load, fade in the content
+        $(window).on("load", function () {
+            $("#main-content").fadeIn(1000);
+        });
+
+        // Handle the back-to-top button visibility
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > window.innerHeight) {
+                $("#back-to-top").fadeIn();
+            } else {
+                $("#back-to-top").fadeOut();
+            }
+        });
     });
-  </script>
+</script>
   <script src="/script.js"></script>
 </body>
-
+</div>
 </html>
