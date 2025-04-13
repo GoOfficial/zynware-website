@@ -144,25 +144,33 @@
     </footer>
 
     <!-- Dropdown and Navigation Effects -->
-    <script>
-        $(document).ready(function () {
-            $(".dropdown").hover(
-                function () {
-                    $(this).find(".dropdown-menu").stop(true, true).slideDown(200);
-                },
-                function () {
-                    $(this).find(".dropdown-menu").stop(true, true).slideUp(200);
-                }
-            );
+<script>
+    $(document).ready(function () {
+        $(".dropdown").hover(
+            function () {
+                $(this).find(".dropdown-menu").stop(true, true).slideDown(200);
+            },
+            function () {
+                $(this).find(".dropdown-menu").stop(true, true).slideUp(200);
+            }
+        );
 
-            $("a").click(function (event) {
+        $("a").click(function (event) {
+            if (!$(this).hasClass("discord")) {
                 event.preventDefault();
                 var url = $(this).attr("href");
-
                 $("body").fadeOut(500, function () {
                     window.location = url;
                 });
-            });
+            }
+        });
+
+        $(window).on("load", function () {
+            $("body").fadeIn(1000);
+        });
+    });
+</script>
+
 
             $(window).on("load", function () {
                 $("body").fadeIn(1000);
