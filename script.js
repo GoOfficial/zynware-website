@@ -1,3 +1,26 @@
+// Get all navbar links
+const navLinks = document.querySelectorAll('nav ul li a');
+
+// Add click event listeners to each navbar link
+navLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+        // Prevent the default anchor behavior (no jumping to sections)
+        event.preventDefault();
+
+        // Remove 'active' class from all links
+        navLinks.forEach(link => link.classList.remove('active'));
+
+        // Add 'active' class to the clicked link
+        link.classList.add('active');
+
+        // Optionally scroll to the section smoothly
+        const targetId = link.getAttribute('href');
+        document.querySelector(targetId).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
 // Typing Effect (Fix for Contact Page)
 document.addEventListener("DOMContentLoaded", () => {
     const title = "ZYNWARE | Optimize, Bypass & Repair"; // Adjusted title for contact page
@@ -121,20 +144,4 @@ document.addEventListener("DOMContentLoaded", () => {
         socialsSection.style.display = "block";  // Forces display to block
         socialsSection.style.setProperty('display', 'block', 'important');  // Apply !important dynamically
     }
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-    const dropdownToggle = document.querySelector('.dropdown-toggle');
-    const dropdownMenu = document.querySelector('.dropdown-menu');
-
-    dropdownToggle.addEventListener('click', function () {
-        dropdownMenu.parentElement.classList.toggle('open');
-    });
-
-    // Optionally close the dropdown when clicking outside of it
-    document.addEventListener('click', function (e) {
-        if (!dropdownMenu.contains(e.target) && !dropdownToggle.contains(e.target)) {
-            dropdownMenu.parentElement.classList.remove('open');
-        }
-    });
 });
