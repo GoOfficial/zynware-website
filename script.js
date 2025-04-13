@@ -147,22 +147,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    // Get the dropdown element and its toggle button
-    const dropdown = document.querySelector('.dropdown');
-    const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
+document.addEventListener('DOMContentLoaded', function () {
+    const dropdownToggle = document.querySelector('.dropdown-toggle');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
 
-    // Add click event listener to the dropdown toggle
-    dropdownToggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        // Toggle the 'open' class on the dropdown
-        dropdown.classList.toggle('open');
+    dropdownToggle.addEventListener('click', function () {
+        dropdownMenu.parentElement.classList.toggle('open');
     });
 
-    // Close the dropdown if clicking outside of it
-    document.addEventListener('click', (e) => {
-        if (!dropdown.contains(e.target)) {
-            dropdown.classList.remove('open');
+    // Optionally close the dropdown when clicking outside of it
+    document.addEventListener('click', function (e) {
+        if (!dropdownMenu.contains(e.target) && !dropdownToggle.contains(e.target)) {
+            dropdownMenu.parentElement.classList.remove('open');
         }
     });
 });
