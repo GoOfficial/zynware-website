@@ -41,7 +41,6 @@
         </ul>
     </nav>
 </div>
-   <div id="main-content">
             <style>
         .cta-card {
             max-width: 600px;
@@ -139,7 +138,7 @@
             <a href="/pricing" class="cta-button">Get Bypass</a>
         </section>
     </main>
-</div>
+
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 ZYNWARE. All Rights Reserved.</p>
@@ -147,76 +146,39 @@
 
     <!-- Dropdown and Navigation Effects -->
 <script>
+    // Dropdown toggle logic
     function initializeDropdown() {
-        document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
-            const dropdown = toggle.closest('.dropdown');
+        const dropdown = document.querySelector('.dropdown');
+        const toggle = dropdown?.querySelector('.dropdown-toggle');
 
-            toggle.onclick = (e) => {
+        if (dropdown && toggle) {
+            toggle.addEventListener('click', (e) => {
                 e.preventDefault();
                 dropdown.classList.toggle('open');
-            };
+            });
 
             document.addEventListener('click', (e) => {
                 if (!dropdown.contains(e.target)) {
                     dropdown.classList.remove('open');
                 }
             });
-        });
+        }
     }
 
-    function loadPage(url) {
-        fetch(url)
-            .then(res => res.text())
-            .then(data => {
-                const temp = document.createElement('div');
-                temp.innerHTML = data;
-
-                const newMain = temp.querySelector('#main-content')?.innerHTML || '';
-                const newTitle = temp.querySelector('title')?.innerText || document.title;
-
-                document.title = newTitle;
-                document.querySelector('#main-content').innerHTML = newMain;
-
-                initializeDropdown();
-                $("#main-content").fadeIn(500);
-            })
-            .catch(err => console.error("Error loading page:", err));
-    }
-
-    $(document).ready(function () {
-        // Fade in on load
-        $("#main-content").fadeIn(1000);
-
-        // SPA-style nav click
-        $(document).on('click', 'a.nav-link:not(.dropdown-toggle)', function (e) {
-            e.preventDefault();
-            const url = $(this).attr('href');
-
-            history.pushState(null, '', url);
-            $("#main-content").fadeOut(300, function () {
-                loadPage(url);
-            });
-        });
-
-        // Handle browser nav (back/forward)
-        window.addEventListener('popstate', () => {
-            $("#main-content").fadeOut(300, function () {
-                loadPage(location.pathname);
-            });
-        });
-
-        // Back to top button
-        $(window).scroll(() => {
-            if ($(this).scrollTop() > window.innerHeight) {
-                $("#back-to-top").fadeIn();
-            } else {
-                $("#back-to-top").fadeOut();
-            }
-        });
-
+    document.addEventListener("DOMContentLoaded", () => {
         initializeDropdown();
     });
+
+    // Back-to-top button logic
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > window.innerHeight) {
+            $("#back-to-top").fadeIn();
+        } else {
+            $("#back-to-top").fadeOut();
+        }
+    });
 </script>
+
 
 
 
