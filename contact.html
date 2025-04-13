@@ -16,8 +16,33 @@
     <link rel="icon" href="/Images/zynware.jpg" type="image/jpg" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<div id="main-content">
-    <style>
+    <!-- Navbar -->
+<div class="navbar-container">
+    <a href="/" class="logo-link">
+        <img src="/Images/zynware.gif" alt="ZYNWARE Logo" class="logo" />
+    </a>
+    <nav>
+        <ul>
+            <li><a href="/" class="nav-link">Home</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropdown-toggle nav-link">Product</a>
+                <div class="dropdown-menu">
+                    <a href="/download" class="nav-link">Download</a>
+                    <a href="/pricing" class="nav-link">Pricing</a>
+                </div>
+            </li>
+            <li><a href="/optimizations" class="nav-link">Optimizations</a></li>
+            <li><a href="/bypass" class="nav-link">Bypass</a></li>
+            <li><a href="/contact" class="nav-link">Contact</a></li>
+            <li id="user-info">
+                <a href="/signin" class="nav-link">Sign In</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+    <div id="main-content">
+
+            <style>
         .contact-card {
             max-width: 600px;
             margin: 4rem auto;
@@ -57,30 +82,6 @@
     </style>
 </head>
 <body>
-    <!-- Navbar -->
-<div class="navbar-container">
-    <a href="/" class="logo-link">
-        <img src="/Images/zynware.gif" alt="ZYNWARE Logo" class="logo" />
-    </a>
-    <nav>
-        <ul>
-            <li><a href="/" class="nav-link">Home</a></li>
-            <li class="dropdown">
-                <a href="javascript:void(0)" class="dropdown-toggle nav-link">Product</a>
-                <div class="dropdown-menu">
-                    <a href="/download" class="nav-link">Download</a>
-                    <a href="/pricing" class="nav-link">Pricing</a>
-                </div>
-            </li>
-            <li><a href="/optimizations" class="nav-link">Optimizations</a></li>
-            <li><a href="/bypass" class="nav-link">Bypass</a></li>
-            <li><a href="/contact" class="nav-link">Contact</a></li>
-            <li id="user-info">
-                <a href="/signin" class="nav-link">Sign In</a>
-            </li>
-        </ul>
-    </nav>
-</div>
 
     <!-- Contact Section -->
     <main>
