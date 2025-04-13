@@ -97,75 +97,81 @@
 
 <script>
     function initializeDropdown() {
-        document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
-            const dropdown = toggle.closest('.dropdown');
+        const dropdown = document.querySelector('.dropdown');
+        const toggle = dropdown?.querySelector('.dropdown-toggle');
 
-            toggle.onclick = (e) => {
+        if (dropdown && toggle) {
+            toggle.addEventListener('click', (e) => {
                 e.preventDefault();
                 dropdown.classList.toggle('open');
-            };
+            });
 
             document.addEventListener('click', (e) => {
                 if (!dropdown.contains(e.target)) {
                     dropdown.classList.remove('open');
                 }
             });
-        });
+        }
     }
 
-    function loadPage(url) {
-        fetch(url)
-            .then(res => res.text())
-            .then(data => {
-                const temp = document.createElement('div');
-                temp.innerHTML = data;
-
-                const newMain = temp.querySelector('#main-content')?.innerHTML || '';
-                const newTitle = temp.querySelector('title')?.innerText || document.title;
-
-                document.title = newTitle;
-                document.querySelector('#main-content').innerHTML = newMain;
-
-                initializeDropdown();
-                $("#main-content").fadeIn(500);
-            })
-            .catch(err => console.error("Error loading page:", err));
-    }
+    document.addEventListener("DOMContentLoaded", () => {
+        initializeDropdown();
+    });
 
     $(document).ready(function () {
-        // Fade in on load
-        $("#main-content").fadeIn(1000);
+        function loadPage(url) {
+            $("#main-content").fadeOut(500, function () {
+                fetch(url)
+                    .then(response => response.text())
+                    .then(data => {
+                        const tempDiv = document.createElement('div');
+                        tempDiv.innerHTML = data;
 
-        // SPA-style nav click
-        $(document).on('click', 'a.nav-link:not(.dropdown-toggle)', function (e) {
-            e.preventDefault();
-            const url = $(this).attr('href');
+                        const newContent = tempDiv.querySelector('#main-content')?.innerHTML;
 
-            history.pushState(null, '', url);
-            $("#main-content").fadeOut(300, function () {
-                loadPage(url);
+                        if (newContent) {
+                            $("#main-content").html(newContent);
+                            $("#main-content").fadeIn(500);
+                            initializeDropdown();
+                        } else {
+                            console.warn("No #main-content found in the fetched page.");
+                        }
+                    })
+                    .catch(err => {
+                        console.error('Failed to load page content:', err);
+                    });
             });
+        }
+
+        $("a.nav-link").not(".dropdown-toggle").click(function (event) {
+            event.preventDefault();
+            var url = $(this).attr("href");
+
+            if (window.location.pathname === url) return;
+
+            history.pushState({ path: url }, '', url);
+            loadPage(url);
         });
 
-        // Handle browser nav (back/forward)
-        window.addEventListener('popstate', () => {
-            $("#main-content").fadeOut(300, function () {
-                loadPage(location.pathname);
-            });
+        window.onpopstate = function () {
+            const path = window.location.pathname;
+            loadPage(path);
+        };
+
+        $(window).on("load", function () {
+            $("#main-content").fadeIn(1000);
         });
 
-        // Back to top button
-        $(window).scroll(() => {
+        $(window).scroll(function () {
             if ($(this).scrollTop() > window.innerHeight) {
                 $("#back-to-top").fadeIn();
             } else {
                 $("#back-to-top").fadeOut();
             }
         });
-
-        initializeDropdown();
     });
 </script>
+
 
 
 <script src="/script.js"></script>
