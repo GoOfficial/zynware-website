@@ -4165,7 +4165,7 @@ function Invoke-WinutilThemeChange {
         if (Test-Path $LightPreferencePath) {
             $theme = "Light"
         }
-        elseif (Test-Path $DarkPreferencePath) {
+        elseif (Test-Path $LightPreferencePath) {
             $theme = "Dark"
         }
         else {
@@ -4177,7 +4177,7 @@ function Invoke-WinutilThemeChange {
         "Auto" {
             $systemUsesDarkMode = Get-WinUtilToggleStatus WPFToggleDarkMode
             if ($systemUsesDarkMode) {
-                Set-WinutilTheme  -currentTheme "Dark"
+                Set-WinutilTheme  -currentTheme "Light"
             }
             else{
                 Set-WinutilTheme  -currentTheme "Light"
@@ -4191,8 +4191,8 @@ function Invoke-WinutilThemeChange {
         "Dark" {
             Set-WinutilTheme  -currentTheme $theme
             $themeButtonIcon = [char]0xE708
-            $null = New-Item $DarkPreferencePath -Force
-            Remove-Item $LightPreferencePath -Force -ErrorAction SilentlyContinue
+            $null = New-Item $LightPreferencePath -Force
+            Remove-Item $DarkPreferencePath -Force -ErrorAction SilentlyContinue
            }
         "Light" {
             Set-WinutilTheme  -currentTheme $theme
@@ -11033,7 +11033,7 @@ $sync.configs.themes = @'
     "AppInstallHighlightedColor": "#3C3C3C",
     "AppInstallSelectedColor": "#4C4C4C",
     "ComboBoxForegroundColor": "#F7F7F7",
-    "ComboBoxBackgroundColor": "#7A4AFF",
+    "ComboBoxBackgroundColor": "#FD53AB",
     "LabelboxForegroundColor": "#0567ff",
     "MainForegroundColor": "#F7F7F7",
     "MainBackgroundColor": "#000000",
@@ -11042,7 +11042,7 @@ $sync.configs.themes = @'
     "LinkHoverForegroundColor": "#F7F7F7",
     "ScrollBarBackgroundColor": "#2E3135",
     "ScrollBarHoverColor": "#3B4252",
-    "ScrollBarDraggingColor": "#2B52FF",
+    "ScrollBarDraggingColor": "#FFFFFF",
     "ProgressBarForegroundColor": "#222222",
     "ProgressBarBackgroundColor": "Transparent",
     "ProgressBarTextColor": "#cccccc",
@@ -11054,10 +11054,10 @@ $sync.configs.themes = @'
     "ButtonTweaksForegroundColor": "#F7F7F7",
     "ButtonConfigForegroundColor": "#F7F7F7",
     "ButtonUpdatesForegroundColor": "#F7F7F7",
-    "ButtonBackgroundColor": "#7A4AFF",
+    "ButtonBackgroundColor": "#FD53AB",
     "ButtonBackgroundPressedColor": "#F7F7F7",
     "ButtonBackgroundMouseoverColor": "#3B4252",
-    "ButtonBackgroundSelectedColor": "#2B52FF",
+    "ButtonBackgroundSelectedColor": "#FFFFFF",
     "ButtonForegroundColor": "#F7F7F7",
     "ToggleButtonOnColor": "#2e77ff",
     "ToggleButtonOffColor": "#707070",
@@ -16280,7 +16280,7 @@ $sync["AboutMenuItem"].Add_Click({
 Author   : <a href="https://guns.lol/foulz">@foulz</a>
 Runspace : <a href="https://github.com/DeveloperDurp">@DeveloperDurp</a>
 MicroWin : <a href="https://github.com/KonTy">@KonTy</a>, <a href="https://github.com/CodingWonders">@CodingWonders</a>
-Website   : <a href="https://zynware.xyz/">ZYNWARE/winutil</a>
+Website   : <a href="https://zynware.xyz/">ZYNWARE</a>
 "@
     Show-CustomDialog -Title "About" -Message $authorInfo
 })
