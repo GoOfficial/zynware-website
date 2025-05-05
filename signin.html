@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Sign In | ZYNWARE</title>
 
   <!-- Open Graph Meta -->
@@ -24,32 +23,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap" rel="stylesheet" />
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  <!-- Navbar -->
-<div class="navbar-container">
-    <a href="/" class="logo-link">
-        <img src="/Images/zynware.gif" alt="ZYNWARE Logo" class="logo" />
-    </a>
-    <nav>
-        <ul>
-            <li><a href="/" class="nav-link">Home</a></li>
-            <li class="dropdown">
-                <a href="javascript:void(0)" class="dropdown-toggle nav-link">Product</a>
-                <div class="dropdown-menu">
-                    <a href="/download" class="nav-link">Download</a>
-                    <a href="/pricing" class="nav-link">Pricing</a>
-                </div>
-            </li>
-            <li><a href="/optimizations" class="nav-link">Optimizations</a></li>
-            <li><a href="/bypass" class="nav-link">Bypass</a></li>
-            <li><a href="/contact" class="nav-link">Contact</a></li>
-            <li id="user-info">
-                <a href="/signin" class="nav-link">Sign In</a>
-            </li>
-        </ul>
-    </nav>
-</div>
-
-      <style>
+  <style>
     body {
       font-family: 'Tektur', sans-serif;
       margin: 0;
@@ -60,14 +34,14 @@
     }
 
     main {
-            max-width: 600px;
-            margin: 4rem auto;
-            padding: 2rem;
-            border-radius: 20px;
-            background: linear-gradient(145deg, #fb63b1, #ff85c1);
-            box-shadow: 0 0 20px rgba(251, 99, 177, 0.3);
-            text-align: center;
-            color: white;
+      max-width: 600px;
+      margin: 4rem auto;
+      padding: 2rem;
+      border-radius: 20px;
+      background: linear-gradient(145deg, #fb63b1, #ff85c1);
+      box-shadow: 0 0 20px rgba(251, 99, 177, 0.3);
+      text-align: center;
+      color: white;
     }
 
     h2 {
@@ -105,58 +79,80 @@
   </style>
 </head>
 <body>
-    
 
-  <!-- Sign In Content -->
-  <main>
-    <section id="signin">
-      <h2>Sign In with Discord</h2>
-      <p>Click the button below to sign in with your Discord account:</p>
-      <a href="https://discord.com/oauth2/authorize?client_id=1354998845486010368&response_type=code&redirect_uri=https%3A%2F%2Fzynware.xyz%2Fauth%2Fdiscord%2Fcallback&scope=identify+guilds.join+email" class="button discord">Sign In with Discord</a>
-    </section>
-  </main>
+<!-- Navbar -->
+<div class="navbar-container">
+  <a href="/" class="logo-link">
+    <img src="/Images/zynware.gif" alt="ZYNWARE Logo" class="logo" />
+  </a>
+  <nav>
+    <ul>
+      <li><a href="/" class="nav-link">Home</a></li>
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropdown-toggle nav-link">Product</a>
+        <div class="dropdown-menu">
+          <a href="/download" class="nav-link">Download</a>
+          <a href="/pricing" class="nav-link">Pricing</a>
+        </div>
+      </li>
+      <li><a href="/optimizations" class="nav-link">Optimizations</a></li>
+      <li><a href="/bypass" class="nav-link">Bypass</a></li>
+      <li><a href="/contact" class="nav-link">Contact</a></li>
+      <li id="user-info">
+        <a href="/signin" class="nav-link">Sign In</a>
+      </li>
+    </ul>
+  </nav>
+</div>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 ZYNWARE. All Rights Reserved.</p>
-  </footer>
+<!-- Sign In Content -->
+<main>
+  <section id="signin">
+    <h2>Sign In with Discord</h2>
+    <p>Click the button below to sign in with your Discord account:</p>
+    <a href="/auth/discord/login" class="button discord">Sign In with Discord</a>
+  </section>
+</main>
 
-  <!-- Scripts -->
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 ZYNWARE. All Rights Reserved.</p>
+</footer>
+
+<!-- Scripts -->
 <script>
-    // Dropdown toggle logic
-    function initializeDropdown() {
-        const dropdown = document.querySelector('.dropdown');
-        const toggle = dropdown?.querySelector('.dropdown-toggle');
+  // Dropdown toggle logic
+  function initializeDropdown() {
+    const dropdown = document.querySelector('.dropdown');
+    const toggle = dropdown?.querySelector('.dropdown-toggle');
 
-        if (dropdown && toggle) {
-            toggle.addEventListener('click', (e) => {
-                e.preventDefault();
-                dropdown.classList.toggle('open');
-            });
+    if (dropdown && toggle) {
+      toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdown.classList.toggle('open');
+      });
 
-            document.addEventListener('click', (e) => {
-                if (!dropdown.contains(e.target)) {
-                    dropdown.classList.remove('open');
-                }
-            });
+      document.addEventListener('click', (e) => {
+        if (!dropdown.contains(e.target)) {
+          dropdown.classList.remove('open');
         }
+      });
     }
+  }
 
-    document.addEventListener("DOMContentLoaded", () => {
-        initializeDropdown();
-    });
+  document.addEventListener("DOMContentLoaded", () => {
+    initializeDropdown();
+  });
 
-    // Back-to-top button logic
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > window.innerHeight) {
-            $("#back-to-top").fadeIn();
-        } else {
-            $("#back-to-top").fadeOut();
-        }
-    });
+  // Back-to-top button logic
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > window.innerHeight) {
+      $("#back-to-top").fadeIn();
+    } else {
+      $("#back-to-top").fadeOut();
+    }
+  });
 </script>
-
-  <script src="/script.js"></script>
+<script src="/script.js"></script>
 </body>
-
 </html>
