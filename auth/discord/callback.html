@@ -15,8 +15,12 @@
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ code: authCode })
             })
-            .then(response => response.json())
+            .then(response => {
+                console.log('Response status:', response.status); // Log the response status
+                return response.json();
+            })
             .then(data => {
+                console.log('Response data:', data); // Log the response data
                 if (data.token) {
                     localStorage.setItem('sessionToken', data.token);
                     window.location.href = '/';
@@ -25,7 +29,7 @@
                 }
             })
             .catch(error => {
-                console.error('Error during login:', error);
+                console.error('Error during login:', error); // Log the error
                 alert('An error occurred while logging in. Please try again.');
             });
         } else {
