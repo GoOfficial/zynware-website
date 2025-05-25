@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Purchase Complete | ZYNWARE</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Purchase Complete - ZYNWARE" />
+  <meta property="og:description" content="Thank you for purchasing. Follow the instructions to access your product." />
+  <meta property="og:image" content="https://zynware.xyz/Images/zynware.jpg" />
+  <meta property="og:url" content="https://zynware.xyz/purchase-complete" />
+  <meta property="og:type" content="website" />
+
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="icon" href="/Images/zynware.jpg" type="image/jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <div class="navbar-container">
+    <a href="/" class="logo-link">
+      <img src="/Images/zynware.gif" alt="ZYNWARE Logo" class="logo" />
+    </a>
+    <nav>
+      <ul>
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li class="dropdown">
+          <a href="javascript:void(0)" class="dropdown-toggle nav-link">Product</a>
+          <div class="dropdown-menu">
+            <a href="/download" class="nav-link">Download</a>
+            <a href="/pricing" class="nav-link">Pricing</a>
+          </div>
+        </li>
+        <li><a href="/contact" class="nav-link">Contact</a></li>
+        <li id="user-info">
+          <a href="/signin" class="nav-link">Sign In</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <main class="medium-section text-center">
+    <h2 class="section-title">🎉 Purchase Complete</h2>
+    <p class="subtext">Thanks for your support! You're almost there—follow these steps to get licensed and access your product.</p>
+
+    <div class="confirmation-box">
+      <ul class="features">
+        <li>✅ Join our Discord: <strong><a href="https://discord.gg/optimize" target="_blank">discord.gg/optimize</a></strong></li>
+        <li>✅ Create a ticket by tapping the <strong>“Purchase”</strong> button inside the server</li>
+        <li>✅ Provide proof of purchase (email, invoice ID, or screenshot)</li>
+        <li>✅ You’ll receive a license key via bot DM once verified</li>
+      </ul>
+
+      <button class="purchase-btn" onclick="window.open('https://discord.gg/optimize', '_blank')">Join Discord</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ZYNWARE. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Dropdown toggle logic
+    document.addEventListener("DOMContentLoaded", () => {
+      const dropdown = document.querySelector('.dropdown');
+      const toggle = dropdown?.querySelector('.dropdown-toggle');
+
+      if (dropdown && toggle) {
+        toggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          dropdown.classList.toggle('open');
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove('open');
+          }
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
